@@ -1,0 +1,6 @@
+{
+  "name": "La Práctica de la Regla de Oro",
+  "description": "Una aplicación interactiva para la reflexión, el autoconocimiento y la transformación personal basada en la Regla de Oro del Nuevo Humanismo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
