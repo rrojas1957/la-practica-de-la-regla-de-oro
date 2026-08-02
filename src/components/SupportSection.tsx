@@ -437,6 +437,44 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
   const [isSendingFeedback, setIsSendingFeedback] = useState(false);
   const [feedbackSent, setFeedbackSent] = useState(false);
 
+  // Zona privada del buzón (solo coordinación, protegida por contraseña en el servidor)
+  const [adminVisible, setAdminVisible] = useState(false);
+  const [adminPass, setAdminPass] = useState("");
+  const [adminCargando, setAdminCargando] = useState(false);
+  const [adminError, setAdminError] = useState("");
+  const [adminMensajes, setAdminMensajes] = useState<null | Array<{ category?: string; message: string; timestamp?: string }>>(null);
+
+  const consultarBuzonPrivado = async (accion?: "vaciar") => {
+    if (!adminPass.trim() || adminCargando) return;
+    setAdminCargando(true);
+    setAdminError("");
+    try {
+      const respuesta = await fetch("/api/buzon-admin", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: adminPass, accion })
+      });
+      const datos = await respuesta.json();
+      if (!respuesta.ok || !datos.ok) {
+        setAdminError(datos.error || "No se pudo acceder al buzón");
+        if (respuesta.status === 401) setAdminMensajes(null);
+      } else {
+        setAdminMensajes(Array.isArray(datos.mensajes) ? datos.mensajes : []);
+      }
+    } catch (e) {
+      setAdminError("Sin conexión con el servidor. Esta zona solo funciona en la web publicada.");
+    } finally {
+      setAdminCargando(false);
+    }
+  };
+
+  const cerrarBuzonPrivado = () => {
+    setAdminVisible(false);
+    setAdminPass("");
+    setAdminError("");
+    setAdminMensajes(null);
+  };
+
   const isDark = theme === "dark";
   const t = translations[lang];
 
@@ -526,24 +564,42 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
     };
 
     try {
-      const webhookUrl = import.meta.env.VITE_BUZON_WEBHOOK_URL || import.meta.env.URL_de_web_de_VITE_BUZON;
-      
-      if (webhookUrl) {
-        // Real dispatch to user configured webhook
-        // We use mode: "no-cors" and Content-Type: "text/plain" to bypass CORS preflight check
-        // and allow Google's redirect (302) to succeed seamlessly.
-        await fetch(webhookUrl, {
+      let entregado = false;
+
+      // 1) Buzón propio de la aplicación: función de servidor + base de datos privada
+      try {
+        const respuesta = await fetch("/api/buzon", {
           method: "POST",
-          mode: "no-cors",
-          headers: {
-            "Content-Type": "text/plain"
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
         });
-      } else {
-        // Graceful simulator: Wait 1 second to show action
+        entregado = respuesta.ok;
+      } catch (e) {
+        entregado = false;
+      }
+
+      // 2) Respaldo opcional: webhook externo configurado por variable de entorno
+      if (!entregado) {
+        const webhookUrl = import.meta.env.VITE_BUZON_WEBHOOK_URL || import.meta.env.URL_de_web_de_VITE_BUZON;
+        if (webhookUrl) {
+          // We use mode: "no-cors" and Content-Type: "text/plain" to bypass CORS preflight check
+          // and allow Google's redirect (302) to succeed seamlessly.
+          await fetch(webhookUrl, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type": "text/plain"
+            },
+            body: JSON.stringify(payload)
+          });
+          entregado = true;
+        }
+      }
+
+      // 3) Simulador amable cuando no hay servidor disponible (p. ej., vista previa local)
+      if (!entregado) {
         await new Promise((resolve) => setTimeout(resolve, 1000));
-        console.log("Feedback enviado de forma anónima (Simulado sin webhook):", payload);
+        console.log("Feedback enviado de forma anónima (Simulado sin servidor):", payload);
       }
 
       setFeedbackSent(true);
@@ -1182,6 +1238,146 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     </button>
                   </div>
                 </motion.div>
+              )}
+
+              {/* Zona privada de coordinación (acceso discreto, solo con contraseña) */}
+              <div className="pt-4 flex justify-end">
+                <button
+                  type="button"
+                  onClick={() => (adminVisible ? cerrarBuzonPrivado() : setAdminVisible(true))}
+                  title="Zona de coordinación"
+                  className={`p-1.5 rounded-lg transition cursor-pointer opacity-25 hover:opacity-90 ${
+                    isDark ? "text-slate-400 hover:bg-slate-800" : "text-slate-500 hover:bg-slate-100"
+                  }`}
+                >
+                  <Lock className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
+              {adminVisible && (
+                <div className={`rounded-2xl border p-5 space-y-4 ${
+                  isDark ? "bg-slate-900 border-slate-800" : "bg-white border-slate-200"
+                }`}>
+                  <div className="flex items-center justify-between gap-3">
+                    <h4 className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${
+                      isDark ? "text-slate-200" : "text-slate-800"
+                    }`}>
+                      <Lock className="w-3.5 h-3.5 text-amber-500" />
+                      <span>Zona privada de coordinación</span>
+                    </h4>
+                    <button
+                      type="button"
+                      onClick={cerrarBuzonPrivado}
+                      className={`text-[10px] px-2 py-1 rounded-lg border transition cursor-pointer ${
+                        isDark ? "bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-750" : "bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100"
+                      }`}
+                    >
+                      Cerrar
+                    </button>
+                  </div>
+
+                  {adminMensajes === null ? (
+                    <div className="space-y-3">
+                      <p className={`text-[11px] leading-relaxed ${isDark ? "text-slate-400" : "text-slate-500"}`}>
+                        Introduce la contraseña de coordinación para consultar los mensajes recibidos en el buzón anónimo.
+                      </p>
+                      <div className="flex gap-2">
+                        <input
+                          type="password"
+                          value={adminPass}
+                          onChange={(e) => setAdminPass(e.target.value)}
+                          onKeyDown={(e) => { if (e.key === "Enter") consultarBuzonPrivado(); }}
+                          placeholder="Contraseña"
+                          className={`flex-1 px-3 py-2.5 rounded-xl border text-xs focus:outline-none focus:ring-1 transition ${
+                            isDark
+                              ? "bg-slate-950 border-slate-800 text-slate-200 focus:border-amber-500 focus:ring-amber-500"
+                              : "bg-white border-slate-200 text-slate-800 focus:border-amber-500 focus:ring-amber-500"
+                          }`}
+                        />
+                        <button
+                          type="button"
+                          onClick={() => consultarBuzonPrivado()}
+                          disabled={adminCargando || !adminPass.trim()}
+                          className={`px-4 py-2.5 rounded-xl text-xs font-bold transition cursor-pointer flex items-center gap-2 ${
+                            !adminPass.trim() || adminCargando
+                              ? "bg-slate-200 dark:bg-slate-800 text-slate-450 dark:text-slate-600 cursor-not-allowed"
+                              : isDark ? "bg-amber-600 hover:bg-amber-500 text-white" : "bg-slate-900 hover:bg-slate-800 text-white"
+                          }`}
+                        >
+                          {adminCargando ? (
+                            <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                          ) : (
+                            <span>Entrar</span>
+                          )}
+                        </button>
+                      </div>
+                      {adminError && (
+                        <p className="text-[11px] font-semibold text-rose-500">{adminError}</p>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between gap-2 flex-wrap">
+                        <p className={`text-[11px] font-semibold ${isDark ? "text-slate-300" : "text-slate-600"}`}>
+                          {adminMensajes.length === 0
+                            ? "El buzón está vacío por ahora."
+                            : `${adminMensajes.length} mensaje${adminMensajes.length === 1 ? "" : "s"} recibido${adminMensajes.length === 1 ? "" : "s"} (del más reciente al más antiguo).`}
+                        </p>
+                        <div className="flex gap-2">
+                          <button
+                            type="button"
+                            onClick={() => consultarBuzonPrivado()}
+                            disabled={adminCargando}
+                            className={`text-[10px] px-2.5 py-1.5 rounded-lg border font-bold transition cursor-pointer ${
+                              isDark ? "bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-750" : "bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100"
+                            }`}
+                          >
+                            Actualizar
+                          </button>
+                          {adminMensajes.length > 0 && (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                if (window.confirm("¿Seguro que deseas vaciar el buzón? Esta acción borra todos los mensajes de forma definitiva.")) {
+                                  consultarBuzonPrivado("vaciar");
+                                }
+                              }}
+                              disabled={adminCargando}
+                              className="text-[10px] px-2.5 py-1.5 rounded-lg border border-rose-300 text-rose-500 hover:bg-rose-50 dark:border-rose-800 dark:hover:bg-rose-950/40 font-bold transition cursor-pointer"
+                            >
+                              Vaciar buzón
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                      {adminError && (
+                        <p className="text-[11px] font-semibold text-rose-500">{adminError}</p>
+                      )}
+                      <div className="space-y-2.5 max-h-96 overflow-y-auto pr-1">
+                        {adminMensajes.map((mensaje, indice) => (
+                          <div
+                            key={indice}
+                            className={`rounded-xl border p-3.5 space-y-1.5 ${
+                              isDark ? "bg-slate-950 border-slate-800" : "bg-slate-50 border-slate-200"
+                            }`}
+                          >
+                            <div className="flex items-center justify-between gap-2 flex-wrap">
+                              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-500">
+                                {mensaje.category === "testimonio" ? "Nuevo Testimonio" : mensaje.category === "sugerencia" ? "Sugerencias" : "Opinión General"}
+                              </span>
+                              <span className={`text-[10px] ${isDark ? "text-slate-500" : "text-slate-400"}`}>
+                                {mensaje.timestamp ? new Date(mensaje.timestamp).toLocaleString("es-ES", { dateStyle: "medium", timeStyle: "short" }) : ""}
+                              </span>
+                            </div>
+                            <p className={`text-xs leading-relaxed whitespace-pre-wrap ${isDark ? "text-slate-200" : "text-slate-700"}`}>
+                              {mensaje.message}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               )}
             </motion.div>
           )}
