@@ -1,30 +1,17 @@
-// Zona privada del buzón (solo coordinación).
-// Valida la contraseña definida en BUZON_PASSWORD y devuelve o vacía los mensajes.
+// api/buzon-admin.js
+// Endpoint protegido: permite a la coordinación consultar y vaciar el buzón anónimo.
+// Autenticación por contraseña definida en la variable de entorno BUZON_PASSWORD.
 
-async function getUpstashClient() {
-  // Intento 1: claves REST explícitas (KV_* o UPSTASH_*)
-  let url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
-  let token = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
-
-  // Intento 2: derivar desde REDIS_URL / KV_URL
-  if (!url || !token) {
-    const cadena = process.env.REDIS_URL || process.env.KV_URL || "";
-    if (cadena) {
-      try {
-        const u = new URL(cadena);
-        // Upstash REST endpoint: https://<host>
-        url = "https://" + u.hostname;
-        // El token es la contraseña del string de conexión
-        token = decodeURIComponent(u.password || "");
-      } catch (e) { /* cadena no válida */ }
-    }
-  }
-
-  if (!url || !token) return null;
-  return { url, token };
+function resolverCredenciales() {
+  const url   = process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (url && token) return { url: url.trim(), token: token.trim() };
+  return null;
 }
 
-async function redis(cred, comando) {
+async function redisCmd(comando) {
+  const cred = resolverCredenciales();
+  if (!cred) throw new Error("Sin credenciales de base de datos (UPSTASH_REDIS_REST_URL / UPSTASH_REDIS_REST_TOKEN)");
   const respuesta = await fetch(cred.url, {
     method: "POST",
     headers: {
@@ -60,26 +47,26 @@ export default async function handler(req, res) {
     return res.status(401).json({ ok: false, error: "Contraseña incorrecta" });
   }
 
-  const cred = await getUpstashClient();
-  if (!cred) {
+  if (!resolverCredenciales()) {
     return res.status(500).json({
       ok: false,
-      error: "La base de datos del buzón no está configurada (REDIS_URL no encontrada o inválida)"
+      error: "La base de datos del buzón no está configurada (falta UPSTASH_REDIS_REST_URL o UPSTASH_REDIS_REST_TOKEN)"
     });
   }
 
   try {
     if (cuerpo.accion === "vaciar") {
-      await redis(cred, ["DEL", "buzon:mensajes"]);
+      await redisCmd(["DEL", "buzon:mensajes"]);
       return res.status(200).json({ ok: true, mensajes: [] });
     }
-    const lista = (await redis(cred, ["LRANGE", "buzon:mensajes", "0", "-1"])) || [];
+    const lista = (await redisCmd(["LRANGE", "buzon:mensajes", "0", "-1"])) || [];
     const mensajes = lista.map((elemento) => {
       try { return JSON.parse(elemento); }
       catch (e) { return { message: String(elemento) }; }
     });
     return res.status(200).json({ ok: true, mensajes });
   } catch (error) {
+    console.error("[buzon-admin] Error al acceder a Redis:", error.message);
     return res.status(500).json({
       ok: false,
       error: "Error al acceder a la base de datos: " + error.message
