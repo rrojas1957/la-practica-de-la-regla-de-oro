@@ -49,7 +49,7 @@ const TESTIMONIALS_LIST_EN = [
     author: "G. T.",
     title: "Transformational",
     tag: "Meaning",
-    content: "From my experience with this exercise, I register that the application of the Golden Rule is truly transformational and proposes an attitude in life that is worth trying. Personally, I see that the search for the meaning of my life is related to the good treatment I ask for and the treatment I give to others, and I have been amazed by the experience of letting go of what I believe about the other person and what I believe about myself. The most exceptional thing has been to recognize, as violence in me, the same mistreatment that I see in the other person and reject with all my strength. Now I pay attention and try to see what attitude I need to strengthen to resist that violence within me and outside of me."
+    content: "From my experience with this exercise, I experience that the application of the Golden Rule is truly transformational and proposes an attitude in life that is worth trying. Personally, I see that the search for the meaning of my life is related to the good treatment I ask for and the treatment I give to others, and I have been amazed by the experience of letting go of what I believe about the other person and what I believe about myself. The most exceptional thing has been to recognize, as violence in me, the same mistreatment that I see in the other person and reject with all my strength. Now I pay attention and try to see what attitude I need to strengthen to resist that violence within me and outside of me."
   },
   {
     author: "N. M.",
