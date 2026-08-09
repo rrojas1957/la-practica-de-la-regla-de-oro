@@ -5,6 +5,9 @@ import { motion } from "motion/react";
 interface HelpWordsPanelProps {
   categories: HelpCategory[];
   helpDescription: string;
+  helpTitle: string;
+  helpSuffix: string;
+  helpOptional: string;
   onSelectWord: (word: string) => void;
   selectedWord?: string;
   theme: "light" | "dark";
@@ -13,6 +16,9 @@ interface HelpWordsPanelProps {
 export default function HelpWordsPanel({
   categories,
   helpDescription,
+  helpTitle,
+  helpSuffix,
+  helpOptional,
   onSelectWord,
   selectedWord,
   theme,
@@ -28,12 +34,12 @@ export default function HelpWordsPanel({
         <div className={`p-1.5 rounded-lg ${isDark ? "bg-amber-950/40 text-amber-400" : "bg-amber-100 text-amber-700"}`}>
           <Lightbulb className={`w-4 h-4 ${isDark ? "text-amber-400" : "text-amber-600"}`} />
         </div>
-        <h4 className={`font-bold text-sm ${isDark ? "text-slate-100" : "text-slate-800"}`}>¿No encuentras la palabra adecuada?</h4>
+        <h4 className={`font-bold text-sm ${isDark ? "text-slate-100" : "text-slate-800"}`}>{helpTitle}</h4>
       </div>
 
       <p className={`text-xs leading-relaxed flex items-start gap-1.5 ${isDark ? "text-slate-300" : "text-slate-600"}`}>
         <Info className="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5" />
-        <span>{helpDescription} Haz clic en cualquiera de estas sugerencias para seleccionarla:</span>
+        <span>{helpDescription}{helpSuffix}</span>
       </p>
 
       {/* Categories */}
@@ -76,7 +82,7 @@ export default function HelpWordsPanel({
         isDark ? "border-slate-800" : "border-slate-200/60"
       }`}>
         <Sparkles className="w-3 h-3 text-amber-500" />
-        <span>También puedes escribir cualquier otra palabra que represente mejor tu sentir.</span>
+        <span>{helpOptional}</span>
       </div>
     </div>
   );
