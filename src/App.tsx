@@ -1098,6 +1098,9 @@ ${t.downloadFooterQuote}
                       <HelpWordsPanel
                         categories={currentStep.categories}
                         helpDescription={currentStep.helpDescription}
+                        helpTitle={t.practiceHelpTitle}
+                        helpSuffix={t.practiceHelpSuffix}
+                        helpOptional={t.practiceHelpOptional}
                         onSelectWord={handleSelectWord}
                         selectedWord={answers[currentStepId]}
                         theme={theme}
