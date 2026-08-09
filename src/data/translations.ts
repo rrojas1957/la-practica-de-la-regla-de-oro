@@ -56,6 +56,7 @@ export interface TranslationDict {
   practiceHelpPrompt: string;
   practiceBtnHelp: string;
   practiceBtnHideHelp: string;
+  practiceHelpTitle: string;
   practiceHelpSuffix: string;
   practiceHelpOptional: string;
   
@@ -231,6 +232,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt", TranslationD
     practiceHelpPrompt: "Si no encuentras la palabra adecuada, puedes buscar la respuesta adecuada en este botón de ayuda.",
     practiceBtnHelp: "Ver ayuda",
     practiceBtnHideHelp: "Ocultar sugerencias de ayuda",
+    practiceHelpTitle: "¿No encuentras la palabra adecuada?",
     practiceHelpSuffix: " Haz clic en cualquiera de estas sugerencias para seleccionarla:",
     practiceHelpOptional: "También puedes escribir cualquier otra palabra que represente mejor tu sentir.",
     
@@ -404,6 +406,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt", TranslationD
     practiceHelpPrompt: "If you can't find the right word, you can look for help in this panel.",
     practiceBtnHelp: "Show help",
     practiceBtnHideHelp: "Hide help suggestions",
+    practiceHelpTitle: "Can't find the right word?",
     practiceHelpSuffix: " Click on any of these suggestions to select it:",
     practiceHelpOptional: "You can also write any other word that better represents your feelings.",
     
@@ -577,6 +580,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt", TranslationD
     practiceHelpPrompt: "Si vous ne trouvez pas le mot approprié, vous pouvez chercher de l'aide dans ce panneau.",
     practiceBtnHelp: "Afficher l'aide",
     practiceBtnHideHelp: "Masquer les suggestions d'aide",
+    practiceHelpTitle: "Vous ne trouvez pas le mot adéquat ?",
     practiceHelpSuffix: " Cliquez sur l'une de ces suggestions pour la sélectionner :",
     practiceHelpOptional: "Vous pouvez également écrire n'importe quel autre mot qui représente mieux votre ressenti.",
     
@@ -750,6 +754,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt", TranslationD
     practiceHelpPrompt: "Wenn Sie nicht das richtige Wort finden, können Sie in diesem Hilfebereich nach Vorschlägen suchen.",
     practiceBtnHelp: "Hilfe anzeigen",
     practiceBtnHideHelp: "Hilfevorschläge ausblenden",
+    practiceHelpTitle: "Finden Sie nicht das richtige Wort?",
     practiceHelpSuffix: " Klicken Sie auf einen dieser Vorschläge, um ihn auszuwählen:",
     practiceHelpOptional: "Sie können auch jedes andere Wort schreiben, das Ihre Gefühle am besten wiedergibt.",
     
@@ -923,6 +928,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt", TranslationD
     practiceHelpPrompt: "Se não encontrares a palavra adequada, podes procurar sugestões neste painel de ajuda.",
     practiceBtnHelp: "Ver ajuda",
     practiceBtnHideHelp: "Ocultar sugestões de ajuda",
+    practiceHelpTitle: "Não encontras a palavra adequada?",
     practiceHelpSuffix: " Clica em qualquer uma destas sugestões para a selecionar:",
     practiceHelpOptional: "Também podes escrever qualquer outra palavra que represente melhor o teu sentir.",
     
