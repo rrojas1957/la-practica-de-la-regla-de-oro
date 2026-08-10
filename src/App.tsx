@@ -1063,9 +1063,25 @@ ${t.downloadFooterQuote}
                           <ArrowRight className="w-4 h-4" />
                         </button>
                       ) : (
-                        <span className="text-xs text-amber-500 font-bold flex items-center gap-1">
-                          {t.practiceBtnLastPrompt}
-                        </span>
+                        <button
+                          onClick={() => {
+                            const el = document.getElementById("results-panel");
+                            if (el) {
+                              el.scrollIntoView({ behavior: "smooth", block: "start" });
+                            } else {
+                              // results-panel appears only when isPracticeReady; scroll to bottom of practice tab
+                              window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+                            }
+                          }}
+                          className={`px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                            theme === "dark"
+                              ? "bg-amber-500 text-slate-950 hover:bg-amber-400"
+                              : "bg-amber-500 text-white hover:bg-amber-600"
+                          }`}
+                        >
+                          <BookOpenCheck className="w-4 h-4" />
+                          <span>{t.practiceBtnLastPrompt}</span>
+                        </button>
                       )}
                     </div>
 
