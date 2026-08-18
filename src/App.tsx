@@ -238,6 +238,15 @@ const APP_UI: Record<Lang, {
   }
 };
 
+// Short labels for the mobile bottom navigation bar (max ~8 chars per language)
+const BOTTOM_NAV_LABELS: Record<Lang, { intro: string; practice: string; history: string; support: string }> = {
+  es: { intro: "Inicio",     practice: "Práctica",  history: "Historial", support: "Biblioteca" },
+  en: { intro: "Home",       practice: "Practice",  history: "History",   support: "Library"    },
+  fr: { intro: "Accueil",    practice: "Pratique",  history: "Historique",support: "Biblio."    },
+  de: { intro: "Start",      practice: "Praxis",    history: "Verlauf",   support: "Bibliothek" },
+  pt: { intro: "Início",     practice: "Prática",   history: "Historial", support: "Biblioteca" },
+};
+
 // Default title used when saving a practice without a custom title
 const defaultSaveTitle = (lang: Lang, word: string): string => {
   const map: Record<Lang, string> = {
@@ -831,7 +840,7 @@ ${t.downloadFooterQuote}
       </header>
 
       {/* Main Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24 sm:pb-8">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-28 sm:pb-8">
         
         <AnimatePresence mode="wait">
           
@@ -1399,26 +1408,26 @@ ${t.downloadFooterQuote}
         {/* Tab: Intro */}
         <button
           onClick={() => setActiveTab("intro")}
-          className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-[10px] font-bold transition cursor-pointer ${
+          className={`flex-1 min-w-0 flex flex-col items-center justify-center gap-0.5 py-2 text-[10px] font-bold transition cursor-pointer ${
             activeTab === "intro"
               ? "text-amber-500"
               : theme === "dark" ? "text-slate-500 hover:text-slate-300" : "text-slate-400 hover:text-slate-600"
           }`}
         >
-          <Heart className="w-5 h-5" />
-          <span>{t.tabIntro}</span>
+          <Heart className="w-5 h-5 shrink-0" />
+          <span className="truncate w-full text-center leading-tight">{BOTTOM_NAV_LABELS[lang].intro}</span>
         </button>
 
         {/* Tab: Practice */}
         <button
           onClick={() => setActiveTab("practice")}
-          className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-[10px] font-bold transition cursor-pointer relative ${
+          className={`flex-1 min-w-0 flex flex-col items-center justify-center gap-0.5 py-2 text-[10px] font-bold transition cursor-pointer relative ${
             activeTab === "practice"
               ? "text-amber-500"
               : theme === "dark" ? "text-slate-500 hover:text-slate-300" : "text-slate-400 hover:text-slate-600"
           }`}
         >
-          <span className="relative">
+          <span className="relative shrink-0">
             <Sparkles className="w-5 h-5" />
             {answeredCount > 0 && (
               <span className="absolute -top-1 -right-2 w-3.5 h-3.5 rounded-full bg-amber-500 text-white text-[8px] font-extrabold flex items-center justify-center animate-pulse">
@@ -1426,19 +1435,19 @@ ${t.downloadFooterQuote}
               </span>
             )}
           </span>
-          <span>{t.tabPractice}</span>
+          <span className="truncate w-full text-center leading-tight">{BOTTOM_NAV_LABELS[lang].practice}</span>
         </button>
 
         {/* Tab: History */}
         <button
           onClick={() => setActiveTab("history")}
-          className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-[10px] font-bold transition cursor-pointer relative ${
+          className={`flex-1 min-w-0 flex flex-col items-center justify-center gap-0.5 py-2 text-[10px] font-bold transition cursor-pointer relative ${
             activeTab === "history"
               ? "text-amber-500"
               : theme === "dark" ? "text-slate-500 hover:text-slate-300" : "text-slate-400 hover:text-slate-600"
           }`}
         >
-          <span className="relative">
+          <span className="relative shrink-0">
             <BookOpen className="w-5 h-5" />
             {savedPractices.length > 0 && (
               <span className={`absolute -top-1 -right-2 text-[8px] px-1 py-0.5 rounded-full font-bold ${
@@ -1448,20 +1457,20 @@ ${t.downloadFooterQuote}
               </span>
             )}
           </span>
-          <span>{t.tabHistory}</span>
+          <span className="truncate w-full text-center leading-tight">{BOTTOM_NAV_LABELS[lang].history}</span>
         </button>
 
         {/* Tab: Support */}
         <button
           onClick={() => setActiveTab("support")}
-          className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-[10px] font-bold transition cursor-pointer ${
+          className={`flex-1 min-w-0 flex flex-col items-center justify-center gap-0.5 py-2 text-[10px] font-bold transition cursor-pointer ${
             activeTab === "support"
               ? "text-amber-500"
               : theme === "dark" ? "text-slate-500 hover:text-slate-300" : "text-slate-400 hover:text-slate-600"
           }`}
         >
-          <MessageSquare className="w-5 h-5" />
-          <span>{t.tabSupport}</span>
+          <MessageSquare className="w-5 h-5 shrink-0" />
+          <span className="truncate w-full text-center leading-tight">{BOTTOM_NAV_LABELS[lang].support}</span>
         </button>
       </nav>
 
