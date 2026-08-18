@@ -1129,7 +1129,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     }`}>
                       {{ es: "Categoría de la devolución", en: "Feedback Category", fr: "Catégorie du retour", de: "Kategorie der Rückmeldung", pt: "Categoria da devolução" }[lang]}
                     </label>
-                    <div className="grid grid-cols-3 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       {[
                         { id: "opinion", label: { es: "Opinión General", en: "General Opinion", fr: "Opinion Générale", de: "Allgemeine Meinung", pt: "Opinião Geral" }[lang] },
                         { id: "testimonio", label: { es: "Nuevo Testimonio", en: "New Testimonial", fr: "Nouveau Témoignage", de: "Neuer Erfahrungsbericht", pt: "Novo Testemunho" }[lang] },
