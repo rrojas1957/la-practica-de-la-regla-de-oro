@@ -1,6 +1,5 @@
-import { useRef, useState } from "react";
-import html2canvas from "html2canvas";
-import { Download, Sparkles, Image as ImageIcon, Check, Loader2, Info, Copy, ExternalLink } from "lucide-react";
+import { useState } from "react";
+import { Sparkles, Check, Info, Copy } from "lucide-react";
 import { AforismoOutput } from "../data/helpLists";
 
 type Lang = "es" | "en" | "fr" | "de" | "pt";
@@ -562,9 +561,7 @@ export default function SiloSchemaTable({
 }: SiloSchemaTableProps) {
   const isDark = theme === "dark";
   const s = WORKSHEET_T[lang];
-  const tableRef = useRef<HTMLDivElement>(null);
-  const [isCapturing, setIsCapturing] = useState(false);
-  const [downloadSuccess, setDownloadSuccess] = useState(false);
+  const [copyTextSuccess, setCopyTextSuccess] = useState(false);
 
   // Retrieve individual answers or defaults
   const getAns = (num: number) => {
@@ -585,32 +582,6 @@ export default function SiloSchemaTable({
   const af_opt_1 = getAfText("opcional-1");
   const af_opt_2 = getAfText("opcional-2");
   const af_opt_3 = getAfText("opcional-3");
-
-  // Handle PNG image generation and download using html2canvas
-  const [capturedImageUrl, setCapturedImageUrl] = useState<string | null>(null);
-  const [showModal, setShowModal] = useState(false);
-  const [copySuccess, setCopySuccess] = useState(false);
-  const [copyTextSuccess, setCopyTextSuccess] = useState(false);
-  const [isCaptureFailed, setIsCaptureFailed] = useState(false);
-  const [modalTab, setModalTab] = useState<"image" | "text">("image");
-
-  const handleCopyImageToClipboard = async () => {
-    if (!capturedImageUrl) return;
-    try {
-      const response = await fetch(capturedImageUrl);
-      const blob = await response.blob();
-      await navigator.clipboard.write([
-        new ClipboardItem({
-          [blob.type]: blob
-        })
-      ]);
-      setCopySuccess(true);
-      setTimeout(() => setCopySuccess(false), 3000);
-    } catch (err) {
-      console.error("Failed to copy image: ", err);
-      // Fallback: alert/message (handled by state visually)
-    }
-  };
 
   const getFormattedTextWorksheet = () => {
     return `==================================================
@@ -690,61 +661,6 @@ ${s.txtGeneratedOn}: ${new Date().toLocaleDateString(LOCALES[lang])}
     });
   };
 
-  const handleDownloadImage = async () => {
-    if (!tableRef.current) return;
-    setIsCapturing(true);
-    setIsCaptureFailed(false);
-    setModalTab("image"); // reset to image view by default on download attempt
-
-    try {
-      // Small delay to ensure render is settled
-      await new Promise((resolve) => setTimeout(resolve, 300));
-
-      // Capture options for high-quality scaling
-      const canvas = await html2canvas(tableRef.current, {
-        scale: 2, // 2x resolution for super crisp text
-        useCORS: true,
-        backgroundColor: isDark ? "#020617" : "#ffffff", // solid dark/light background
-        logging: false,
-      });
-
-      // Convert canvas to image url for modal backup display
-      const imgUrl = canvas.toDataURL("image/png");
-      setCapturedImageUrl(imgUrl);
-      setShowModal(true);
-
-      // Programmatic trigger download using Blob (much more robust in sandboxed iframes)
-      canvas.toBlob((blob) => {
-        if (!blob) return;
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.download = `ficha_regla_de_oro_2026.png`;
-        link.href = url;
-        
-        // Append to DOM to satisfy browser requirements in restricted iframes
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        
-        // Cleanup
-        setTimeout(() => {
-          URL.revokeObjectURL(url);
-        }, 100);
-      }, "image/png");
-
-      setDownloadSuccess(true);
-      setTimeout(() => setDownloadSuccess(false), 3000);
-    } catch (e) {
-      console.error("Error generating image with html2canvas:", e);
-      setIsCaptureFailed(true);
-      setModalTab("text"); // switch directly to copyable text tab since image failed
-      // Open the modal anyway so the user can copy the text format and read instruction guides!
-      setShowModal(true);
-    } finally {
-      setIsCapturing(false);
-    }
-  };
-
   return (
     <div className="space-y-6" id="silo-schema-section">
       
@@ -754,7 +670,7 @@ ${s.txtGeneratedOn}: ${new Date().toLocaleDateString(LOCALES[lang])}
       }`}>
         <div className="space-y-1">
           <h3 className={`text-base font-bold flex items-center gap-2 ${isDark ? "text-white" : "text-slate-900"}`}>
-            <ImageIcon className="w-4 h-4 text-amber-500" />
+            <Sparkles className="w-4 h-4 text-amber-500" />
             {s.headerTitle}
           </h3>
           <p className={`text-xs ${isDark ? "text-slate-400" : "text-slate-500"}`}>
@@ -762,112 +678,37 @@ ${s.txtGeneratedOn}: ${new Date().toLocaleDateString(LOCALES[lang])}
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
-          {/* Action 1: Text Copy (Sandbox-safe & instant) */}
-          <button
-            onClick={handleCopyTextWorksheet}
-            className={`px-4 py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition duration-150 cursor-pointer shadow-sm border ${
-              copyTextSuccess
-                ? "bg-emerald-600 border-emerald-600 text-white"
-                : isDark
-                ? "bg-slate-800 hover:bg-slate-700 border-slate-700 text-slate-200"
-                : "bg-slate-100 hover:bg-slate-200 border-slate-200 text-slate-700"
-            }`}
-          >
-            {copyTextSuccess ? (
-              <>
-                <Check className="w-4 h-4" />
-                <span>{s.btnCopiedWorksheet}</span>
-              </>
-            ) : (
-              <>
-                <Copy className="w-4 h-4" />
-                <span>{s.btnCopyWorksheet}</span>
-              </>
-            )}
-          </button>
-
-          {/* Action 2: Image Generation */}
-          <button
-            onClick={handleDownloadImage}
-            disabled={isCapturing}
-            className={`px-4 py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition duration-150 cursor-pointer shadow-sm ${
-              isCapturing
-                ? "bg-slate-400 text-white cursor-not-allowed"
-                : downloadSuccess
-                ? "bg-emerald-600 hover:bg-emerald-700 text-white"
-                : isDark
-                ? "bg-amber-600 hover:bg-amber-700 text-white"
-                : "bg-amber-500 hover:bg-amber-600 text-slate-950"
-            }`}
-          >
-            {isCapturing ? (
-              <>
-                <Loader2 className="w-4 h-4 animate-spin" />
-                <span>{s.btnGenerating}</span>
-              </>
-            ) : downloadSuccess ? (
-              <>
-                <Check className="w-4 h-4" />
-                <span>{s.btnDownloaded}</span>
-              </>
-            ) : (
-              <>
-                <Download className="w-4 h-4" />
-                <span>{s.btnDownloadPng}</span>
-              </>
-            )}
-          </button>
-        </div>
-      </div>
-
-      {/* DESCRIPTIVE HELP PANEL / INSTRUCTION GUIDE */}
-      <div className={`p-5 rounded-2xl border text-xs leading-relaxed transition-all ${
-        isDark 
-          ? "bg-slate-900/40 border-slate-800 text-slate-300" 
-          : "bg-amber-500/5 border-amber-500/10 text-slate-700"
-      }`}>
-        <div className="flex gap-2.5 items-start">
-          <Info className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
-          <div className="space-y-2">
-            <h4 className={`font-bold text-sm ${isDark ? "text-amber-400" : "text-amber-900"}`}>
-              {s.guideTitle}
-            </h4>
-            <p>
-              {s.guideIntro}
-            </p>
-            <ul className="list-disc pl-4 space-y-1.5 font-medium">
-              <li>
-                <strong>{s.guideStep1Title}</strong>{" "}
-                {s.guideStep1Text}
-              </li>
-              <li>
-                <strong>{s.guideStep2Title}</strong>{" "}
-                {s.guideStep2Text}
-                <div className="pl-4 mt-1 space-y-1 text-[11px] opacity-90">
-                  • <strong>{s.guideOpenTabTitle}</strong> {s.guideOpenTabText}
-                  <br />
-                  • <strong>{s.guideClipboardTitle}</strong> {s.guideClipboardText}
-                  <br />
-                  • <strong>{s.guideRightClickTitle}</strong> {s.guideRightClickText}
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      {/* SCHEMA WORKSPACE (The element captured by html2canvas) */}
-      <div className="overflow-x-auto pb-4">
-        <div 
-          ref={tableRef}
-          style={{ width: "960px" }} // Fixed width to ensure optimal, proportional canvas resolution
-          className={`p-6 border rounded-2xl mx-auto shadow-md ${
-            isDark 
-              ? "bg-slate-950 border-slate-800 text-slate-100" 
-              : "bg-white border-slate-200 text-slate-900"
+        <button
+          onClick={handleCopyTextWorksheet}
+          className={`px-4 py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition duration-150 cursor-pointer shadow-sm border ${
+            copyTextSuccess
+              ? "bg-emerald-600 border-emerald-600 text-white"
+              : isDark
+              ? "bg-slate-800 hover:bg-slate-700 border-slate-700 text-slate-200"
+              : "bg-slate-100 hover:bg-slate-200 border-slate-200 text-slate-700"
           }`}
         >
+          {copyTextSuccess ? (
+            <>
+              <Check className="w-4 h-4" />
+              <span>{s.btnCopiedWorksheet}</span>
+            </>
+          ) : (
+            <>
+              <Copy className="w-4 h-4" />
+              <span>{s.btnCopyWorksheet}</span>
+            </>
+          )}
+        </button>
+      </div>
+
+      {/* SCHEMA WORKSPACE — now fully responsive */}
+      <div className={`p-4 sm:p-6 border rounded-2xl shadow-md ${
+        isDark 
+          ? "bg-slate-950 border-slate-800 text-slate-100" 
+          : "bg-white border-slate-200 text-slate-900"
+      }`}
+      >
           {/* Main Title Metadata in the captured card */}
           <div className="flex justify-between items-center border-b pb-4 mb-4 border-slate-200 dark:border-slate-800">
             <div>
@@ -1089,244 +930,43 @@ ${s.txtGeneratedOn}: ${new Date().toLocaleDateString(LOCALES[lang])}
             <span>{s.footDeveloped}</span>
           </div>
         </div>
-      </div>
 
-      {/* FALLBACK MANUAL DOWNLOAD & PREVIEW DIALOG MODAL */}
-      {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-sm overflow-y-auto">
-          <div className={`w-full max-w-4xl rounded-2xl border p-6 my-8 shadow-2xl transition-all ${
-            isDark ? "bg-slate-900 border-slate-800 text-slate-100" : "bg-white border-slate-200 text-slate-900"
-          }`}>
-            {/* Modal Header */}
-            <div className="flex justify-between items-center pb-4 border-b border-slate-100 dark:border-slate-800 mb-4">
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-amber-500 animate-pulse" />
-                <h3 className="text-md font-extrabold uppercase tracking-tight">
-                  {s.modalTitle}
-                </h3>
-              </div>
-              <button 
-                onClick={() => setShowModal(false)}
-                className="p-1 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-200 transition font-black"
-              >
-                ✕
-              </button>
-            </div>
-
-            {/* Error banner if html2canvas crashed */}
-            {isCaptureFailed && (
-              <div className="p-4 rounded-xl mb-4 text-xs leading-relaxed flex items-start gap-3 bg-red-500/10 border border-red-500/20 text-red-700 dark:text-red-400">
-                <Info className="w-5 h-5 mt-0.5 shrink-0 text-red-500" />
-                <div>
-                  <p className="font-bold mb-1">
-                    {s.errBlockedTitle}
-                  </p>
-                  <p className="mb-2">
-                    {s.errBlockedText}
-                  </p>
-                  <ul className="list-disc pl-4 space-y-1.5 font-medium">
-                    <li>
-                      <strong>{s.errOpenNewWindowTitle}</strong>{" "}
-                      {s.errOpenNewWindowText}
-                    </li>
-                    <li>
-                      <strong>{s.errCopyTextTitle}</strong>{" "}
-                      {s.errCopyTextText}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            )}
-
-            {/* Warning Alert / Help for Sandbox iframe restriction (If capture succeeded but user may still have download issues) */}
-            {!isCaptureFailed && (
-              <div className="p-4 rounded-xl mb-4 text-xs leading-relaxed flex items-start gap-3 bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-300">
-                <Info className="w-4 h-4 mt-0.5 shrink-0 text-amber-500" />
-                <div>
-                  <p className="font-bold mb-1">
-                    {s.altTitle}
-                  </p>
-                  <p className="mb-2">
-                    {s.altIntro}
-                  </p>
-                  <ol className="list-decimal pl-4 space-y-1.5 font-medium">
-                    <li>
-                      <strong>{s.alt1Title}</strong> {s.alt1Text}
-                    </li>
-                    <li>
-                      <strong>{s.alt2Title}</strong> {s.alt2Text}
-                    </li>
-                    <li>
-                      <strong>{s.alt3Title}</strong> {s.alt3Text}
-                    </li>
-                  </ol>
-                </div>
-              </div>
-            )}
-
-            {/* Modal Tabs Navigation */}
-            <div className="flex border-b border-slate-200 dark:border-slate-800 mb-4">
-              <button
-                onClick={() => setModalTab("image")}
-                disabled={isCaptureFailed}
-                className={`px-4 py-2 text-xs font-bold border-b-2 transition duration-150 ${
-                  isCaptureFailed ? "opacity-40 cursor-not-allowed" : ""
-                } ${
-                  modalTab === "image"
-                    ? "border-amber-500 text-amber-500"
-                    : "border-transparent text-slate-400 hover:text-slate-200"
-                }`}
-              >
-                {s.tabImage}
-              </button>
-              <button
-                onClick={() => setModalTab("text")}
-                className={`px-4 py-2 text-xs font-bold border-b-2 transition duration-150 ${
-                  modalTab === "text"
-                    ? "border-amber-500 text-amber-500"
-                    : "border-transparent text-slate-400 hover:text-slate-200"
-                }`}
-              >
-                {s.tabText}
-              </button>
-            </div>
-
-            {/* Tabs Contents */}
-            {modalTab === "image" && capturedImageUrl && !isCaptureFailed ? (
-              /* Scrollable Image Preview Container */
-              <div className="border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden max-h-[45vh] overflow-y-auto bg-slate-950 flex justify-center p-4 mb-6">
-                <img 
-                  src={capturedImageUrl} 
-                  alt="Ficha de Trabajo" 
-                  className="max-w-full h-auto object-contain border border-slate-800 shadow-2xl rounded"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-            ) : modalTab === "text" ? (
-              /* Scrollable Text Formatted Area with copy support */
-              <div className="space-y-4 mb-6">
-                <div className="flex justify-between items-center text-xs text-slate-400">
-                  <span>{s.textReadyLabel}</span>
-                  <button
-                    onClick={handleCopyTextWorksheet}
-                    className="flex items-center gap-1 text-amber-500 hover:text-amber-400 font-bold"
-                  >
-                    <Copy className="w-3.5 h-3.5" />
-                    <span>{copyTextSuccess ? s.copied : s.copy}</span>
-                  </button>
-                </div>
-                <textarea
-                  id="fallback-textarea"
-                  readOnly
-                  value={getFormattedTextWorksheet()}
-                  className={`w-full h-64 p-3.5 font-mono text-xs rounded-xl border leading-relaxed focus:outline-none focus:ring-1 focus:ring-amber-500 ${
-                    isDark 
-                      ? "bg-slate-950 border-slate-800 text-slate-300" 
-                      : "bg-slate-50 border-slate-200 text-slate-800"
-                  }`}
-                  onClick={(e) => {
-                    (e.target as HTMLTextAreaElement).select();
-                  }}
-                />
-              </div>
-            ) : (
-              /* Capture failed image fallback message */
-              <div className="p-8 text-center border border-dashed rounded-xl border-slate-800 text-slate-500 mb-6 text-xs">
-                {s.captureFailedFallback}
-              </div>
-            )}
-
-            {/* Action buttons */}
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-4 border-t border-slate-100 dark:border-slate-800 pt-4">
-              
-              {/* Left Group: Dynamic Alternatives */}
-              <div className="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
-                {modalTab === "image" && capturedImageUrl && (
-                  <>
-                    {/* 1. Open in new tab (Native Anchor to bypass Sandbox) */}
-                    <a
-                      href={capturedImageUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition duration-150 w-full sm:w-auto text-center ${
-                        isDark ? "bg-indigo-600 hover:bg-indigo-500 text-white" : "bg-indigo-100 hover:bg-indigo-200 text-indigo-900"
-                      }`}
-                    >
-                      <ExternalLink className="w-3.5 h-3.5" />
-                      <span>{s.btnOpenNewTab}</span>
-                    </a>
-
-                    {/* 2. Copy image to Clipboard */}
-                    <button
-                      onClick={handleCopyImageToClipboard}
-                      className={`flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition duration-150 w-full sm:w-auto ${
-                        copySuccess
-                          ? "bg-emerald-600 hover:bg-emerald-700 text-white"
-                          : isDark
-                          ? "bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700"
-                          : "bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200"
-                      }`}
-                    >
-                      {copySuccess ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                      <span>{copySuccess ? s.btnImageCopied : s.btnCopyImage}</span>
-                    </button>
-                  </>
-                )}
-
-                {modalTab === "text" && (
-                  <button
-                    onClick={handleCopyTextWorksheet}
-                    className={`flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition duration-150 w-full sm:w-auto ${
-                      copyTextSuccess
-                        ? "bg-emerald-600 hover:bg-emerald-700 text-white"
-                        : isDark
-                        ? "bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700"
-                        : "bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200"
-                    }`}
-                  >
-                    {copyTextSuccess ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                    <span>{copyTextSuccess ? s.btnTextCopied : s.btnCopyTextWs}</span>
-                  </button>
-                )}
-              </div>
-
-              {/* Right Group: Direct Triggers */}
-              <div className="flex flex-wrap items-center gap-2.5 w-full sm:w-auto sm:justify-end">
-                {modalTab === "image" && capturedImageUrl && (
-                  <button
-                    onClick={() => {
-                      const link = document.createElement("a");
-                      link.download = `ficha_regla_de_oro_2026.png`;
-                      link.href = capturedImageUrl;
-                      document.body.appendChild(link);
-                      link.click();
-                      document.body.removeChild(link);
-                    }}
-                    className={`flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition duration-150 w-full sm:w-auto ${
-                      isDark ? "bg-amber-600 hover:bg-amber-700 text-white" : "bg-amber-500 hover:bg-amber-600 text-slate-950"
-                    }`}
-                  >
-                    <Download className="w-3.5 h-3.5" />
-                    <span>{s.btnRetryDownload}</span>
-                  </button>
-                )}
-                
-                <button
-                  onClick={() => setShowModal(false)}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold border transition duration-150 w-full sm:w-auto ${
-                    isDark 
-                      ? "bg-slate-850 hover:bg-slate-800 text-slate-300 border-slate-750" 
-                      : "bg-slate-200 hover:bg-slate-300 text-slate-800 border-slate-300"
-                  }`}
-                >
-                  {s.btnClose}
-                </button>
-              </div>
-
-            </div>
-          </div>
+      {/* TEXT WORKSHEET — visible directly, no modal needed */}
+      <div className={`rounded-2xl border p-4 sm:p-6 space-y-3 ${
+        isDark ? "bg-slate-900 border-slate-800" : "bg-slate-50 border-slate-200"
+      }`}>
+        <div className="flex justify-between items-center">
+          <span className={`text-xs font-bold ${isDark ? "text-slate-300" : "text-slate-600"}`}>
+            {s.textReadyLabel}
+          </span>
+          <button
+            onClick={handleCopyTextWorksheet}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${
+              copyTextSuccess
+                ? "bg-emerald-600 text-white"
+                : isDark
+                ? "bg-slate-700 hover:bg-slate-600 text-slate-200"
+                : "bg-slate-200 hover:bg-slate-300 text-slate-700"
+            }`}
+          >
+            {copyTextSuccess ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+            <span>{copyTextSuccess ? s.btnCopiedWorksheet : s.btnCopyWorksheet}</span>
+          </button>
         </div>
-      )}
+        <textarea
+          id="fallback-textarea"
+          readOnly
+          value={getFormattedTextWorksheet()}
+          className={`w-full h-64 p-3.5 font-mono text-xs rounded-xl border leading-relaxed focus:outline-none focus:ring-1 focus:ring-amber-500 resize-none ${
+            isDark
+              ? "bg-slate-950 border-slate-800 text-slate-300"
+              : "bg-white border-slate-200 text-slate-800"
+          }`}
+          onClick={(e) => {
+            (e.target as HTMLTextAreaElement).select();
+          }}
+        />
+      </div>
 
     </div>
   );
