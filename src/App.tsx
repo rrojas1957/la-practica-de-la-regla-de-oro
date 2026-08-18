@@ -613,7 +613,7 @@ ${t.downloadFooterQuote}
   };
 
   return (
-    <div className={`min-h-screen flex flex-col font-sans transition-colors duration-300 overflow-x-hidden ${
+    <div className={`min-h-screen flex flex-col font-sans transition-colors duration-300 ${
       theme === "dark" ? "bg-slate-950 text-slate-100" : "bg-slate-50 text-slate-900"
     }`} id="app-root">
       
