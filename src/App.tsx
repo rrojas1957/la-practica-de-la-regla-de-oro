@@ -613,7 +613,7 @@ ${t.downloadFooterQuote}
   };
 
   return (
-    <div className={`min-h-screen flex flex-col font-sans transition-colors duration-300 ${
+    <div className={`min-h-screen flex flex-col font-sans transition-colors duration-300 overflow-x-hidden ${
       theme === "dark" ? "bg-slate-950 text-slate-100" : "bg-slate-50 text-slate-900"
     }`} id="app-root">
       
@@ -840,7 +840,7 @@ ${t.downloadFooterQuote}
       </header>
 
       {/* Main Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-28 sm:pb-8">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-20 sm:pb-8">
         
         <AnimatePresence mode="wait">
           
@@ -1400,7 +1400,7 @@ ${t.downloadFooterQuote}
       </footer>
 
       {/* Bottom navigation bar — mobile only (sm: hidden) */}
-      <nav className={`fixed bottom-0 left-0 right-0 z-40 flex sm:hidden border-t transition-colors duration-300 ${
+      <nav className={`fixed bottom-0 left-0 right-0 z-40 w-full flex sm:hidden border-t transition-colors duration-300 ${
         theme === "dark"
           ? "bg-slate-950 border-slate-900"
           : "bg-white border-slate-100"
