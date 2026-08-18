@@ -226,7 +226,7 @@ export default function IntroSection({
               transition={{ duration: 0.25, ease: "easeInOut" }}
               className="overflow-hidden"
             >
-              <div className={`px-6 pb-6 space-y-6 border-t ${isDark ? "border-slate-800" : "border-slate-100"}`}>
+              <div className={`px-3 sm:px-6 pb-6 space-y-6 border-t ${isDark ? "border-slate-800" : "border-slate-100"}`}>
 
                 {/* Main Pillars - Benefits & Purpose */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
