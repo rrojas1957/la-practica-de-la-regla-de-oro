@@ -702,8 +702,8 @@ ${s.txtGeneratedOn}: ${new Date().toLocaleDateString(LOCALES[lang])}
         </button>
       </div>
 
-      {/* SCHEMA WORKSPACE — now fully responsive */}
-      <div className={`p-4 sm:p-6 border rounded-2xl shadow-md ${
+      {/* SCHEMA WORKSPACE — hidden on mobile, visible on tablet/desktop */}
+      <div className={`hidden sm:block p-4 sm:p-6 border rounded-2xl shadow-md ${
         isDark 
           ? "bg-slate-950 border-slate-800 text-slate-100" 
           : "bg-white border-slate-200 text-slate-900"
