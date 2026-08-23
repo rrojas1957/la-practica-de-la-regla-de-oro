@@ -2,133 +2,133 @@
 
 export const GLOSSARY_TERMS_DE = [
   {
-    term: "Leitgedanke (Aphorismus)",
-    definition: "Ein kurzer Satz oder Ausspruch, der als Erklärung der Handlungen dient, die wir in Gang setzen wollen, um den in der Übung bearbeiteten Widerspruch oder das Leiden zu überwinden. Wir stützen uns auf diesen Leitgedanken, lesen oder wiederholen ihn, sooft es nötig ist, um uns daran zu erinnern, wie es möglich ist, aus niedrigen Bewusstseinszuständen herauszukommen. Silo sagt: 'Mit Glauben wiederholte Gedanken erzeugen und ziehen das Maximum an Kraft in den Handlungen an.' Und er fügt hinzu: 'Je öfter eine Handlung oder ein Gedanke wiederholt wird, desto tiefer prägt er sich ins Gedächtnis ein, desto stärker werden die Gewohnheiten und desto mehr ist man für künftige Handlungen in dieser Richtung disponiert.'",
+    term: "Handlungs-Aphorismus",
+    definition: "Es ist ein kurzer Satz oder eine kurze Aussage, die als Erklärung für die Handlungen dient, die wir in Gang setzen wollen, um den im Rahmen der Übung bearbeiteten Widerspruch oder das Leiden zu überwinden. Wir stützen uns auf diesen Aphorismus, indem wir ihn lesen oder so oft wie nötig wiederholen, um uns daran zu erinnern, wie wir niedrige Bewusstseinszustände überwinden können. Silo sagt: „Gedanken, die mit Glauben wiederholt werden, erzeugen und ziehen die größtmögliche Kraft in den Handlungen an.\" Und er fügt hinzu: „Je öfter eine Handlung oder ein Gedanke wiederholt wird, desto tiefer prägt er sich ins Gedächtnis ein, desto stärker werden die Gewohnheiten und desto mehr wird man für zukünftige Handlungen in dieser Richtung disponiert.\"",
     tag: "Handlung" as const
   },
   {
-    term: "Zönästhesie",
-    definition: "Einer der inneren Sinne, heute auch als Interozeption bekannt (Wahrnehmung des inneren Zustands des Organismus). Er liefert Daten über Druck, Temperatur, Feuchtigkeit, Säure, Alkalität, Spannung, Entspannung usw. sowie jede andere Empfindung aus dem Körperinneren. Er registriert außerdem die Arbeit der Zentren (zum Beispiel Emotionen, intellektuelle Operationen usw.).",
+    term: "Cenesthesie",
+    definition: "Eine der inneren Sinne, die heute auch als Interozeption bezeichnet wird — die Wahrnehmung des inneren Zustands des Organismus. Sie liefert Informationen über Druck, Temperatur, Feuchtigkeit, Säuregehalt, Alkalität, Spannung, Entspannung usw. sowie über alle anderen Empfindungen, die aus dem Inneren des Körpers kommen. Außerdem registriert sie die Tätigkeit der Zentren, zum Beispiel Emotionen und intellektuelle Vorgänge.",
     tag: "Zustände" as const
   },
   {
     term: "Antwortzentren",
-    definition: "Begriffliche Synthese, die sich auf einen Mechanismus der Psyche bezieht, der auf die Welt der Empfindung antwortet. Die Antwort ist die Manifestation der Aktivität des Zentrums gegenüber der äußeren und/oder inneren Umgebung. Wir können Antwortzentren nach ihrer Aktivität oder nach der Funktion, die sie erfüllen, unterscheiden. Die Zentren sind: das intellektuelle, das motorische, das emotionale, das sexuelle und das vegetative.",
+    definition: "Eine begriffliche Zusammenfassung für einen Mechanismus der Psyche, der auf die Welt der Empfindungen reagiert. Die Antwort ist die Äußerung der Aktivität eines Zentrums gegenüber der äußeren und/oder inneren Umgebung. Wir können verschiedene Antwortzentren anhand ihrer Tätigkeit bzw. ihrer Funktion unterscheiden. Die Zentren sind: intellektuell, motorisch, emotional, sexuell und vegetativ.",
     tag: "Methodik" as const
   },
   {
     term: "Klima",
-    definition: "So nennen wir den emotionalen Hintergrund, in dessen Feld jedes Objekt die Eigenschaften dieses Hintergrunds oder dieser Stimmung annimmt. Klimata können situationsbedingt sein oder sich in der Psyche festsetzen und die gesamte Struktur stören, indem sie die Beweglichkeit hin zu anderen, angemessenen Klimata verhindern. Festgesetzte Klimata zirkulieren durch die verschiedenen Ebenen und nehmen dem Bewusstsein operative Freiheit.",
+    definition: "Als „Klima\" bezeichnen wir den emotionalen Hintergrund, durch den jedes Objekt, sobald es in dieses Feld gerät, die Eigenschaften dieses Hintergrunds bzw. dieser Stimmung annimmt. Klimas können situationsbedingt sein oder sich in der Psyche festsetzen und die gesamte Struktur beeinträchtigen. Dadurch kann die Beweglichkeit hin zu anderen, angemessenen Klimata verhindert werden. Fixierte Klimas bewegen sich durch die verschiedenen Bewusstseinsebenen und schränken dadurch die Handlungsfreiheit des Bewusstseins ein.",
     tag: "Zustände" as const
   },
   {
-    term: "Zwang (Kompulsion)",
-    definition: "Der intensive oder heftige Impuls oder Wunsch, etwas zu tun. In der Psychologie ist es das unkontrollierbare Bedürfnis, etwas ohne Motiv oder Grund zu sagen oder zu tun.",
+    term: "Zwang / Zwanghaftigkeit",
+    definition: "Ein intensiver oder überwältigender Impuls bzw. Wunsch, etwas zu tun. In der Psychologie bezeichnet man damit das unkontrollierbare Bedürfnis, etwas zu sagen oder zu tun, ohne dass dafür ein wirklicher Grund oder eine bewusste Entscheidung vorliegt.",
     tag: "Zustände" as const
   },
   {
-    term: "Bewusstsein (Ebenen des)",
-    definition: "Die verschiedenen Arbeitsweisen des Kreislaufs Bewusstsein-Sinne-Gedächtnis-Zentren. Gemäß 'Selbstbefreiung' unterscheiden wir: 1) Ebene des Tiefschlafs: minimale Arbeit der äußeren Sinne. 2) Ebene des Halbschlafs: die Arbeit der äußeren Sinne nimmt zu, aber es gibt Interferenzen von Tagträumen und inneren Empfindungen. 3) Ebene der Wachheit: wenn die äußeren Sinne den größten Informationsfluss liefern, die inneren Sinne durch Hemmung regulieren und es ermöglichen, sich in der Arbeit des Reizausgleichs zur Welt hin zu orientieren.",
+    term: "Bewusstsein (Ebenen des Bewusstseins)",
+    definition: "Die verschiedenen Arbeitsweisen des Kreislaufs von Bewusstsein — Sinne — Gedächtnis — Zentren. Nach dem Buch „Selbstbefreiung\" unterscheiden wir: 1. Tiefschlaf: minimale Tätigkeit der äußeren Sinne. 2. Halbschlaf: Die Tätigkeit der äußeren Sinne nimmt zu, gleichzeitig gibt es Einflüsse von Tagträumen und inneren Empfindungen. 3. Wachzustand: Die äußeren Sinne liefern den größten Informationsfluss. Sie regulieren durch Hemmung die inneren Sinne und ermöglichen die Orientierung an der Welt bei der Verarbeitung und Kompensation von Reizen.",
     tag: "Zustände" as const
   },
   {
-    term: "Tagträume",
-    definition: "Auf der Wachebene erscheinen zahlreiche Bilder, Ideen und Gedanken, die der gerade entwickelten Idee oder dem Gedanken fremd sind. Diese Formalisierungen von Reizen, die von den anderen Ebenen, aus der äußeren Umgebung oder von körperlichen Reizen stammen, zeigen sich als Bilder, die auf die Wachebene drücken; wir nennen sie Tagträume. Sie sind instabil und wechselhaft und stellen die größten Hindernisse für die Arbeit der Aufmerksamkeit dar.",
+    term: "Tagträume / Träume",
+    definition: "Auf der Bewusstseinsebene des Wachzustands tauchen zahlreiche Bilder, Ideen und Gedanken auf, die nichts mit dem Gedanken oder der Tätigkeit zu tun haben, mit denen man gerade beschäftigt ist. Diese Vorstellungen entstehen aus Reizen anderer Ebenen, aus der äußeren Umgebung oder aus körperlichen Reizen und erscheinen als Bilder, die in den Wachzustand eindringen. Wir nennen sie Tagträume. Sie sind instabil und wechselhaft und stellen eines der größten Hindernisse für die Arbeit der Aufmerksamkeit dar.",
     tag: "Zustände" as const
   },
   {
     term: "Innerer Führer",
-    definition: "Eine Allegorie, die das Bewusstsein geschaffen hat, indem es bestimmte spezifische Attribute konkretisierte: Güte, Weisheit und Kraft. Er ist sehr persönlich. Er kann der eigene Gott sein; er kann einen religiösen oder heiligen Kontext haben oder nicht; er kann eine heilige Person sein; jemand, den man im Leben kennt oder gekannt hat; eine historische Figur; oder eine inspirierende Gegenwart, Kraft oder ein Bild. Er ist sehr persönlich, und niemandem steht es zu, den Führer eines anderen zu beurteilen.",
+    definition: "Eine Allegorie, die das Bewusstsein geschaffen hat und in der bestimmte Eigenschaften konkret Gestalt annehmen: Güte, Weisheit und Kraft. Sie ist sehr persönlich. Es kann der eigene Gott sein, einen religiösen oder heiligen Kontext haben oder auch nicht. Sie kann eine heilige Person, jemand, den man kennt oder gekannt hat, eine historische Gestalt oder eine inspirierende Gegenwart, Kraft oder Vorstellung sein. Sie ist etwas sehr Persönliches, und niemand hat das Recht, den inneren Führer eines anderen zu beurteilen.",
     tag: "Handlung" as const
   },
   {
-    term: "Universalistischer Humanismus",
-    definition: "Auch Neuer Humanismus genannt. Er zeichnet sich durch die Betonung der humanistischen Haltung aus. Diese Haltung ist keine Philosophie, sondern eine Perspektive, eine Sensibilität und eine Art, die Beziehung zu den anderen Menschen zu leben.",
+    term: "Universeller Humanismus",
+    definition: "Auch Neuer Humanismus genannt. Er zeichnet sich dadurch aus, dass er die humanistische Haltung hervorhebt. Diese Haltung ist keine Philosophie, sondern eine Perspektive, eine Sensibilität und eine Art, die Beziehung zu anderen Menschen zu leben.",
     tag: "Methodik" as const
   },
   {
     term: "Kinästhesie",
-    definition: "Ein weiterer der inneren Sinne, auch Propriozeption genannt (die Fähigkeit unseres Gehirns, in jedem Moment die genaue Position aller Teile unseres Körpers zu kennen). Er liefert Daten über Bewegung und Körperhaltung sowie über physisches Gleichgewicht und Ungleichgewicht.",
+    definition: "Eine weiterer innerer Sinn, auch Propriozeption genannt — ist die Fähigkeit des Gehirns, jederzeit die genaue Position aller Körperteile wahrzunehmen. Sie liefert Informationen über Bewegung und Körperhaltung sowie über körperliches Gleichgewicht und Ungleichgewicht.",
     tag: "Zustände" as const
   },
   {
-    term: "Mechanik (Mechanizität)",
-    definition: "Eine repetitive, kalte, unbewusste und routinemäßige Haltung, die den Menschen in einen Automaten verwandelt, dem Reflexion und Empathie fehlen.",
+    term: "Mechanizität",
+    definition: "Eine sich wiederholende, kalte, unbewusste und routinemäßige Haltung, die den Menschen in einen Automaten ohne Reflexion und Empathie verwandelt.",
     tag: "Zustände" as const
   },
   {
-    term: "Tagtraumkern",
-    definition: "Es gibt Tagträume von größerer Beständigkeit oder Wiederholung — jene, die, auch wenn sie variieren, dasselbe mentale Klima anzeigen. Das Hauptmerkmal dieses Klimas ist seine Dauerhaftigkeit. Dieser feste Kern wird sich als Bild manifestieren, und dieses Bild wird die Eigenschaft haben, den Körper und die Aktivitäten in eine Richtung zu lenken, die vom Bewusstsein nicht bemerkt wird.",
+    term: "Traumkern",
+    definition: "Es gibt Tagträume, die besonders stabil und wiederkehrend sind. Auch wenn sie sich verändern, weisen sie auf dasselbe mentale Klima hin. Das wichtigste Merkmal dieses Klimas ist seine Beständigkeit. Dieser feste Kern zeigt sich als Bild. Dieses Bild hat die Eigenschaft, den Körper und die Aktivitäten in eine bestimmte Richtung zu lenken, ohne dass dies dem Bewusstsein bewusst ist.",
     tag: "Zustände" as const
   },
   {
     term: "Biografischer Knoten",
-    definition: "Ein innerer Konflikt, der in der Kindheit entstand. Silo beschreibt ihn als einen 'Knoten des Schmerzes'. Er ist meist mit einem dauerhaften und generalisierten Klima (Tagtraumkern) verbunden und kann ohne innere Arbeit lange Zeit ungelöst bleiben.",
+    definition: "Ein innerer Konflikt, der in der Kindheit entstanden ist. Silo beschreibt ihn als einen „Schmerzknoten\". Er ist häufig mit einem dauerhaften und umfassenden Klima verbunden (Traumkern) und kann ohne innere Arbeit lange Zeit bestehen bleiben, ohne gelöst zu werden.",
     tag: "Zustände" as const
   },
   {
-    term: "Operative",
-    definition: "Bezieht sich auf Operationen, die das Verhalten verändern, umwandeln oder neu ausrichten können.",
+    term: "Operative Arbeit",
+    definition: "Bezeichnet Vorgänge, die das Verhalten verändern, umwandeln oder neu ausrichten können.",
     tag: "Handlung" as const
   },
   {
-    term: "Prägungslandschaft",
-    definition: "Bezieht sich auf die Ereignisse, die ein Mensch seit seiner Geburt und in Bezug auf eine Umgebung erlebt hat. Der Einfluss der Prägungslandschaft ergibt sich nicht einfach aus einer biografisch geformten intellektuellen Zeitperspektive, von der aus das Aktuelle betrachtet wird, sondern es handelt sich um eine kontinuierliche Situationsanpassung auf der Grundlage der eigenen Erfahrung. Sie wirkt als Hintergrund der Interpretation und des Handelns, als Sensibilität und als Gesamtheit von Überzeugungen und Bewertungen, mit denen ein Individuum oder eine Generation lebt.",
+    term: "Bildungslandschaft",
+    definition: "Bezeichnet die Erfahrungen und Ereignisse, die ein Mensch von seiner Geburt an in Beziehung zu seiner Umgebung erlebt. Der Einfluss dieser Bildungslandschaft besteht nicht einfach in einer zeitlichen, intellektuellen Perspektive, die sich biografisch gebildet hat und von der aus man die Gegenwart betrachtet. Vielmehr handelt es sich um eine fortwährende Anpassung an Situationen auf Grundlage der eigenen Erfahrung. Sie wirkt als Hintergrund für Interpretation und Handeln, als Sensibilität sowie als Gesamtheit der Überzeugungen und Bewertungen, mit denen ein Mensch oder eine Generation lebt.",
     tag: "Methodik" as const
   },
   {
     term: "Äußere Landschaft",
-    definition: "Konfiguration der Wirklichkeit, die der Wahrnehmung der äußeren Sinne entspricht, gewichtet durch die eigenen Inhalte des Bewusstseins. Da das Bewusstsein eine aktive Struktur und kein Abbild der 'äußeren' Wirklichkeit ist, erscheint letztere als strukturierte 'Landschaft', keineswegs als Summe von Wahrnehmungen und auch nicht als von den Wahrnehmungen der äußeren Sinne isolierte Struktur.",
+    definition: "Die Konfiguration der Realität, die sich aus der Wahrnehmung der äußeren Sinne ergibt, gewichtet durch die eigenen Inhalte des Bewusstseins. Da das Bewusstsein eine aktive Struktur und kein Spiegelbild der „äußeren\" Realität ist, erscheint diese als eine strukturierte „Landschaft\" — keineswegs als bloße Summe von Wahrnehmungen und auch nicht als eine von den Wahrnehmungen der äußeren Sinne isolierte Struktur.",
     tag: "Methodik" as const
   },
   {
     term: "Menschliche Landschaft",
-    definition: "Konfiguration der menschlichen Wirklichkeit auf der Grundlage der Wahrnehmung des Anderen, der Gesellschaft und der mit intentionaler Bedeutung erzeugten Objekte. Die menschliche Landschaft ist nicht bloße Objektwahrnehmung, sondern Enthüllung von Bedeutungen und Absichten, in denen der Mensch sich selbst wiedererkennt.",
+    definition: "Die Konfiguration der menschlichen Realität auf Grundlage der Wahrnehmung des anderen Menschen, der Gesellschaft und der Gegenstände, die mit einer intentionalen Bedeutung geschaffen wurden. Die menschliche Landschaft ist nicht einfach die Wahrnehmung von Gegenständen, sondern die Enthüllung von Bedeutungen und Intentionen, in denen der Mensch sich selbst erkennt.",
     tag: "Methodik" as const
   },
   {
     term: "Innere Landschaft",
-    definition: "Konfiguration der Wirklichkeit, die der Wahrnehmung der inneren Sinne entspricht, gewichtet durch die Gedächtnisdaten und durch die intentionale Haltung des Bewusstseins, die je nach Schlaf-, Wach- oder Gefühlszustand usw. variiert. Sie wird in der 'nach innen' gerichteten Haltung des Bewusstseins erfahren, mit dem inneren Register der taktil-zönästhetischen Grenze als Referenz.",
+    definition: "Die Konfiguration der Realität, die sich aus der Wahrnehmung der inneren Sinne ergibt, gewichtet durch die Informationen des Gedächtnisses und durch die intentionale Haltung des Bewusstseins, die je nach Schlaf, Wachzustand, Emotion usw. variiert. Sie wird in einer Haltung des Bewusstseins „nach innen\" erfahren, wobei die innere Wahrnehmung der taktil-zänästhetischen Grenze als Bezugspunkt dient.",
     tag: "Methodik" as const
   },
   {
     term: "Wahrnehmung",
-    definition: "Das Register des Datums plus die Aktivität des Sinnes, der in Bewegung ist. Es ist eine Struktur aus: Datum plus Aktivität des Sinnes, der abstrahiert und strukturiert.",
+    definition: "Die Registrierung einer Information zusammen mit der Tätigkeit des gerade aktiven Sinnes. Sie ist eine Struktur aus Information plus der Tätigkeit des Sinnes, der abstrahiert und strukturiert.",
     tag: "Methodik" as const
   },
   {
     term: "Projektion",
-    definition: "In der Psychologie ein Abwehrmechanismus, der darin besteht, jene inneren Attribute, Wünsche, Gefühle oder Aspekte unserer selbst, die wir nicht akzeptieren können, nach außen zu verlagern — sei es auf eine Person oder auf ein Objekt.",
+    definition: "In der Psychologie ein Abwehrmechanismus, bei dem innere Eigenschaften, Wünsche, Gefühle oder Aspekte unserer selbst, die wir nicht akzeptieren können, nach außen auf eine Person oder einen Gegenstand übertragen werden.",
     tag: "Zustände" as const
   },
   {
-    term: "Register",
-    definition: "Erfahrung der Empfindung, die durch von äußeren oder inneren Sinnen erfasste Reize erzeugt wird, einschließlich Erinnerungen und Bildern.",
+    term: "Registrierung",
+    definition: "Die Erfahrung einer Empfindung, die durch Reize hervorgerufen wird, welche von äußeren oder inneren Sinnen wahrgenommen werden, einschließlich Erinnerungen und Bildern.",
     tag: "Methodik" as const
   },
   {
-    term: "Vorstellung (Repräsentation)",
-    definition: "Jedes Gedächtnisphänomen, das das Präsenzfeld des Bewusstseins berührt. Zu unterscheiden vom Gedächtnisdatum, das in Kopräsenz unterschwellig wirken kann, und natürlich vom Wahrnehmungsdatum.",
+    term: "Repräsentation / Vorstellung",
+    definition: "Jedes Gedächtnisphänomen, das in das Feld der gegenwärtigen Aufmerksamkeit des Bewusstseins gelangt. Dies unterscheidet sich von einer Gedächtnisinformation, die unterschwellig im Bereich der Ko-Präsenz wirken kann, und natürlich von der Wahrnehmung.",
     tag: "Methodik" as const
   },
   {
     term: "Reversibilität",
-    definition: "Fähigkeit des Bewusstseins, sich mittels der Aufmerksamkeit auf seine Informationsquellen zu richten. Wenn wir zum Beispiel von der Reversibilität des Denkens sprechen, meinen wir die Fähigkeit, zu einem Ausgangspunkt oder einer Anfangssituation zurückzukehren.",
+    definition: "Die Fähigkeit des Bewusstseins, sich mithilfe der Aufmerksamkeit seinen Informationsquellen zuzuwenden. Wenn wir beispielsweise von der Reversibilität des Denkens sprechen, meinen wir die Fähigkeit, zu einem Ausgangspunkt oder einer ursprünglichen Situation zurückzukehren.",
     tag: "Methodik" as const
   },
   {
     term: "Siloismus",
-    definition: "Von Silo, dem literarischen Pseudonym von Mario Rodríguez Cobos, dargelegtes Ideensystem. Der Siloismus ist ein philosophischer Humanismus, aber auch eine Haltung, die an den Werten des Neuen Humanismus teilhat.",
+    definition: "Das von Silo, dem literarischen Pseudonym von Mario Rodríguez Cobos, entwickelte Ideensystem. Der Siloismus ist ein philosophischer Humanismus, zugleich aber auch eine Haltung, die an den Werten des Neuen Humanismus teilhat.",
     tag: "Methodik" as const
   },
   {
-    term: "Psychismus",
-    definition: "Ein System, das durch Sinne, Gedächtnis, Koordinator, Ebenen und Zentren dynamisch integriert und wechselseitig reguliert wird.",
+    term: "Psyche",
+    definition: "Ein integriertes System, das durch Sinne, Gedächtnis, Koordinator, Bewusstseinsebenen und Zentren dynamisch miteinander verbunden und reguliert wird.",
     tag: "Methodik" as const
   },
   {
-    term: "Übertragung (Transferenz)",
-    definition: "a) Technik, die zusammen mit der Katharsis und der Selbstübertragung das System der Operative bildet. b) Technik, die im Feld der inneren Vorstellung wirkt, indem sie Spannungen von bestimmten Inhalten entlädt und deren Ladungen auf andere überträgt. Man arbeitet von der Ebene des aktiven Halbschlafs aus, angeleitet durch einen Führer.",
+    term: "Transferenz",
+    definition: "a) Eine Technik, die zusammen mit der Katharsis und der Selbsttransferenz das System der operativen Arbeit bildet. b) Eine Technik, die im Bereich der inneren Repräsentation wirkt, indem sie Spannungen aus bestimmten Inhalten entlädt und ihre Energie auf andere Inhalte überträgt. Sie wird aus einem aktiven Halbschlafzustand heraus durchgeführt, unterstützt von einer befreundeten Person.",
     tag: "Handlung" as const
   }
 ];
