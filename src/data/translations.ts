@@ -707,7 +707,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt", TranslationD
     introTitle: "Die Praxis der Goldenen Regel",
     introSubtitle: "Ein praktischer Weg, um mechanische Reaktionen zu überwinden, Ihre inneren Zustände zu verstehen und sich bewusst für eine gütige Behandlung zu entscheiden.",
     introPrivacyTitle: "🔒 100% sicherer und privater Bereich",
-    introPrivacyText: "Diese Übung ist ein rein persönliches Werkzeug zur Selbsterkenntnis. Zur Ihrer vollständigen Beruhigung werden die Antworten, die Sie in diesen Punkten eingeben, auf keinem externen Server gespeichert und in keiner für Dritte zugänglichen Datenbank registriert. Alles, was Sie schreiben, wird vorübergehend und lokal auf Ihrem Bildschirm für Ihre eigene innere Arbeit verarbeitet. Praktizieren Sie mit absoluter Freiheit.",
+    introPrivacyText: "Diese Übung ist ein rein persönliches Werkzeug zur Selbsterkenntnis. Zu Ihrer vollständigen Beruhigung werden die Antworten, die Sie in diesen Punkten eingeben, auf keinem externen Server gespeichert und in keiner für Dritte zugänglichen Datenbank registriert. Alles, was Sie schreiben, wird vorübergehend und lokal auf Ihrem Bildschirm für Ihre eigene innere Arbeit verarbeitet. Praktizieren Sie mit absoluter Freiheit.",
     introPrincipleTitle: "Zentrales Prinzip",
     introSiloQuote: "Wenn du andere so behandelst, wie du selbst behandelt werden möchtest, befreist du dich.",
     introInspiration: "Diese Praxis ist von der Goldenen Regel des Neuen Humanismus inspiriert, wie sie in „Die Goldene Regel der Gewaltfreiheit“ von Roberto Kohanoff und Isabel Lazzaroni dargelegt ist.",
@@ -731,7 +731,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt", TranslationD
       "Mit der Zeit wird diese Praxis zu einem Werkzeug, um mit mehr innerer Einheit zu leben: Denken, Fühlen und Handeln in dieselbe Richtung zu lenken.",
       "Diese Anwendung wird Sie Schritt für Schritt begleiten, damit Sie sie auf einfache, tiefe und zugängliche Weise praktizieren können. Unabhängig von Ihrem Alter, Ihrer Kultur, Ihrer Geschichte oder Ihrer aktuellen Situation: Wir alle können lernen, mit weniger Gewalt und mehr innerer Freiheit zu leben."
     ],
-    introExplanation: "Wir alle erleben Momente der Spannung, des Ärgers, der Frustration oder der Verwirrung. Manchmal reagieren wir rein mechanisch oder compulsiv auf einem niedrigen Bewusstseinsniveau. Diese Praxis ist ein Werkzeug zur Selbsterkenntnis und zur persönlichen Transformation, das Ihnen helfen soll, die automatische Reaktion zu stoppen, Ihre inneren Zustände zu verstehen und sich bewusst für eine gütige Behandlung zu entscheiden. Es ist weder eine starre Norm noch eine moralische Verpflichtung, sondern un chemin vers une vie avec moins de souffrance, mehr innerer Einheit und wahrer Freiheit.",
+    introExplanation: "Wir alle erleben Momente der Spannung, des Ärgers, der Frustration oder der Verwirrung. Manchmal reagieren wir rein mechanisch oder kompulsiv auf einem niedrigen Bewusstseinsniveau. Diese Praxis ist ein Werkzeug zur Selbsterkenntnis und zur persönlichen Transformation, das Ihnen helfen soll, die automatische Reaktion zu stoppen, Ihre inneren Zustände zu verstehen und sich bewusst für eine gütige Behandlung zu entscheiden. Es ist weder eine starre Norm noch eine moralische Verpflichtung, sondern ein Weg zu einem Leben mit weniger Leiden, mehr innerer Einheit und wahrer Freiheit.",
     introPurposesExtra: "Diese Anwendung wird Sie Schritt für Schritt begleiten, damit Sie sie auf einfache, tiefe und zugängliche Weise praktizieren können. Unabhängig von Ihrem Alter, Ihrer Kultur, Ihrer Geschichte oder Ihrer aktuellen Situation: Wir alle können lernen, mit weniger Gewalt und mehr innerer Freiheit zu leben.",
     introBtnStart: "Neue Praxis starten",
     introBtnExample: "Ein gelöstes Beispiel ansehen",
@@ -762,7 +762,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt", TranslationD
     previewTitle: "Leitgedanke im Aufbau",
     previewMainTitle: "Hauptaphorismus (Aufsteigende Pfade 6 + 8):",
     previewGoldenTitle: "Überwindungsformel (Optional I):",
-    previewGoldenTemplate: "Um {p2} angesichts von {p1} zu vermeiden, schenke ich die Behandlung von {p3}, indem ich {p4} tue.",
+    previewGoldenTemplate: "Um {p2} angesichts von {p1} zu vermeiden, begegne ich ihr mit {p3}, indem ich {p4}.",
     previewHint: "✨ Sehen Sie, wie Ihre Reflexionen dynamisch in Echtzeit in diese logischen Sätze integriert werden.",
 
     // Workspace Actions
@@ -801,7 +801,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt", TranslationD
     supportTitle: "Bibliothek und Begleitmaterial",
     supportSubtitle: "Vertiefen Sie Ihr Verständnis der Goldenen Regel mit den originalen Literaturreferenzen und dem Glossar der Begriffe des Neuen Humanismus.",
     supportTabExamples: "Beispiele & Erfahrungsberichte",
-    supportTabGlossary: "Glossary der Begriffe",
+    supportTabGlossary: "Glossar der Begriffe",
     supportTabResources: "Links-Bibliothek",
     supportTabMailbox: "Briefkasten & Kontakt",
     
@@ -1570,7 +1570,7 @@ export const STEPS_DE: StepConfig[] = [
     id: 1,
     label: "Punkt 1: Die Fehlbehandlung, die ich ablehne",
     shortName: "Abgelehnte Fehlbehandlung",
-    question: "Welche Fehlbehandlung lehne ich ab?",
+    question: "Wie möchte ich NICHT behandelt werden?",
     description: "Identifizieren Sie jene Haltung, Handlung oder Verhaltensweise anderer, die Sie als gewalttätig, schmerzhaft oder inakzeptabel empfinden. Es ist die äußere Situation, die Ihr Wohlbefinden stört.",
     helpDescription: "Wählen Sie die Art der Fehlbehandlung aus, die Sie am meisten anspricht, oder schreiben Sie Ihr eigenes Wort:",
     placeholder: "z.B. Ausgrenzung, Gleichgültigkeit, Abwertung...",
@@ -2420,7 +2420,7 @@ export function generateAforismosTranslated(answers: Record<number, string>, lan
     const p8 = p8Raw !== "" ? p8Raw : "[Aufstieg 8]";
 
     const aforismoPrincipalText = capitalizeFirst(`durch ${p6.toLowerCase()} steige ich auf zu ${p3.toLowerCase()} und durch ${p8.toLowerCase()} steige ich auf zu ${p4.toLowerCase()}.`);
-    const opcionalIText = capitalizeFirst(`um ${p2.toLowerCase()} angesichts von ${p1.toLowerCase()} zu vermeiden, schenke ich die Behandlung von ${p3.toLowerCase()}, indem ich ${p4.toLowerCase()}.`);
+    const opcionalIText = capitalizeFirst(`um ${p2.toLowerCase()} angesichts von ${p1.toLowerCase()} zu vermeiden, begegne ich ihr mit ${p3.toLowerCase()}, indem ich ${p4.toLowerCase()}.`);
     const opcionalIIText = capitalizeFirst(`durch ${p5.toLowerCase()} falle ich in ${p2.toLowerCase()}, aber durch ${p6.toLowerCase()} steige ich auf zu ${p3.toLowerCase()}.`);
     const opcionalIIIText = capitalizeFirst(`durch ${p7.toLowerCase()} falle ich vor ${p1.toLowerCase()}, aber durch ${p8.toLowerCase()} steige ich auf zu ${p4.toLowerCase()}.`);
 
@@ -2434,7 +2434,7 @@ export function generateAforismosTranslated(answers: Record<number, string>, lan
       {
         id: "opcional-1",
         title: "Leitgedanke zur Krisenbewältigung (Optional I)",
-        formula: "Um [Punkt 2] angesichts von [Punkt 1] zu vermeiden, gebe ich die Behandlung von [Punkt 3], indem ich [Punkt 4] tue",
+        formula: "Um [Punkt 2] angesichts von [Punkt 1] zu vermeiden, begegne ich ihr mit [Punkt 3], indem ich [Punkt 4]",
         text: opcionalIText
       },
       {
