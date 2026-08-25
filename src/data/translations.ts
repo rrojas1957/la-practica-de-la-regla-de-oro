@@ -588,7 +588,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt", TranslationD
     previewTitle: "Idée Force en Construction",
     previewMainTitle: "Aphorisme Principal (Chemins de Montée 6 + 8) :",
     previewGoldenTitle: "Formule de Dépassement (Optionnel I) :",
-    previewGoldenTemplate: "Pour éviter {p2} face à {p1}, j'offre le traitement de {p3}, en faisant {p4}.",
+    previewGoldenTemplate: "Pour éviter « {p2} » face à {p1}, je donne le traitement de {p3}, « {p4} ».",
     previewHint: "✨ Regardez comment vos réflexions s'intègrent dynamiquement en temps réel dans ces énoncés logiques.",
 
     // Workspace Actions
@@ -762,7 +762,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt", TranslationD
     previewTitle: "Leitgedanke im Aufbau",
     previewMainTitle: "Hauptaphorismus (Aufsteigende Pfade 6 + 8):",
     previewGoldenTitle: "Überwindungsformel (Optional I):",
-    previewGoldenTemplate: "Um {p2} angesichts von {p1} zu vermeiden, begegne ich ihr mit {p3}, indem ich {p4}.",
+    previewGoldenTemplate: "{p2}. Ich erkenne {p1}. Ich wähle {p3}. {p4}.",
     previewHint: "✨ Sehen Sie, wie Ihre Reflexionen dynamisch in Echtzeit in diese logischen Sätze integriert werden.",
 
     // Workspace Actions
@@ -936,7 +936,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt", TranslationD
     previewTitle: "Ideia-Força em Construção",
     previewMainTitle: "Aforismo Principal (Caminhos de Subida 6 + 8):",
     previewGoldenTitle: "Fórmula de Superação (Opcional I):",
-    previewGoldenTemplate: "Para evitar {p2} perante {p1}, dou o trato de {p3}, fazendo {p4}.",
+    previewGoldenTemplate: "Para não reagir com “{p2}” diante de {p1}, respondo com {p3} e escolho: “{p4}”.",
     previewHint: "✨ Vê como as tuas reflexões se integram dinamicamente em tempo real nestas sentenças lógicas.",
 
     // Workspace Actions
@@ -2378,10 +2378,11 @@ export function generateAforismosTranslated(answers: Record<number, string>, lan
     const p7 = p7Raw !== "" ? p7Raw : "[Chute 7]";
     const p8 = p8Raw !== "" ? p8Raw : "[Montée 8]";
 
-    const aforismoPrincipalText = capitalizeFirst(`par ${p6.toLowerCase()} je m'élève à ${p3.toLowerCase()} et par ${p8.toLowerCase()} je m'élève à ${p4.toLowerCase()}.`);
-    const opcionalIText = capitalizeFirst(`pour éviter de ${p2.toLowerCase()} face à ${p1.toLowerCase()}, je donne le traitement de ${p3.toLowerCase()}, en ${p4.toLowerCase()}.`);
-    const opcionalIIText = capitalizeFirst(`par ${p5.toLowerCase()} je tombe dans ${p2.toLowerCase()}, mais par ${p6.toLowerCase()} je m'élève à ${p3.toLowerCase()}.`);
-    const opcionalIIIText = capitalizeFirst(`par ${p7.toLowerCase()} je tombe face à ${p1.toLowerCase()}, mais par ${p8.toLowerCase()} je m'élève à ${p4.toLowerCase()}.`);
+    // Corrections de Marina appliquées aux quatre aphorismes : « par » devant une phrase à la première personne → « si » (conditionnel), phrases à la première personne entre guillemets, et suppression du « en » dans l'aphorisme 2. « Par » + substantif (chute) reste inchangé.
+    const aforismoPrincipalText = capitalizeFirst(`si « ${p6} », je m'élève à ${p3.toLowerCase()}, et si « ${p8} », je m'élève à « ${p4} ».`);
+    const opcionalIText = capitalizeFirst(`pour éviter « ${p2} » face à ${p1.toLowerCase()}, je donne le traitement de ${p3.toLowerCase()}, « ${p4} ».`);
+    const opcionalIIText = capitalizeFirst(`par ${p5.toLowerCase()} je tombe dans « ${p2} », mais si « ${p6} », je m'élève à ${p3.toLowerCase()}.`);
+    const opcionalIIIText = capitalizeFirst(`par ${p7.toLowerCase()} je tombe face à ${p1.toLowerCase()}, mais si « ${p8} », je m'élève à « ${p4} ».`);
 
     return [
       {
@@ -2419,10 +2420,18 @@ export function generateAforismosTranslated(answers: Record<number, string>, lan
     const p7 = p7Raw !== "" ? p7Raw : "[Absturz 7]";
     const p8 = p8Raw !== "" ? p8Raw : "[Aufstieg 8]";
 
-    const aforismoPrincipalText = capitalizeFirst(`durch ${p6.toLowerCase()} steige ich auf zu ${p3.toLowerCase()} und durch ${p8.toLowerCase()} steige ich auf zu ${p4.toLowerCase()}.`);
-    const opcionalIText = capitalizeFirst(`um ${p2.toLowerCase()} angesichts von ${p1.toLowerCase()} zu vermeiden, begegne ich ihr mit ${p3.toLowerCase()}, indem ich ${p4.toLowerCase()}.`);
-    const opcionalIIText = capitalizeFirst(`durch ${p5.toLowerCase()} falle ich in ${p2.toLowerCase()}, aber durch ${p6.toLowerCase()} steige ich auf zu ${p3.toLowerCase()}.`);
-    const opcionalIIIText = capitalizeFirst(`durch ${p7.toLowerCase()} falle ich vor ${p1.toLowerCase()}, aber durch ${p8.toLowerCase()} steige ich auf zu ${p4.toLowerCase()}.`);
+    // Robuste einfache Vorlage (Angélica Klate): jede Antwort als eigenständiger Ich-Satz.
+    // Substantiv-Antworten (1, 3, 5, 7) werden mit einem Verb umrahmt; die Ich-Sätze (2, 4, 6, 8) bleiben unverändert.
+    const deSatz = (s: string): string => {
+      const t = s.trim();
+      if (t === "") return "";
+      const withDot = /[.!?]$/.test(t) ? t : t + ".";
+      return withDot.charAt(0).toUpperCase() + withDot.slice(1);
+    };
+    const aforismoPrincipalText = [deSatz(p6), deSatz(`Ich entwickle ${p3}`), deSatz(p8), deSatz(p4)].join(" ");
+    const opcionalIText = [deSatz(p2), deSatz(`Ich erkenne ${p1}`), deSatz(`Ich wähle ${p3}`), deSatz(p4)].join(" ");
+    const opcionalIIText = [deSatz(p2), deSatz(`Ich erkenne ${p5}`), deSatz(p6), deSatz(`Ich entwickle ${p3}`)].join(" ");
+    const opcionalIIIText = [deSatz(`Ich fühle ${p7}`), deSatz(`Ich erkenne ${p1}`), deSatz(p8), deSatz(p4)].join(" ");
 
     return [
       {
@@ -2460,10 +2469,10 @@ export function generateAforismosTranslated(answers: Record<number, string>, lan
     const p7 = p7Raw !== "" ? p7Raw : "[Queda 7]";
     const p8 = p8Raw !== "" ? p8Raw : "[Subida 8]";
 
-    const aforismoPrincipalText = capitalizeFirst(`através de ${p6.toLowerCase()} subo a ${p3.toLowerCase()} e através de ${p8.toLowerCase()} subo a ${p4.toLowerCase()}.`);
-    const opcionalIText = capitalizeFirst(`para evitar ${p2.toLowerCase()} diante de ${p1.toLowerCase()}, dou o trato de ${p3.toLowerCase()}, agindo com ${p4.toLowerCase()}.`);
-    const opcionalIIText = capitalizeFirst(`por ${p5.toLowerCase()} caio em ${p2.toLowerCase()}, mas por ${p6.toLowerCase()} subo a ${p3.toLowerCase()}.`);
-    const opcionalIIIText = capitalizeFirst(`por ${p7.toLowerCase()} caio diante de ${p1.toLowerCase()}, mas por ${p8.toLowerCase()} subo a ${p4.toLowerCase()}.`);
+    const aforismoPrincipalText = capitalizeFirst(`o meu caminho de subida: “${p6.toLowerCase()}” leva-me a ${p3.toLowerCase()}, e “${p8.toLowerCase()}” leva-me a “${p4.toLowerCase()}”.`);
+    const opcionalIText = capitalizeFirst(`para não reagir com “${p2.toLowerCase()}” diante de ${p1.toLowerCase()}, respondo com ${p3.toLowerCase()} e escolho: “${p4.toLowerCase()}”.`);
+    const opcionalIIText = capitalizeFirst(`por ${p5.toLowerCase()} caio em “${p2.toLowerCase()}”, mas “${p6.toLowerCase()}” leva-me a ${p3.toLowerCase()}.`);
+    const opcionalIIIText = capitalizeFirst(`por ${p7.toLowerCase()} caio diante de ${p1.toLowerCase()}, mas “${p8.toLowerCase()}” leva-me a “${p4.toLowerCase()}”.`);
 
     return [
       {
