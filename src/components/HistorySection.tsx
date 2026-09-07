@@ -17,7 +17,7 @@ interface HistorySectionProps {
   onDeletePractice: (id: string) => void;
   onStartNew: () => void;
   theme?: "light" | "dark";
-  lang?: "es" | "en" | "fr" | "de" | "pt";
+  lang?: "es" | "en" | "fr" | "de" | "pt" | "ru";
 }
 
 export default function HistorySection({
@@ -74,15 +74,15 @@ export default function HistorySection({
           className="w-full sm:w-auto px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-2 transition duration-150 cursor-pointer animate-pulse"
         >
           <Sparkles className="w-4 h-4" />
-          <span>{{ es: "Nueva Práctica", en: "New Practice", fr: "Nouvelle Pratique", de: "Neue Praxis", pt: "Nova Prática" }[lang]}</span>
+          <span>{{ es: "Nueva Práctica", en: "New Practice", fr: "Nouvelle Pratique", de: "Neue Praxis", pt: "Nova Prática", ru: "Новая практика" }[lang]}</span>
         </button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {practices.map((practice, idx) => {
-          const maltrato = practice.answers[1] || { es: "No especificado", en: "Unspecified", fr: "Non spécifié", de: "Nicht angegeben", pt: "Não especificado" }[lang];
-          const reaccion = practice.answers[2] || { es: "No especificado", en: "Unspecified", fr: "Non spécifié", de: "Nicht angegeben", pt: "Não especificado" }[lang];
-          const virtud = practice.answers[3] || { es: "No especificado", en: "Unspecified", fr: "Non spécifié", de: "Nicht angegeben", pt: "Não especificado" }[lang];
+          const maltrato = practice.answers[1] || { es: "No especificado", en: "Unspecified", fr: "Non spécifié", de: "Nicht angegeben", pt: "Não especificado", ru: "Не указано" }[lang];
+          const reaccion = practice.answers[2] || { es: "No especificado", en: "Unspecified", fr: "Non spécifié", de: "Nicht angegeben", pt: "Não especificado", ru: "Не указано" }[lang];
+          const virtud = practice.answers[3] || { es: "No especificado", en: "Unspecified", fr: "Non spécifié", de: "Nicht angegeben", pt: "Não especificado", ru: "Не указано" }[lang];
 
           return (
             <motion.div
@@ -108,7 +108,7 @@ export default function HistorySection({
                         onDeletePractice(practice.id);
                       }
                     }}
-                    title={{ es: "Eliminar práctica", en: "Delete practice", fr: "Supprimer la pratique", de: "Praxis löschen", pt: "Eliminar prática" }[lang]}
+                    title={{ es: "Eliminar práctica", en: "Delete practice", fr: "Supprimer la pratique", de: "Praxis löschen", pt: "Eliminar prática", ru: "Удалить практику" }[lang]}
                     className={`p-1 rounded-md transition duration-150 cursor-pointer opacity-0 group-hover:opacity-100 focus:opacity-100 ${
                       isDark 
                         ? "text-slate-500 hover:text-red-400 hover:bg-red-950/40" 
@@ -131,7 +131,7 @@ export default function HistorySection({
                       isDark ? "bg-slate-800 border-slate-700" : "bg-slate-50 border-slate-100"
                     }`}>
                       <span className="text-[9px] uppercase tracking-wider font-bold text-slate-400 block">
-                        {{ es: "Maltrato recibido", en: "Mistreatment received", fr: "Maltraitance reçue", de: "Erlittene Fehlbehandlung", pt: "Maltrato recebido" }[lang]}
+                        {{ es: "Maltrato recibido", en: "Mistreatment received", fr: "Maltraitance reçue", de: "Erlittene Fehlbehandlung", pt: "Maltrato recebido", ru: "Полученное плохое обращение" }[lang]}
                       </span>
                       <span className={`font-semibold line-clamp-1 ${isDark ? "text-slate-200" : "text-slate-700"}`}>{maltrato}</span>
                     </div>
@@ -139,7 +139,7 @@ export default function HistorySection({
                       isDark ? "bg-slate-800 border-slate-700" : "bg-slate-50 border-slate-100"
                     }`}>
                       <span className="text-[9px] uppercase tracking-wider font-bold text-slate-400 block">
-                        {{ es: "Mi reacción", en: "My reaction", fr: "Ma réaction", de: "Meine Reaktion", pt: "A minha reação" }[lang]}
+                        {{ es: "Mi reacción", en: "My reaction", fr: "Ma réaction", de: "Meine Reaktion", pt: "A minha reação", ru: "Моя реакция" }[lang]}
                       </span>
                       <span className={`font-semibold line-clamp-1 ${isDark ? "text-slate-200" : "text-slate-700"}`}>{reaccion}</span>
                     </div>
@@ -152,14 +152,14 @@ export default function HistorySection({
                     ? "bg-amber-950/20 border border-amber-900/30 text-amber-200" 
                     : "bg-amber-50/40 border border-amber-100/50 text-amber-950"
                 }`}>
-                  "{virtud}" {{ es: "como opuesto a", en: "as opposed to", fr: "en opposition à", de: "im Gegensatz zu", pt: "como oposto a" }[lang]} "{maltrato}"
+                  "{virtud}" {{ es: "como opuesto a", en: "as opposed to", fr: "en opposition à", de: "im Gegensatz zu", pt: "como oposto a", ru: "как противоположность" }[lang]} "{maltrato}"
                 </div>
 
                 {practice.notes && (
                   <p className={`text-xs line-clamp-2 leading-relaxed border-t pt-2 ${
                     isDark ? "border-slate-850 text-slate-400" : "border-slate-100 text-slate-500"
                   }`}>
-                    <span className="font-bold">{{ es: "Notas:", en: "Notes:", fr: "Notes :", de: "Notizen:", pt: "Notas:" }[lang]}</span> {practice.notes}
+                    <span className="font-bold">{{ es: "Notas:", en: "Notes:", fr: "Notes :", de: "Notizen:", pt: "Notas:", ru: "Заметки:" }[lang]}</span> {practice.notes}
                   </p>
                 )}
               </div>
@@ -172,7 +172,7 @@ export default function HistorySection({
                   onClick={() => onSelectPractice(practice)}
                   className="text-xs font-bold text-amber-500 hover:text-amber-400 flex items-center gap-1 cursor-pointer"
                 >
-                  <span>{{ es: "Ver práctica completa", en: "View full practice", fr: "Voir la pratique complète", de: "Vollständige Praxis ansehen", pt: "Ver prática completa" }[lang]}</span>
+                  <span>{{ es: "Ver práctica completa", en: "View full practice", fr: "Voir la pratique complète", de: "Vollständige Praxis ansehen", pt: "Ver prática completa", ru: "Посмотреть практику полностью" }[lang]}</span>
                   <ArrowRight className="w-3.5 h-3.5 transition group-hover:translate-x-0.5" />
                 </button>
               </div>
