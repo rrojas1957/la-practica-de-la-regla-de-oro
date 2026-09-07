@@ -958,7 +958,8 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                       en: `No terms were found for "${glossarySearch}". Try another word.`,
                       fr: `Aucun terme trouvé pour "${glossarySearch}". Essayez un autre mot.`,
                       de: `Keine Begriffe für "${glossarySearch}" gefunden. Versuchen Sie ein anderes Wort.`,
-                      pt: `Não foram encontrados termos para "${glossarySearch}". Tenta outra palavra.`
+                      pt: `Não foram encontrados termos para "${glossarySearch}". Tenta outra palavra.`,
+                      ru: `Термины по запросу "${glossarySearch}" не найдены. Попробуйте другое слово.`
                     }[lang]}
                   </div>
                 )}
