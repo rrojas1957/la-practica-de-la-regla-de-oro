@@ -1,5 +1,5 @@
 import { STEPS } from "../data/helpLists";
-import { STEPS_EN, STEPS_FR, STEPS_DE, STEPS_PT } from "../data/translations";
+import { STEPS_EN, STEPS_FR, STEPS_DE, STEPS_PT, STEPS_RU } from "../data/translations";
 import { ArrowDown, ArrowUp, Zap, HelpCircle, Check, Sparkles } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -9,7 +9,7 @@ interface InteractiveMapProps {
   onSelectStep?: (id: number) => void;
   interactive?: boolean;
   theme?: "light" | "dark";
-  lang?: "es" | "en" | "fr" | "de" | "pt";
+  lang?: "es" | "en" | "fr" | "de" | "pt" | "ru";
 }
 
 export default function InteractiveMap({
@@ -26,6 +26,7 @@ export default function InteractiveMap({
     lang === "en" ? STEPS_EN :
     lang === "fr" ? STEPS_FR :
     lang === "de" ? STEPS_DE :
+    lang === "ru" ? STEPS_RU :
     STEPS_PT;
   
   // Helper to check if a step is answered
@@ -122,7 +123,7 @@ export default function InteractiveMap({
         <div className="space-y-1">
           <div className="flex items-center justify-between">
             <span className={`text-[10px] uppercase tracking-wider font-bold ${headerClass}`}>
-              {{ es: `Punto ${step.id}`, en: `Point ${step.id}`, fr: `Point ${step.id}`, de: `Punkt ${step.id}`, pt: `Ponto ${step.id}` }[lang]}
+              {{ es: `Punto ${step.id}`, en: `Point ${step.id}`, fr: `Point ${step.id}`, de: `Punkt ${step.id}`, pt: `Ponto ${step.id}`, ru: `Пункт ${step.id}` }[lang]}
             </span>
             <div className="flex items-center gap-1.5">
               {answered && (
@@ -132,7 +133,7 @@ export default function InteractiveMap({
               )}
               {step.type === "transition" && (
                 <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded ${badgeClass}`}>
-                  {step.direction === "up" ? { es: "Subida", en: "Rise", fr: "Montée", de: "Aufstieg", pt: "Subida" }[lang] : { es: "Caída", en: "Fall", fr: "Chute", de: "Absturz", pt: "Queda" }[lang]}
+                  {step.direction === "up" ? { es: "Subida", en: "Rise", fr: "Montée", de: "Aufstieg", pt: "Subida", ru: "Подъём" }[lang] : { es: "Caída", en: "Fall", fr: "Chute", de: "Absturz", pt: "Queda", ru: "Падение" }[lang]}
                 </span>
               )}
             </div>
@@ -148,7 +149,7 @@ export default function InteractiveMap({
           ) : (
             <span className="text-xs text-slate-400 italic flex items-center gap-1">
               <HelpCircle className="w-3.5 h-3.5 animate-pulse text-slate-400" />
-              <span>{{ es: "Pendiente...", en: "Pending...", fr: "En attente...", de: "Ausstehend...", pt: "Pendente..." }[lang]}</span>
+              <span>{{ es: "Pendiente...", en: "Pending...", fr: "En attente...", de: "Ausstehend...", pt: "Pendente...", ru: "В ожидании..." }[lang]}</span>
             </span>
           )}
         </div>
@@ -162,24 +163,24 @@ export default function InteractiveMap({
       <div className="flex flex-wrap items-center justify-between gap-3 px-1">
         <h3 className={`text-sm font-bold flex items-center gap-2 ${isDark ? "text-slate-200" : "text-slate-700"}`}>
           <Zap className="w-4 h-4 text-amber-500" />
-          {{ es: "Mapa de los 8 Espacios de Conciencia", en: "Map of the 8 Spaces of Consciousness", fr: "Carte des 8 Espaces de Conscience", de: "Karte der 8 Bewusstseinsräume", pt: "Mapa dos 8 Espaços de Consciência" }[lang]}
+          {{ es: "Mapa de los 8 Espacios de Conciencia", en: "Map of the 8 Spaces of Consciousness", fr: "Carte des 8 Espaces de Conscience", de: "Karte der 8 Bewusstseinsräume", pt: "Mapa dos 8 Espaços de Consciência", ru: "Карта 8 пространств сознания" }[lang]}
         </h3>
         <div className={`flex flex-wrap gap-4 text-[11px] font-medium ${isDark ? "text-slate-400" : "text-slate-500"}`}>
           <div className="flex items-center gap-1">
             <span className={`w-2.5 h-2.5 rounded border inline-block ${isDark ? "bg-amber-950/40 border-amber-800" : "bg-amber-100 border-amber-300"}`} />
-            <span>{{ es: "Conciencia de Sí", en: "Self-Consciousness", fr: "Conscience de Soi", de: "Selbstbewusstsein", pt: "Consciência de Si" }[lang]}</span>
+            <span>{{ es: "Conciencia de Sí", en: "Self-Consciousness", fr: "Conscience de Soi", de: "Selbstbewusstsein", pt: "Consciência de Si", ru: "Самосознание" }[lang]}</span>
           </div>
           <div className="flex items-center gap-1">
             <span className={`w-2.5 h-2.5 rounded border inline-block ${isDark ? "bg-emerald-950/40 border-emerald-850" : "bg-emerald-100 border-emerald-300"}`} />
-            <span>{{ es: "Caminos de Subida", en: "Rising Paths", fr: "Chemins de Montée", de: "Aufstiegswege", pt: "Caminhos de Subida" }[lang]}</span>
+            <span>{{ es: "Caminos de Subida", en: "Rising Paths", fr: "Chemins de Montée", de: "Aufstiegswege", pt: "Caminhos de Subida", ru: "Пути подъёма" }[lang]}</span>
           </div>
           <div className="flex items-center gap-1">
             <span className={`w-2.5 h-2.5 rounded border inline-block ${isDark ? "bg-rose-950/40 border-rose-850" : "bg-rose-100 border-rose-300"}`} />
-            <span>{{ es: "Caminos de Caída", en: "Falling Paths", fr: "Chemins de Chute", de: "Absturzwege", pt: "Caminhos de Queda" }[lang]}</span>
+            <span>{{ es: "Caminos de Caída", en: "Falling Paths", fr: "Chemins de Chute", de: "Absturzwege", pt: "Caminhos de Queda", ru: "Пути падения" }[lang]}</span>
           </div>
           <div className="flex items-center gap-1">
             <span className={`w-2.5 h-2.5 rounded border inline-block ${isDark ? "bg-indigo-950/40 border-indigo-850" : "bg-indigo-50 border-indigo-200"}`} />
-            <span>{{ es: "Conciencia Perturbada", en: "Perturbed Consciousness", fr: "Conscience Perturbée", de: "Gestörtes Bewusstsein", pt: "Consciência Perturbada" }[lang]}</span>
+            <span>{{ es: "Conciencia Perturbada", en: "Perturbed Consciousness", fr: "Conscience Perturbée", de: "Gestörtes Bewusstsein", pt: "Consciência Perturbada", ru: "Возмущённое сознание" }[lang]}</span>
           </div>
         </div>
       </div>
@@ -197,7 +198,7 @@ export default function InteractiveMap({
             <span className={`px-2.5 py-0.5 rounded-full border text-[10px] font-bold tracking-wider uppercase ${
               isDark ? "bg-amber-950/40 border-amber-900 text-amber-300" : "bg-amber-50 border-amber-200 text-amber-800"
             }`}>
-              {{ es: "Espacio Luminoso: Conciencia de Sí, Inspirada e Intencionada", en: "Luminous Space: Self-Consciousness, Inspired and Intentional", fr: "Espace Lumineux : Conscience de Soi, Inspirée et Intentionnelle", de: "Lichter Raum: Selbstbewusstsein, Inspiriert und Intentional", pt: "Espaço Luminoso: Consciência de Si, Inspirada e Intencional" }[lang]}
+              {{ es: "Espacio Luminoso: Conciencia de Sí, Inspirada e Intencionada", en: "Luminous Space: Self-Consciousness, Inspired and Intentional", fr: "Espace Lumineux : Conscience de Soi, Inspirée et Intentionnelle", de: "Lichter Raum: Selbstbewusstsein, Inspiriert und Intentional", pt: "Espaço Luminoso: Consciência de Si, Inspirada e Intencional", ru: "Светлое пространство: самосознание, вдохновлённое и намеренное" }[lang]}
             </span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -214,7 +215,7 @@ export default function InteractiveMap({
           <div className="text-center pb-1">
             <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center justify-center gap-1">
               <ArrowDown className="w-3 h-3 text-rose-400" />
-              <span>{{ es: "Transición Izquierda", en: "Left Transition", fr: "Transition Gauche", de: "Linker Übergang", pt: "Transição Esquerda" }[lang]}</span>
+              <span>{{ es: "Transición Izquierda", en: "Left Transition", fr: "Transition Gauche", de: "Linker Übergang", pt: "Transição Esquerda", ru: "Левый переход" }[lang]}</span>
               <ArrowUp className="w-3 h-3 text-emerald-400" />
             </span>
           </div>
@@ -231,7 +232,7 @@ export default function InteractiveMap({
           <div className="text-center pb-1">
             <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center justify-center gap-1">
               <ArrowDown className="w-3 h-3 text-rose-400" />
-              <span>{{ es: "Transición Derecha", en: "Right Transition", fr: "Transition Droite", de: "Rechter Übergang", pt: "Transição Direita" }[lang]}</span>
+              <span>{{ es: "Transición Derecha", en: "Right Transition", fr: "Transition Droite", de: "Rechter Übergang", pt: "Transição Direita", ru: "Правый переход" }[lang]}</span>
               <ArrowUp className="w-3 h-3 text-emerald-400" />
             </span>
           </div>
@@ -247,7 +248,7 @@ export default function InteractiveMap({
             <span className={`px-2.5 py-0.5 rounded-full border text-[10px] font-bold tracking-wider uppercase ${
               isDark ? "bg-indigo-950/40 border-indigo-900 text-indigo-300" : "bg-indigo-50 border-indigo-200 text-indigo-900"
             }`}>
-              {{ es: "Espacio Climático: Conciencia Perturbada, Compulsiva y Mecánica", en: "Perturbed Space: Perturbed, Compulsive, and Mechanical Consciousness", fr: "Espace Climatique : Conscience Perturbée, Compulsive et Mécanique", de: "Klimatischer Raum: Gestörtes, Zwanghaftes und Mechanisches Bewusstsein", pt: "Espaço Climático: Consciência Perturbada, Compulsiva e Mecânica" }[lang]}
+              {{ es: "Espacio Climático: Conciencia Perturbada, Compulsiva y Mecánica", en: "Perturbed Space: Perturbed, Compulsive, and Mechanical Consciousness", fr: "Espace Climatique : Conscience Perturbée, Compulsive et Mécanique", de: "Klimatischer Raum: Gestörtes, Zwanghaftes und Mechanisches Bewusstsein", pt: "Espaço Climático: Consciência Perturbada, Compulsiva e Mecânica", ru: "Климатическое пространство: возмущённое, компульсивное и механическое сознание" }[lang]}
             </span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -259,7 +260,7 @@ export default function InteractiveMap({
 
       {interactive && (
         <p className="text-center text-xs text-slate-400 italic">
-          {{ es: "💡 Puedes pulsar sobre cualquier espacio en el mapa para ir directamente a responder o ver su ayuda.", en: "💡 Click on any space in the map to jump directly to its question or help suggestions.", fr: "💡 Vous pouvez cliquer sur n'importe quel espace de la carte pour aller directement répondre ou voir son aide.", de: "💡 Sie können auf jeden Raum der Karte klicken, um direkt zur Antwort oder zur Hilfe zu gelangen.", pt: "💡 Podes clicar em qualquer espaço do mapa para ir diretamente responder ou ver a sua ajuda." }[lang]}
+          {{ es: "💡 Puedes pulsar sobre cualquier espacio en el mapa para ir directamente a responder o ver su ayuda.", en: "💡 Click on any space in the map to jump directly to its question or help suggestions.", fr: "💡 Vous pouvez cliquer sur n'importe quel espace de la carte pour aller directement répondre ou voir son aide.", de: "💡 Sie können auf jeden Raum der Karte klicken, um direkt zur Antwort oder zur Hilfe zu gelangen.", pt: "💡 Podes clicar em qualquer espaço do mapa para ir diretamente responder ou ver a sua ajuda.", ru: "💡 Нажмите на любое пространство карты, чтобы сразу перейти к ответу или посмотреть подсказки." }[lang]}
         </p>
       )}
     </div>
