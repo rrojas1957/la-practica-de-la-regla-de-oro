@@ -8,12 +8,12 @@ interface IntroSectionProps {
   onStart: () => void;
   onLoadExample: () => void;
   theme: "light" | "dark";
-  lang?: "es" | "en" | "fr" | "de" | "pt";
+  lang?: "es" | "en" | "fr" | "de" | "pt" | "ru";
   showRelaxation: boolean;
   onToggleRelaxation: () => void;
 }
 
-type IntroLang = "es" | "en" | "fr" | "de" | "pt";
+type IntroLang = "es" | "en" | "fr" | "de" | "pt" | "ru";
 
 const INTRO_UI: Record<IntroLang, {
   heroTitlePre: string;
@@ -62,6 +62,14 @@ const INTRO_UI: Record<IntroLang, {
     relaxRecoText: "Antes de iniciares a tua reflexão, propomos-te realizar um relaxamento guiado de 3 minutos (físico externo, interno e mental). É a melhor condição para silenciar o ruído interno e refletir de coração.",
     relaxListenBtn: "Ouvir o Relaxamento",
     accordionLabel: "O que é e para que serve?"
+  },
+  ru: {
+    heroTitlePre: "Практика ",
+    heroTitleHighlight: "Золотого правила",
+    relaxRecoTitle: "🧘 Рекомендация: управляемое расслабление",
+    relaxRecoText: "Прежде чем начать своё размышление, мы предлагаем вам выполнить трёхминутное управляемое расслабление (внешнее физическое, внутреннее и умственное). Это наилучшее условие, чтобы утихомирить внутренний шум и размышлять от сердца.",
+    relaxListenBtn: "Слушать расслабление",
+    accordionLabel: "Что это и для чего это нужно?"
   }
 };
 
