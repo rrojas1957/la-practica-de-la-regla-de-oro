@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 
 interface RelaxationPlayerProps {
   theme?: "light" | "dark";
-  lang?: "es" | "en" | "fr" | "de" | "pt";
+  lang?: "es" | "en" | "fr" | "de" | "pt" | "ru";
   onClose?: () => void;
 }
 
@@ -32,12 +32,13 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
   // Real start time (in seconds) of each phase within each language's recording.
   // Measured from the actual MP3 files: forced alignment (en) and effective
   // speech-time analysis snapped to the real pauses between sentences (es/fr/de/pt).
-  const PHASE_STARTS: Record<"es" | "en" | "fr" | "de" | "pt", number[]> = {
+  const PHASE_STARTS: Record<"es" | "en" | "fr" | "de" | "pt" | "ru", number[]> = {
     es: [0, 27, 184, 260, 321],
     en: [0, 14.31, 38.20, 59.01, 82.03],
     fr: [0, 15.31, 47.21, 73.65, 100.94],
     de: [0, 18.05, 44.75, 73.28, 97.12],
-    pt: [0, 13.51, 38.91, 61.57, 88.21]
+    pt: [0, 13.51, 38.91, 61.57, 88.21],
+    ru: [0, 17.8, 34.9, 51.5, 66.3]
   };
   // Show the text slightly before the voice starts the phrase (perceptual sync)
   const PHASE_LEAD = 0.35;
@@ -50,21 +51,24 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
         en: "Preparation",
         fr: "Préparation",
         de: "Vorbereitung",
-        pt: "Preparação"
+        pt: "Preparação",
+        ru: "Подготовка"
       },
       subtitle: {
         es: "Acomódate en una postura confortable",
         en: "Settle into a comfortable posture",
         fr: "Installez-vous dans une posture confortable",
         de: "Machen Sie es sich bequem",
-        pt: "Acomode-se numa postura confortável"
+        pt: "Acomode-se numa postura confortável",
+        ru: "Устройтесь в удобном положении"
       },
       text: {
         es: "Cierra los ojos y siente tu cuerpo. Donde sientas tenso, comienza a aumentar la tensión. Aprieta más y después de un ratito, suelta de una vez la tensión que aumentaste. Ahora, respira hondo y tómate un corto tiempo.",
         en: "Find a comfortable position, gently close your eyes if you wish, and prepare to release the noise and tension of the day. Breathe slowly and deeply.",
         fr: "Trouvez une position confortable, fermez doucement les yeux si vous le souhaitez et préparez-vous à libérer le bruit et la tension de la journée. Respirez lentement et profondément.",
         de: "Finden Sie eine bequeme Position, schließen Sie sanft die Augen, wenn Sie möchten, und bereiten Sie sich darauf vor, den Lärm und die Spannungen des Tages loszulassen. Atmen Sie langsam und tief.",
-        pt: "Encontre uma posição confortável, feche suavemente os olhos se desejar e prepare-se para libertar o ruído e as tensões do dia. Respire lenta e profundamente."
+        pt: "Encontre uma posição confortável, feche suavemente os olhos se desejar e prepare-se para libertar o ruído e as tensões do dia. Respire lenta e profundamente.",
+        ru: "Найдите удобное положение. Закройте глаза, если хотите. Мы собираемся сделать краткое упражнение на расслабление, чтобы войти в спокойное и восприимчивое состояние перед внутренней работой."
       }
     },
     {
@@ -73,21 +77,24 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
         en: "1. External Relaxation",
         fr: "1. Relaxation Externe",
         de: "1. Äußere Entspannung",
-        pt: "1. Relaxamento Externo"
+        pt: "1. Relaxamento Externo",
+        ru: "1. Внешнее расслабление"
       },
       subtitle: {
         es: "Aquietar el cuerpo físico",
         en: "Quieting the physical body",
         fr: "Calmer le corps physique",
         de: "Den physischen Körper beruhigen",
-        pt: "Aquietar o corpo físico"
+        pt: "Aquietar o corpo físico",
+        ru: "Успокоение физического тела"
       },
       text: {
         es: "Siente tu cabeza, el cuero cabelludo, los músculos de la cara, la mandíbula. Siente cómo están tus dos ojos al mismo tiempo, los dos lados de tu nariz, el borde de tus labios, tus mejillas. Y baja sintiendo los dos lados de tu cuello al mismo tiempo. Siente cómo están tus dos hombros. Desde allí, poco a poco, baja por tus brazos, antebrazos, manos, hasta llegar a la punta de los dedos, sintiendo todas estas partes bien relajadas. Vuelve y siente tu cabeza, el cuero cabelludo, los músculos de la cara, la mandíbula. Siente de nuevo cómo están tus dos ojos, los dos lados de tu nariz, el borde de tus labios, tus mejillas. Ahora, vas a sentir que bajas por delante de tu cuerpo como siguiendo dos líneas imaginarias. Baja por los músculos de tu pecho y sigue hasta tu panza. Sigue bajando y ahí, donde termina tu tronco, debe quedar todo completamente bien relajado. Vuelve a tu cabeza y esta vez, comienza a sentir que bajas por atrás de tu cuerpo. Baja por dos líneas imaginarias pasando por tu cuello, tus hombros, tus omóplatos, tu cintura y la parte baja de tu espalda. Sigue por tus dos piernas al mismo tiempo a lo largo de ellas hasta llegar a la punta de los dedos de los pies.",
         en: "We begin by relaxing the muscles of the body. Relax your forehead, cheeks, jaws, tongue, and throat. Let your eyes fall heavy. Feel your neck loose, your shoulders and arms falling heavy. Relax your chest, abdomen, legs, and feet. Feel your entire body completely loose and at peace.",
         fr: "Nous commençons par détendre les muscles du corps. Relâchez votre front, vos joues, vos mâchoires, votre langue et votre gorge. Laissez vos yeux devenir lourds. Sentez votre cou souple, vos épaules et vos bras tomber lourdement. Relâchez votre poitrine, votre abdomen, vos jambes et vos pieds. Sentez tout votre corps complètement relâché et en paix.",
         de: "Wir beginnen mit der Entspannung der Körpermuskeln. Entspannen Sie Stirn, Wangen, Kiefer, Zunge und Rachen. Lassen Sie Ihre Augen schwer werden. Fühlen Sie den Nacken locker, Schultern und Arme schwer herabsinken. Entspannen Sie Brust, Bauch, Beine und Füße. Fühlen Sie Ihren ganzen Körper vollkommen locker und in Frieden.",
-        pt: "Começamos por relaxar os músculos do corpo. Relaxe a testa, as bochechas, as mandíbulas, a língua e a garganta. Deixe os olhos caírem pesados. Sinta o pescoço solto, os ombros e os braços a cair pesados. Relaxe o peito, o abdómen, as pernas e os pés. Sinta todo o seu corpo completamente solto e em paz."
+        pt: "Começamos por relaxar os músculos do corpo. Relaxe a testa, as bochechas, as mandíbulas, a língua e a garganta. Deixe os olhos caírem pesados. Sinta o pescoço solto, os ombros e os braços a cair pesados. Relaxe o peito, o abdómen, as pernas e os pés. Sinta todo o seu corpo completamente solto e em paz.",
+        ru: "Расслабьте лицо... челюсть... шею и плечи... Позвольте рукам естественно опуститься... Расслабьте грудь... живот... ноги... ступни. Почувствуйте, как с каждым вдохом всё ваше тело становится тяжелее и спокойнее."
       }
     },
     {
@@ -96,21 +103,24 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
         en: "2. Internal Relaxation",
         fr: "2. Relaxation Interne",
         de: "2. Innere Entspannung",
-        pt: "2. Relaxamento Interno"
+        pt: "2. Relaxamento Interno",
+        ru: "2. Внутреннее расслабление"
       },
       subtitle: {
         es: "Aquietar el pecho y órganos",
         en: "Quieting the chest and organs",
         fr: "Calmer la poitrine et les organes",
         de: "Brust und Organe beruhigen",
-        pt: "Aquietar o peito e os órgãos"
+        pt: "Aquietar o peito e os órgãos",
+        ru: "Успокоение груди и органов"
       },
       text: {
         es: "Vuelve a tu cabeza. Siente tus ojos por dentro y los músculos que lo rodean. Continúa sintiéndolos por dentro, relajándolos profundamente. Ahora, cae hacia dentro de tu cabeza. Deslízate al interior y anda relajando completamente. Sigue como cayendo por un tobogán hacia los pulmones. Respira profundo y suelta el aire despacito para sentir cómo los pulmones se mueven al mismo ritmo de tu respiración y se van relajando. Sigue bajando hacia la panza, siempre tratando de relajar todas tus tensiones. Sigue bajando internamente, aflojando por dentro, en profundidad, hasta la terminación de tu tronco, dejando todo en perfecto relax.",
         en: "Now we relax internal tensions. Feel your chest inside, relax your lungs, and calm your heart. Feel your stomach and intestines, releasing any knots, tension, or tightness. Notice your soft, warm, and luminous interior, like a refuge of peace.",
         fr: "Maintenant, nous relâchons les tensions internes. Sentez l'intérieur de votre poitrine, détendez vos poumons et calmez votre cœur. Sentez votre estomac et vos intestins, libérant tout nœud, tension ou crispation. Prenez conscience de votre intérieur doux, chaleureux et lumineux, comme un refuge de paix.",
         de: "Jetzt entspannen wir die inneren Spannungen. Fühlen Sie Ihre Brust von innen, entspannen Sie Ihre Lungen und beruhigen Sie Ihr Herz. Fühlen Sie Ihren Magen und Darm und lösen Sie jeden Knoten, jede Spannung oder Verkrampfung. Nehmen Sie Ihr Inneres weich, warm und leuchtend wahr, wie einen Zufluchtsort des Friedens.",
-        pt: "Agora relaxamos as tensões internas. Sinta o peito por dentro, relaxe os pulmões e acalme o coração. Sinta o estômago e os intestinos, soltando qualquer nó, tensão ou contração. Registe o seu interior suave, caloroso e luminoso, como um refúgio de paz."
+        pt: "Agora relaxamos as tensões internas. Sinta o peito por dentro, relaxe os pulmões e acalme o coração. Sinta o estômago e os intestinos, soltando qualquer nó, tensão ou contração. Registe o seu interior suave, caloroso e luminoso, como um refúgio de paz.",
+        ru: "Теперь направьте своё внимание внутрь. Заметьте, как ваши эмоции успокаиваются. Здесь нет суждений, нет обязательств. Только вы, в этот момент, в этом пространстве тишины и внутренней свободы."
       }
     },
     {
@@ -119,21 +129,24 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
         en: "3. Mental Relaxation",
         fr: "3. Relaxation Mentale",
         de: "3. Mentale Entspannung",
-        pt: "3. Relaxamento Mental"
+        pt: "3. Relaxamento Mental",
+        ru: "3. Умственное расслабление"
       },
       subtitle: {
         es: "Silencio y paz mental",
         en: "Silence and mental peace",
         fr: "Silence et paix mentale",
         de: "Stille und geistiger Frieden",
-        pt: "Silêncio e paz mental"
+        pt: "Silêncio e paz mental",
+        ru: "Тишина и душевный покой"
       },
       text: {
         es: "Nuevamente, siente tu cabeza, el cuero cabelludo y más abajo el cráneo. Siente tu cerebro como si estuviera tenso. Anda aflojando esa tensión hacia dentro de tu cerebro y hacia abajo, como si fuera descendiendo la relajación. La tensión va bajando, siempre bajando, bajando hacia el centro de tu cerebro, más abajo del centro, mucho más abajo. Suelta esa tensión e imagina que se disuelve y desaparece. Eso que estaba tenso se va haciendo cada vez más algodonoso, más suave, más tibio.",
         en: "Finally, relax your mind. Let worries and thoughts pass by like clouds in the wind. Do not dwell on any of them. If an image appears, gently let it go. Feel your mind silent, empty, and peaceful, like a crystal-clear lake in absolute stillness.",
         fr: "Enfin, détendez votre esprit. Laissez passer les soucis et les pensées comme des nuages dans le vent. Ne vous arrêtez sur aucun d'eux. Si une image apparaît, laissez-la partir doucement. Sentez votre esprit silencieux, vide et tranquille, comme un lac cristallin dans un calme absolu.",
         de: "Schließlich entspannen Sie Ihren Geist. Lassen Sie Sorgen und Gedanken wie Wolken im Wind vorüberziehen. Verweilen Sie bei keinem von ihnen. Wenn ein Bild erscheint, lassen Sie es sanft gehen. Fühlen Sie Ihren Geist still, leer und friedlich, wie einen kristallklaren See in absoluter Windstille.",
-        pt: "Finalmente, relaxe a mente. Deixe passar as preocupações e pensamentos como nuvens ao vento. Não se detenha em nenhum deles. Si aparecer uma imagem, deixe-a ir suavemente. Sinta a mente silenciosa, vazia e tranquila, como um lago cristalino em absoluta calma."
+        pt: "Finalmente, relaxe a mente. Deixe passar as preocupações e pensamentos como nuvens ao vento. Não se detenha em nenhum deles. Si aparecer uma imagem, deixe-a ir suavemente. Sinta a mente silenciosa, vazia e tranquila, como um lago cristalino em absoluta calma.",
+        ru: "Позвольте мыслям проходить, как облака в небе. Не цепляйтесь ни за одну из них. Ваш ум становится яснее и тише. Вы готовы работать со своим внутренним миром с открытостью и состраданием."
       }
     },
     {
@@ -142,21 +155,24 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
         en: "Peaceful State Ready",
         fr: "État de Paix Prêt",
         de: "Friedlicher Zustand bereit",
-        pt: "Estado de Paz Pronto"
+        pt: "Estado de Paz Pronto",
+        ru: "Спокойное состояние достигнуто"
       },
       subtitle: {
         es: "Unidad interna para la práctica",
         en: "Internal unity for your practice",
         fr: "Unité interne pour la pratique",
         de: "Innere Einheit für die Praxis",
-        pt: "Unidade interna para a prática"
+        pt: "Unidade interna para a prática",
+        ru: "Внутреннее единство для вашей практики"
       },
       text: {
         es: "¿Cómo te sientes? ¿Sientes que tu cuerpo está más relajado, más blandito? Puedes quedarte sintiendo tu cuerpo el tiempo que necesites. Cuando lo desees, continúa hacia el ejercicio de la Regla de Oro.",
         en: "You have reached a state of calm, silence, and coherence. You are in the best condition to begin your reflection on the Golden Rule. Whenever you are ready, continue to the exercise.",
         fr: "Vous avez atteint un état de calme, de silence et de cohérence. Vous êtes dans les meilleures dispositions pour commencer votre réflexion sur la Règle d'Or. Quand vous le souhaitez, continuez vers l'exercice.",
         de: "Sie haben einen Zustand der Ruhe, Stille und Kohärenz erreicht. Sie sind bestens vorbereitet, um Ihre Reflexion über die Goldene Regel zu beginnen. Wenn Sie möchten, fahren Sie mit der Übung fort.",
-        pt: "Alcançou um estado de calma, silêncio e coerência. Está na melhor disposição para iniciar a sua reflexão sobre a Regra de Ouro. Quando desejar, continue para o exercício."
+        pt: "Alcançou um estado de calma, silêncio e coerência. Está na melhor disposição para iniciar a sua reflexão sobre a Regra de Ouro. Quando desejar, continue para o exercício.",
+        ru: "Замечательно. Когда почувствуете готовность, мягко откройте глаза и начните свою рефлективную практику. Золотое правило ждёт вас."
       }
     }
   ];
