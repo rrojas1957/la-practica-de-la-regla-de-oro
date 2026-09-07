@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { STEPS, generateAforismos, INTRODUCTION_TEXT } from "./data/helpLists";
-import { translations, STEPS_EN, STEPS_FR, STEPS_DE, STEPS_PT, generateAforismosTranslated } from "./data/translations";
+import { translations, STEPS_EN, STEPS_FR, STEPS_DE, STEPS_PT, STEPS_RU, generateAforismosTranslated } from "./data/translations";
 import IntroSection from "./components/IntroSection";
 import InteractiveMap from "./components/InteractiveMap";
 import HelpWordsPanel from "./components/HelpWordsPanel";
@@ -101,9 +101,19 @@ const EXAMPLE_ANSWERS_PT: Record<number, string> = {
   7: "Saturação",
   8: "Conecto-me com o Humano em mim e nos outros"
 };
+const EXAMPLE_ANSWERS_RU: Record<number, string> = {
+  1: "Исключение",
+  2: "Я страдаю и отстраняюсь, изолируясь",
+  3: "Внимание и включённость",
+  4: "Я приближаюсь и ценю других",
+  5: "Неуверенность",
+  6: "Я выражаю то, что чувствую и думаю",
+  7: "Выгорание",
+  8: "Я соединяюсь с Человеческим в себе и в других"
+};
 
 // Supported UI languages
-type Lang = "es" | "en" | "fr" | "de" | "pt";
+type Lang = "es" | "en" | "fr" | "de" | "pt" | "ru";
 
 // Example data mapped by language (keeps the sample exercise in sync with the language selector)
 const EXAMPLE_ANSWERS_BY_LANG: Record<Lang, Record<number, string>> = {
@@ -111,7 +121,8 @@ const EXAMPLE_ANSWERS_BY_LANG: Record<Lang, Record<number, string>> = {
   en: EXAMPLE_ANSWERS_EN,
   fr: EXAMPLE_ANSWERS_FR,
   de: EXAMPLE_ANSWERS_DE,
-  pt: EXAMPLE_ANSWERS_PT
+  pt: EXAMPLE_ANSWERS_PT,
+  ru: EXAMPLE_ANSWERS_RU
 };
 
 const EXAMPLE_TITLES: Record<Lang, string> = {
@@ -119,7 +130,8 @@ const EXAMPLE_TITLES: Record<Lang, string> = {
   en: "Example - Overcoming Excluding Treatment",
   fr: "Exemple - Dépassement du Traitement Excluant",
   de: "Beispiel - Überwindung der ausgrenzenden Behandlung",
-  pt: "Exemplo - Superação do Trato Excludente"
+  pt: "Exemplo - Superação do Trato Excludente",
+  ru: "Пример — Преодоление исключающего обращения"
 };
 
 const EXAMPLE_NOTES: Record<Lang, string> = {
@@ -127,7 +139,8 @@ const EXAMPLE_NOTES: Record<Lang, string> = {
   en: "This is the classic example of applying the Golden Rule, addressing the external violence of excluding treatment through consideration and inclusion, overcoming defensive suffering and distrust through honest communication.",
   fr: "Ceci est l'exemple classique d'application de la Règle d'Or : il aborde la violence externe du traitement excluant par la considération et l'inclusion, en dépassant la souffrance défensive et la méfiance grâce à une communication honnête.",
   de: "Dies ist das klassische Beispiel für die Anwendung der Goldenen Regel: Es begegnet der äußeren Gewalt der ausgrenzenden Behandlung mit Rücksicht und Einbeziehung und überwindet defensives Leiden und Misstrauen durch ehrliche Kommunikation.",
-  pt: "Este é o exemplo clássico de aplicação da Regra de Ouro, abordando a violência externa do trato excludente através da consideração e inclusão, superando o sofrimento defensivo e a desconfiança por meio da comunicação honesta."
+  pt: "Este é o exemplo clássico de aplicação da Regra de Ouro, abordando a violência externa do trato excludente através da consideração e inclusão, superando o sofrimento defensivo e a desconfiança por meio da comunicação honesta.",
+  ru: "Это классический пример применения Золотого правила: он обращается к внешнему насилию исключающего обращения через внимание и включённость, преодолевая защитное страдание и недоверие посредством честной коммуникации."
 };
 
 // Date locales per language
@@ -136,7 +149,8 @@ const LOCALES: Record<Lang, string> = {
   en: "en-US",
   fr: "fr-FR",
   de: "de-DE",
-  pt: "pt-PT"
+  pt: "pt-PT",
+  ru: "ru-RU"
 };
 
 // Miscellaneous in-component UI strings that are not part of the shared translations dictionary
@@ -235,6 +249,22 @@ const APP_UI: Record<Lang, {
     footerCopyright: "© 2026 - Baseado na Escola de Silo",
     footerStorage: "Guardado local privado (Sem base de dados)",
     footerDeveloped: "Desenvolvido por R.E.R.H., com humildade e bondade"
+  },
+  ru: {
+    themeLight: "Светлая",
+    themeDark: "Тёмная",
+    ofWord: "из",
+    myReflection: "Моё размышление",
+    filePrefix: "Zolotoe_pravilo",
+    relaxPrompt: "🧘 Хотите успокоить ум перед началом? Выполните управляемое расслабление",
+    relaxListen: "Слушать",
+    notesLabel: "Ваши заметки или дневник размышления (необязательно):",
+    notesPlaceholder: "Используйте это пространство, чтобы подробнее описать внешнюю ситуацию, записать телесные изменения, которые вы переживаете, или задокументировать свои обязательства...",
+    footerTitle: "Практика Золотого правила",
+    footerDesc: "Инструмент, основанный на методологии активного ненасилия, для содействия личной согласованности, душевному спокойствию и личному и социальному примирению.",
+    footerCopyright: "© 2026 — На основе Школы Сило",
+    footerStorage: "Приватное локальное сохранение (без базы данных)",
+    footerDeveloped: "Разработано R.E.R.H., со смирением и добротой"
   }
 };
 
@@ -245,6 +275,7 @@ const BOTTOM_NAV_LABELS: Record<Lang, { intro: string; practice: string; history
   fr: { intro: "Accueil",    practice: "Pratique",  history: "Historique",support: "Biblio."    },
   de: { intro: "Start",      practice: "Praxis",    history: "Verlauf",   support: "Bibliothek" },
   pt: { intro: "Início",     practice: "Prática",   history: "Historial", support: "Biblioteca" },
+  ru: { intro: "Начало",     practice: "Практика",  history: "История",   support: "Библиотека" },
 };
 
 // Default title used when saving a practice without a custom title
@@ -254,7 +285,8 @@ const defaultSaveTitle = (lang: Lang, word: string): string => {
     en: `Overcoming the rejection of "${word}"`,
     fr: `Dépasser le rejet de « ${word} »`,
     de: `Die Ablehnung von "${word}" überwinden`,
-    pt: `Superar a rejeição de "${word}"`
+    pt: `Superar a rejeição de "${word}"`,
+    ru: `Преодолеть отвержение «${word}»`
   };
   return map[lang];
 };
@@ -266,7 +298,8 @@ const supportExampleNotes = (lang: Lang, title: string): string => {
     en: `This is the reflection exercise loaded from the application's support examples: "${title}". Use it as inspiration for your own work.`,
     fr: `Ceci est l'exercice de réflexion chargé depuis les exemples de soutien de l'application : « ${title} ». Utilisez-le comme inspiration pour votre propre travail.`,
     de: `Dies ist die Reflexionsübung, die aus den Unterstützungsbeispielen der Anwendung geladen wurde: "${title}". Nutzen Sie sie als Inspiration für Ihre eigene Arbeit.`,
-    pt: `Este é o exercício de reflexão carregado a partir dos exemplos de apoio da aplicação: "${title}". Usa-o como inspiração para o teu próprio trabalho.`
+    pt: `Este é o exercício de reflexão carregado a partir dos exemplos de apoio da aplicação: "${title}". Usa-o como inspiração para o teu próprio trabalho.`,
+    ru: `Это рефлективное упражнение, загруженное из вспомогательных примеров приложения: «${title}». Используйте его как вдохновение для собственной работы.`
   };
   return map[lang];
 };
@@ -278,7 +311,8 @@ const synthesisPendingText = (lang: Lang, totalSteps: number, answeredCount: num
     en: `Answer all ${totalSteps} questions of the questionnaire to generate your set of interactive self-improvement aphorisms. Currently you have answered ${answeredCount} of ${totalSteps}.`,
     fr: `Répondez aux ${totalSteps} questions du questionnaire pour générer l'ensemble d'aphorismes interactifs de développement personnel. Vous en avez actuellement répondu ${answeredCount} sur ${totalSteps}.`,
     de: `Beantworten Sie die ${totalSteps} Fragen des Fragebogens, um Ihren Satz interaktiver Leitgedanken zur Selbstüberwindung zu erzeugen. Derzeit haben Sie ${answeredCount} von ${totalSteps} beantwortet.`,
-    pt: `Responde às ${totalSteps} perguntas do questionário para gerar o conjunto de aforismos interativos de superação pessoal. Atualmente respondeste ${answeredCount} de ${totalSteps}.`
+    pt: `Responde às ${totalSteps} perguntas do questionário para gerar o conjunto de aforismos interativos de superação pessoal. Atualmente respondeste ${answeredCount} de ${totalSteps}.`,
+    ru: `Ответьте на ${totalSteps} вопросов анкеты, чтобы сгенерировать набор интерактивных афоризмов для личного преодоления. Сейчас вы ответили на ${answeredCount} из ${totalSteps}.`
   };
   return map[lang];
 };
@@ -300,6 +334,7 @@ export default function App() {
     lang === "en" ? STEPS_EN : 
     lang === "fr" ? STEPS_FR : 
     lang === "de" ? STEPS_DE : 
+    lang === "ru" ? STEPS_RU : 
     STEPS_PT;
 
   // Navigation tabs: 'intro' | 'practice' | 'history' | 'support'
@@ -770,7 +805,8 @@ ${t.downloadFooterQuote}
                       { code: "en" as Lang, label: "English" },
                       { code: "fr" as Lang, label: "Français" },
                       { code: "de" as Lang, label: "Deutsch" },
-                      { code: "pt" as Lang, label: "Português" }
+                      { code: "pt" as Lang, label: "Português" },
+                      { code: "ru" as Lang, label: "Русский" }
                     ]).map(({ code, label }) => (
                       <button
                         key={code}
@@ -796,7 +832,8 @@ ${t.downloadFooterQuote}
                             en: "Language switched to English",
                             fr: "Langue changée en Français",
                             de: "Sprache auf Deutsch umgestellt",
-                            pt: "Idioma alterado para Português"
+                            pt: "Idioma alterado para Português",
+                            ru: "Язык изменён на русский"
                           };
                           showToast(msgs[code]);
                         }}
