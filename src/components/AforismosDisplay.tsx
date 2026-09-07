@@ -11,7 +11,7 @@ interface AforismosDisplayProps {
   customAforismos: Record<string, string>;
   onDownloadAll?: () => void;
   theme?: "light" | "dark";
-  lang?: "es" | "en" | "fr" | "de" | "pt";
+  lang?: "es" | "en" | "fr" | "de" | "pt" | "ru";
 }
 
 export default function AforismosDisplay({
@@ -37,15 +37,15 @@ export default function AforismosDisplay({
   };
 
   // Human-friendly titles for the 8 steps to help the user substitute
-  const stepLabels: Record<number, { es: string, en: string, fr: string, de: string, pt: string, color: string }> = {
-    1: { es: "1. Forma de Maltrato", en: "1. Type of Mistreatment", fr: "1. Type de maltraitance", de: "1. Art der Fehlbehandlung", pt: "1. Tipo de maltrato", color: "bg-rose-500/10 text-rose-500 border-rose-500/20" },
-    2: { es: "2. Sufrimiento / Reacción", en: "2. Suffering / Reaction", fr: "2. Souffrance / Réaction", de: "2. Leiden / Reaktion", pt: "2. Sofrimento / Reação", color: "bg-rose-500/10 text-rose-500 border-rose-500/20" },
-    3: { es: "3. Virtud Guía", en: "3. Guide Virtue", fr: "3. Vertu guide", de: "3. Leitende Tugend", pt: "3. Virtude guia", color: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20" },
-    4: { es: "4. Acción Solidaria", en: "4. Solidary Action", fr: "4. Action solidaire", de: "4. Solidarische Aktion", pt: "4. Ação solidária", color: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20" },
-    5: { es: "5. Sentimiento de Caída", en: "5. Falling Feeling", fr: "5. Sentiment de chute", de: "5. Gefühl des Absturzes", pt: "5. Sentimento de queda", color: "bg-indigo-500/10 text-indigo-500 border-indigo-500/20" },
-    6: { es: "6. Acción de Subida 1", en: "6. Rising Action 1", fr: "6. Action de montée 1", de: "6. Aufsteigende Aktion 1", pt: "6. Ação de subida 1", color: "bg-amber-500/10 text-amber-500 border-amber-500/20" },
-    7: { es: "7. Sentimiento de Caída", en: "7. Falling Feeling", fr: "7. Sentiment de chute", de: "7. Gefühl des Absturzes", pt: "7. Sentimento de queda", color: "bg-indigo-500/10 text-indigo-500 border-indigo-500/20" },
-    8: { es: "8. Acción de Subida 2", en: "8. Rising Action 2", fr: "8. Action de montée 2", de: "8. Aufsteigende Aktion 2", pt: "8. Ação de subida 2", color: "bg-amber-500/10 text-amber-500 border-amber-500/20" },
+  const stepLabels: Record<number, { es: string, en: string, fr: string, de: string, pt: string, ru: string, color: string }> = {
+    1: { es: "1. Forma de Maltrato", en: "1. Type of Mistreatment", fr: "1. Type de maltraitance", de: "1. Art der Fehlbehandlung", pt: "1. Tipo de maltrato", ru: "1. Форма плохого обращения", color: "bg-rose-500/10 text-rose-500 border-rose-500/20" },
+    2: { es: "2. Sufrimiento / Reacción", en: "2. Suffering / Reaction", fr: "2. Souffrance / Réaction", de: "2. Leiden / Reaktion", pt: "2. Sofrimento / Reação", ru: "2. Страдание / Реакция", color: "bg-rose-500/10 text-rose-500 border-rose-500/20" },
+    3: { es: "3. Virtud Guía", en: "3. Guide Virtue", fr: "3. Vertu guide", de: "3. Leitende Tugend", pt: "3. Virtude guia", ru: "3. Ведущая добродетель", color: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20" },
+    4: { es: "4. Acción Solidaria", en: "4. Solidary Action", fr: "4. Action solidaire", de: "4. Solidarische Aktion", pt: "4. Ação solidária", ru: "4. Солидарное действие", color: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20" },
+    5: { es: "5. Sentimiento de Caída", en: "5. Falling Feeling", fr: "5. Sentiment de chute", de: "5. Gefühl des Absturzes", pt: "5. Sentimento de queda", ru: "5. Чувство падения", color: "bg-indigo-500/10 text-indigo-500 border-indigo-500/20" },
+    6: { es: "6. Acción de Subida 1", en: "6. Rising Action 1", fr: "6. Action de montée 1", de: "6. Aufsteigende Aktion 1", pt: "6. Ação de subida 1", ru: "6. Действие подъёма 1", color: "bg-amber-500/10 text-amber-500 border-amber-500/20" },
+    7: { es: "7. Sentimiento de Caída", en: "7. Falling Feeling", fr: "7. Sentiment de chute", de: "7. Gefühl des Absturzes", pt: "7. Sentimento de queda", ru: "7. Чувство падения", color: "bg-indigo-500/10 text-indigo-500 border-indigo-500/20" },
+    8: { es: "8. Acción de Subida 2", en: "8. Rising Action 2", fr: "8. Action de montée 2", de: "8. Aufsteigende Aktion 2", pt: "8. Ação de subida 2", ru: "8. Действие подъёма 2", color: "bg-amber-500/10 text-amber-500 border-amber-500/20" },
   };
 
   return (
@@ -58,7 +58,7 @@ export default function AforismosDisplay({
         <div className="space-y-2 max-w-3xl">
           <h3 className={`text-xl font-bold flex items-center gap-2 ${isDark ? "text-white" : "text-slate-900"}`}>
             <Sparkles className="w-5 h-5 text-amber-500 animate-pulse" />
-            {{ es: "Personalizador de Aforismos", en: "Aphorism Customizer", fr: "Personnalisateur d’Aphorismes", de: "Leitgedanken-Anpasser", pt: "Personalizador de Aforismos" }[lang]}
+            {{ es: "Personalizador de Aforismos", en: "Aphorism Customizer", fr: "Personnalisateur d’Aphorismes", de: "Leitgedanken-Anpasser", pt: "Personalizador de Aforismos", ru: "Персонализатор афоризмов" }[lang]}
           </h3>
           <p className={`text-sm font-medium leading-relaxed ${isDark ? "text-slate-300" : "text-slate-700"}`}>
             {{
@@ -66,7 +66,8 @@ export default function AforismosDisplay({
               en: "Review the formula, consult your reference answers, and customize and build the text of each one so it is right for you.",
               fr: "Révisez la formule, consultez vos réponses de référence, puis éditez et construisez le texte de chacun pour qu’il vous convienne.",
               de: "Überprüfen Sie die Formel, ziehen Sie Ihre Referenzantworten heran und bearbeiten und gestalten Sie den Text jedes Leitgedankens so, dass er zu Ihnen passt.",
-              pt: "Revê a fórmula, consulta as tuas respostas de referência e edita e constrói o texto de cada um para que seja o adequado para ti."
+              pt: "Revê a fórmula, consulta as tuas respostas de referência e edita e constrói o texto de cada um para que seja o adequado para ti.",
+              ru: "Просмотрите формулу, сверьтесь со своими референсными ответами и отредактируйте и постройте текст каждого так, чтобы он подходил именно вам."
             }[lang]}
           </p>
           <p className={`text-xs leading-relaxed ${isDark ? "text-slate-400" : "text-slate-500"}`}>
@@ -75,7 +76,8 @@ export default function AforismosDisplay({
               en: "And remember that aphorisms are short sentences or phrases that function as core driving ideas or a declaration of the actions we want to implement to overcome the contradiction or suffering addressed in the exercise.",
               fr: "Et rappelez-vous que les aphorismes sont de courtes phrases qui fonctionnent comme des idées-forces ou une déclaration des actions que nous voulons mettre en œuvre pour dépasser la contradiction ou la souffrance travaillées dans l’exercice.",
               de: "Und denken Sie daran: Leitgedanken sind kurze Sätze, die als Kraftideen oder als Erklärung der Handlungen dienen, die wir umsetzen wollen, um den in der Übung bearbeiteten Widerspruch oder das Leiden zu überwinden.",
-              pt: "E lembra-te de que os aforismos são frases breves que funcionam como ideias-força ou uma declaração das ações que queremos pôr em marcha para superar a contradição ou o sofrimento trabalhados no exercício."
+              pt: "E lembra-te de que os aforismos são frases breves que funcionam como ideias-força ou uma declaração das ações que queremos pôr em marcha para superar a contradição ou o sofrimento trabalhados no exercício.",
+              ru: "И помните, что афоризмы — это короткие фразы или изречения, которые работают как идеи-силы или декларация действий, которые мы хотим осуществить, чтобы преодолеть противоречие или страдание, проработанные в упражнении."
             }[lang]}
           </p>
         </div>
@@ -90,7 +92,7 @@ export default function AforismosDisplay({
             }`}
           >
             <Download className="w-4 h-4" />
-            <span>{{ es: "Descargar Todo", en: "Download All", fr: "Tout Télécharger", de: "Alles Herunterladen", pt: "Descarregar Tudo" }[lang]}</span>
+            <span>{{ es: "Descargar Todo", en: "Download All", fr: "Tout Télécharger", de: "Alles Herunterladen", pt: "Descarregar Tudo", ru: "Скачать всё" }[lang]}</span>
           </button>
         )}
       </div>
@@ -107,7 +109,7 @@ export default function AforismosDisplay({
         >
           <span className="flex items-center gap-2">
             <Info className="w-4 h-4 text-amber-500" />
-            {{ es: "Consultar tus Respuestas de Referencia (Puntos 1 al 8)", en: "Consult your Reference Answers (Points 1 to 8)", fr: "Consulter vos Réponses de Référence (Points 1 à 8)", de: "Ihre Referenzantworten Einsehen (Punkte 1 bis 8)", pt: "Consultar as tuas Respostas de Referência (Pontos 1 a 8)" }[lang]}
+            {{ es: "Consultar tus Respuestas de Referencia (Puntos 1 al 8)", en: "Consult your Reference Answers (Points 1 to 8)", fr: "Consulter vos Réponses de Référence (Points 1 à 8)", de: "Ihre Referenzantworten Einsehen (Punkte 1 bis 8)", pt: "Consultar as tuas Respostas de Referência (Pontos 1 a 8)", ru: "Посмотреть свои референсные ответы (Пункты 1–8)" }[lang]}
           </span>
           {showFormulaHelper ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
         </button>
@@ -129,7 +131,8 @@ export default function AforismosDisplay({
                   en: "Mentally replace each number in the formula with the answers you filled in the questionnaire. Use these values to polish the final wording as you wish:",
                   fr: "Remplacez mentalement chaque numéro de la formule par les réponses que vous avez données dans le questionnaire. Utilisez ces valeurs pour peaufiner la rédaction finale à votre goût :",
                   de: "Ersetzen Sie im Geiste jede Zahl der Formel durch die Antworten, die Sie im Fragebogen eingetragen haben. Nutzen Sie diese Werte, um die endgültige Formulierung nach Ihrem Geschmack zu verfeinern:",
-                  pt: "Substitui mentalmente cada número da fórmula pelas respostas que colocaste no questionário. Usa estes valores para polir a redação final ao teu gosto:"
+                  pt: "Substitui mentalmente cada número da fórmula pelas respostas que colocaste no questionário. Usa estes valores para polir a redação final ao teu gosto:",
+                  ru: "Мысленно замените каждый номер в формуле ответами, которые вы вписали в анкету. Используйте эти значения, чтобы отшлифовать окончательную формулировку по своему вкусу:"
                 }[lang]}
               </p>
               
@@ -201,12 +204,12 @@ export default function AforismosDisplay({
                       {isEdited && (
                         <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 flex items-center gap-0.5`}>
                           <CheckCircle2 className="w-2.5 h-2.5" />
-                          <span>{{ es: "Pulido", en: "Polished", fr: "Peaufiné", de: "Verfeinert", pt: "Polido" }[lang]}</span>
+                          <span>{{ es: "Pulido", en: "Polished", fr: "Peaufiné", de: "Verfeinert", pt: "Polido", ru: "Отполировано" }[lang]}</span>
                         </span>
                       )}
                     </div>
                     <p className={`text-[10px] font-mono ${isDark ? "text-slate-450" : "text-slate-500"}`}>
-                      {{ es: "Pauta:", en: "Pattern:", fr: "Formule :", de: "Muster:", pt: "Pauta:" }[lang]} {af.formula}
+                      {{ es: "Pauta:", en: "Pattern:", fr: "Formule :", de: "Muster:", pt: "Pauta:", ru: "Схема:" }[lang]} {af.formula}
                     </p>
                   </div>
 
@@ -214,7 +217,7 @@ export default function AforismosDisplay({
                     {/* Edit button */}
                     <button
                       onClick={() => setEditingId(isCurrentlyEditing ? null : af.id)}
-                      title={{ es: "Editar redacción del aforismo", en: "Edit aphorism text", fr: "Éditer le texte de l’aphorisme", de: "Text des Leitgedankens bearbeiten", pt: "Editar redação do aforismo" }[lang]}
+                      title={{ es: "Editar redacción del aforismo", en: "Edit aphorism text", fr: "Éditer le texte de l’aphorisme", de: "Text des Leitgedankens bearbeiten", pt: "Editar redação do aforismo", ru: "Редактировать текст афоризма" }[lang]}
                       className={`p-2 rounded-lg border transition duration-150 cursor-pointer ${
                         isCurrentlyEditing
                           ? "bg-amber-500 border-amber-500 text-slate-950 hover:bg-amber-600"
@@ -229,7 +232,7 @@ export default function AforismosDisplay({
                     {/* Copy Button */}
                     <button
                       onClick={() => handleCopy(currentText, af.id)}
-                      title={{ es: "Copiar aforismo", en: "Copy aphorism", fr: "Copier l’aphorisme", de: "Leitgedanken kopieren", pt: "Copiar aforismo" }[lang]}
+                      title={{ es: "Copiar aforismo", en: "Copy aphorism", fr: "Copier l’aphorisme", de: "Leitgedanken kopieren", pt: "Copiar aforismo", ru: "Копировать афоризм" }[lang]}
                       className={`p-2 rounded-lg border transition duration-150 cursor-pointer ${
                         isCopied
                           ? isDark 
