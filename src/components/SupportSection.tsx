@@ -23,12 +23,13 @@ import { translations, GLOSSARY_TERMS_EN, RESOURCES_LIST_EN, EXAMPLES_LIST_EN } 
 import { GLOSSARY_TERMS_FR, TESTIMONIALS_LIST_FR, RESOURCES_LIST_FR, EXAMPLES_LIST_FR } from "../data/supportContentFR";
 import { GLOSSARY_TERMS_DE, TESTIMONIALS_LIST_DE, RESOURCES_LIST_DE, EXAMPLES_LIST_DE } from "../data/supportContentDE";
 import { GLOSSARY_TERMS_PT, TESTIMONIALS_LIST_PT, RESOURCES_LIST_PT, EXAMPLES_LIST_PT } from "../data/supportContentPT";
+import { GLOSSARY_TERMS_RU, TESTIMONIALS_LIST_RU, RESOURCES_LIST_RU, EXAMPLES_LIST_RU } from "../data/supportContentRU";
 
 interface SupportSectionProps {
   theme: "light" | "dark";
   onLoadExampleAnswers: (answers: Record<number, string>, title: string) => void;
   showToast: (message: string) => void;
-  lang?: "es" | "en" | "fr" | "de" | "pt";
+  lang?: "es" | "en" | "fr" | "de" | "pt" | "ru";
 }
 
 // Key terms for Glossary
@@ -523,24 +524,28 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
     lang === "fr" ? TESTIMONIALS_LIST_FR :
     lang === "de" ? TESTIMONIALS_LIST_DE :
     lang === "pt" ? TESTIMONIALS_LIST_PT :
+    lang === "ru" ? TESTIMONIALS_LIST_RU :
     TESTIMONIALS_LIST_EN;
   const resourcesList =
     lang === "es" ? RESOURCES_LIST :
     lang === "fr" ? RESOURCES_LIST_FR :
     lang === "de" ? RESOURCES_LIST_DE :
     lang === "pt" ? RESOURCES_LIST_PT :
+    lang === "ru" ? RESOURCES_LIST_RU :
     RESOURCES_LIST_EN;
   const examplesList =
     lang === "es" ? EXAMPLES_LIST :
     lang === "fr" ? EXAMPLES_LIST_FR :
     lang === "de" ? EXAMPLES_LIST_DE :
     lang === "pt" ? EXAMPLES_LIST_PT :
+    lang === "ru" ? EXAMPLES_LIST_RU :
     EXAMPLES_LIST_EN;
   const glossaryList =
     lang === "es" ? GLOSSARY_TERMS :
     lang === "fr" ? GLOSSARY_TERMS_FR :
     lang === "de" ? GLOSSARY_TERMS_DE :
     lang === "pt" ? GLOSSARY_TERMS_PT :
+    lang === "ru" ? GLOSSARY_TERMS_RU :
     GLOSSARY_TERMS_EN;
 
   // Filter glossary
@@ -623,11 +628,11 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
       <div className="space-y-3">
         <div className="flex items-center gap-2">
           <span className="text-xs font-bold text-amber-500 uppercase tracking-widest bg-amber-500/10 px-2.5 py-1 rounded-full">
-            {{ es: "Materiales de Apoyo y Buzón", en: "Support Materials & Mailbox", fr: "Matériels de Soutien et Boîte à Messages", de: "Unterstützungsmaterialien & Briefkasten", pt: "Materiais de Apoio e Caixa de Mensagens" }[lang]}
+            {{ es: "Materiales de Apoyo y Buzón", en: "Support Materials & Mailbox", fr: "Matériels de Soutien et Boîte à Messages", de: "Unterstützungsmaterialien & Briefkasten", pt: "Materiais de Apoio e Caixa de Mensagens", ru: "Вспомогательные материалы и почтовый ящик" }[lang]}
           </span>
         </div>
         <h2 className={`text-2xl sm:text-3xl font-bold tracking-tight ${isDark ? "text-white" : "text-slate-900"}`}>
-          {{ es: "Recursos de Consulta y Participación", en: "Resources for Inquiry & Participation", fr: "Ressources de Consultation et de Participation", de: "Ressourcen zum Nachschlagen und Mitwirken", pt: "Recursos de Consulta e Participação" }[lang]}
+          {{ es: "Recursos de Consulta y Participación", en: "Resources for Inquiry & Participation", fr: "Ressources de Consultation et de Participation", de: "Ressourcen zum Nachschlagen und Mitwirken", pt: "Recursos de Consulta e Participação", ru: "Ресурсы для ознакомления и участия" }[lang]}
         </h2>
         <p className={`text-sm max-w-3xl leading-relaxed ${isDark ? "text-slate-300" : "text-slate-600"}`}>
           {{
@@ -635,7 +640,8 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
             en: "Explore practical examples extracted from the authors' direct practice, search key terms from the active nonviolence glossary, or share your feedback in a 100% private and anonymous manner.",
             fr: "Explorez des exemples pratiques issus de la pratique directe des auteurs, consultez les concepts clés du glossaire de la non-violence ou partagez vos retours de manière 100 % privée et anonyme.",
             de: "Erkunden Sie praktische Beispiele aus der direkten Praxis der Autoren, schlagen Sie Schlüsselbegriffe im Glossar der Gewaltfreiheit nach oder teilen Sie Ihre Rückmeldungen 100 % privat und anonym mit.",
-            pt: "Explora exemplos práticos extraídos da prática direta dos autores, consulta conceitos-chave do glossário da não-violência ou partilha as tuas avaliações de forma 100% privada e anónima."
+            pt: "Explora exemplos práticos extraídos da prática direta dos autores, consulta conceitos-chave do glossário da não-violência ou partilha as tuas avaliações de forma 100% privada e anónima.", ru: "Изучайте практические примеры из непосредственной практики авторов, ищите ключевые термины в глоссарии активного ненасилия или делитесь своими отзывами полностью приватно и анонимно.",
+            ru: "Изучайте практические примеры из непосредственной практики авторов, ищите ключевые термины в глоссарии активного ненасилия или делитесь своими отзывами полностью приватно и анонимно."
           }[lang]}
         </p>
       </div>
@@ -645,11 +651,11 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
         isDark ? "border-slate-800" : "border-slate-200"
       }`}>
         {[
-          { id: "examples", label: { es: "Ejemplos Reales", en: "Real Examples", fr: "Exemples Réels", de: "Echte Beispiele", pt: "Exemplos Reais" }[lang], icon: FileText },
-          { id: "testimonials", label: { es: "Testimonios (9)", en: "Testimonials (9)", fr: "Témoignages (9)", de: "Erfahrungsberichte (9)", pt: "Testemunhos (9)" }[lang], icon: Users },
-          { id: "glossary", label: { es: "Glosario Completo", en: "Complete Glossary", fr: "Glossaire Complet", de: "Vollständiges Glossar", pt: "Glossário Completo" }[lang], icon: Bookmark },
-          { id: "resources", label: { es: "Biblioteca y Enlaces", en: "Library & Links", fr: "Bibliothèque et Liens", de: "Bibliothek & Links", pt: "Biblioteca e Ligações" }[lang], icon: BookOpen },
-          { id: "mailbox", label: { es: "Buzón Anónimo", en: "Anonymous Mailbox", fr: "Boîte Anonyme", de: "Anonymer Briefkasten", pt: "Caixa Anónima" }[lang], icon: MessageSquare }
+          { id: "examples", label: { es: "Ejemplos Reales", en: "Real Examples", fr: "Exemples Réels", de: "Echte Beispiele", pt: "Exemplos Reais", ru: "Реальные примеры" }[lang], icon: FileText },
+          { id: "testimonials", label: { es: "Testimonios (9)", en: "Testimonials (9)", fr: "Témoignages (9)", de: "Erfahrungsberichte (9)", pt: "Testemunhos (9)", ru: "Отзывы (9)" }[lang], icon: Users },
+          { id: "glossary", label: { es: "Glosario Completo", en: "Complete Glossary", fr: "Glossaire Complet", de: "Vollständiges Glossar", pt: "Glossário Completo", ru: "Полный глоссарий" }[lang], icon: Bookmark },
+          { id: "resources", label: { es: "Biblioteca y Enlaces", en: "Library & Links", fr: "Bibliothèque et Liens", de: "Bibliothek & Links", pt: "Biblioteca e Ligações", ru: "Библиотека и ссылки" }[lang], icon: BookOpen },
+          { id: "mailbox", label: { es: "Buzón Anónimo", en: "Anonymous Mailbox", fr: "Boîte Anonyme", de: "Anonymer Briefkasten", pt: "Caixa Anónima", ru: "Анонимный почтовый ящик" }[lang], icon: MessageSquare }
         ].map(tab => {
           const Icon = tab.icon;
           const active = activeSubTab === tab.id;
@@ -736,20 +742,20 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                         isDark ? "bg-slate-950 border-slate-850/60" : "bg-slate-50 border-slate-100"
                       }`}>
                         <div className="grid grid-cols-12 gap-1 pb-1 border-b border-dashed border-slate-800/20 dark:border-slate-200/10">
-                          <span className="col-span-4 text-slate-400 font-bold">{{ es: "PUNTO", en: "POINT", fr: "POINT", de: "PUNKT", pt: "PONTO" }[lang]}</span>
+                          <span className="col-span-4 text-slate-400 font-bold">{{ es: "PUNTO", en: "POINT", fr: "POINT", de: "PUNKT", pt: "PONTO", ru: "ПУНКТ" }[lang]}</span>
                           <span className={`col-span-8 font-bold ${isDark ? "text-slate-200" : "text-slate-800"}`}>
-                            {{ es: "CONTENIDO DEL EJERCICIO", en: "EXERCISE CONTENT", fr: "CONTENU DE L’EXERCICE", de: "INHALT DER ÜBUNG", pt: "CONTEÚDO DO EXERCÍCIO" }[lang]}
+                            {{ es: "CONTENIDO DEL EJERCICIO", en: "EXERCISE CONTENT", fr: "CONTENU DE L’EXERCICE", de: "INHALT DER ÜBUNG", pt: "CONTEÚDO DO EXERCÍCIO", ru: "СОДЕРЖАНИЕ УПРАЖНЕНИЯ" }[lang]}
                           </span>
                         </div>
                         {[
-                          { num: 1, label: { es: "P1. Rechazo", en: "P1. Rejection", fr: "P1. Rejet", de: "P1. Ablehnung", pt: "P1. Rejeição" }[lang], val: ex.answers[1] },
-                          { num: 2, label: { es: "P2. Reacción", en: "P2. Reaction", fr: "P2. Réaction", de: "P2. Reaktion", pt: "P2. Reação" }[lang], val: ex.answers[2] },
-                          { num: 3, label: { es: "P3. Pido / Doy", en: "P3. Ask / Give", fr: "P3. Demande / Don", de: "P3. Bitte / Gebe", pt: "P3. Peço / Dou" }[lang], val: ex.answers[3] },
-                          { num: 4, label: { es: "P4. Buen Trato", en: "P4. Good Treatment", fr: "P4. Bon Traitement", de: "P4. Gute Behandlung", pt: "P4. Bom Trato" }[lang], val: ex.answers[4] },
-                          { num: 5, label: { es: "P5. Caída (3-2)", en: "P5. Fall (3-2)", fr: "P5. Chute (3-2)", de: "P5. Absturz (3-2)", pt: "P5. Queda (3-2)" }[lang], val: ex.answers[5] },
-                          { num: 6, label: { es: "P6. Subida (2-3)", en: "P6. Rise (2-3)", fr: "P6. Montée (2-3)", de: "P6. Aufstieg (2-3)", pt: "P6. Subida (2-3)" }[lang], val: ex.answers[6] },
-                          { num: 7, label: { es: "P7. Caída (4-1)", en: "P7. Fall (4-1)", fr: "P7. Chute (4-1)", de: "P7. Absturz (4-1)", pt: "P7. Queda (4-1)" }[lang], val: ex.answers[7] },
-                          { num: 8, label: { es: "P8. Subida (1-4)", en: "P8. Rise (1-4)", fr: "P8. Montée (1-4)", de: "P8. Aufstieg (1-4)", pt: "P8. Subida (1-4)" }[lang], val: ex.answers[8] }
+                          { num: 1, label: { es: "P1. Rechazo", en: "P1. Rejection", fr: "P1. Rejet", de: "P1. Ablehnung", pt: "P1. Rejeição", ru: "П1. Отвержение" }[lang], val: ex.answers[1] },
+                          { num: 2, label: { es: "P2. Reacción", en: "P2. Reaction", fr: "P2. Réaction", de: "P2. Reaktion", pt: "P2. Reação", ru: "П2. Реакция" }[lang], val: ex.answers[2] },
+                          { num: 3, label: { es: "P3. Pido / Doy", en: "P3. Ask / Give", fr: "P3. Demande / Don", de: "P3. Bitte / Gebe", pt: "P3. Peço / Dou", ru: "П3. Прошу / Даю" }[lang], val: ex.answers[3] },
+                          { num: 4, label: { es: "P4. Buen Trato", en: "P4. Good Treatment", fr: "P4. Bon Traitement", de: "P4. Gute Behandlung", pt: "P4. Bom Trato", ru: "П4. Доброе обращение" }[lang], val: ex.answers[4] },
+                          { num: 5, label: { es: "P5. Caída (3-2)", en: "P5. Fall (3-2)", fr: "P5. Chute (3-2)", de: "P5. Absturz (3-2)", pt: "P5. Queda (3-2)", ru: "П5. Падение (3-2)" }[lang], val: ex.answers[5] },
+                          { num: 6, label: { es: "P6. Subida (2-3)", en: "P6. Rise (2-3)", fr: "P6. Montée (2-3)", de: "P6. Aufstieg (2-3)", pt: "P6. Subida (2-3)", ru: "П6. Подъём (2-3)" }[lang], val: ex.answers[6] },
+                          { num: 7, label: { es: "P7. Caída (4-1)", en: "P7. Fall (4-1)", fr: "P7. Chute (4-1)", de: "P7. Absturz (4-1)", pt: "P7. Queda (4-1)", ru: "П7. Падение (4-1)" }[lang], val: ex.answers[7] },
+                          { num: 8, label: { es: "P8. Subida (1-4)", en: "P8. Rise (1-4)", fr: "P8. Montée (1-4)", de: "P8. Aufstieg (1-4)", pt: "P8. Subida (1-4)", ru: "П8. Подъём (1-4)" }[lang], val: ex.answers[8] }
                         ].map(p => (
                           <div key={p.num} className="grid grid-cols-12 gap-1 items-start">
                             <span className="col-span-4 text-slate-450 font-bold text-[10px]">{p.label}:</span>
@@ -763,7 +769,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                         isDark ? "bg-amber-950/10 border-amber-900/30 text-amber-300" : "bg-amber-50/50 border-amber-100 text-amber-900"
                       }`}>
                         <span className="text-[9px] uppercase font-bold block tracking-wider opacity-80">
-                          {{ es: "Aforismo Conclusivo:", en: "Concluding Aphorism:", fr: "Aphorisme Conclusif :", de: "Abschließender Leitgedanke:", pt: "Aforismo Conclusivo:" }[lang]}
+                          {{ es: "Aforismo Conclusivo:", en: "Concluding Aphorism:", fr: "Aphorisme Conclusif :", de: "Abschließender Leitgedanke:", pt: "Aforismo Conclusivo:", ru: "Итоговый афоризм:" }[lang]}
                         </span>
                         <p className="text-xs font-bold mt-1 italic">
                           "{ex.aforismo}"
@@ -772,7 +778,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
 
                       {/* Commentary details */}
                       <p className={`text-xs leading-relaxed italic ${isDark ? "text-slate-400" : "text-slate-500"}`}>
-                        💡 <strong>{{ es: "Análisis:", en: "Analysis:", fr: "Analyse :", de: "Analyse:", pt: "Análise:" }[lang]}</strong> {ex.commentary}
+                        💡 <strong>{{ es: "Análisis:", en: "Analysis:", fr: "Analyse :", de: "Analyse:", pt: "Análise:", ru: "Анализ:" }[lang]}</strong> {ex.commentary}
                       </p>
                     </div>
 
@@ -788,7 +794,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                         }`}
                       >
                         <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
-                        <span>{{ es: "Cargar en la Práctica", en: "Load into Practice", fr: "Charger dans la Pratique", de: "In die Praxis Laden", pt: "Carregar na Prática" }[lang]}</span>
+                        <span>{{ es: "Cargar en la Práctica", en: "Load into Practice", fr: "Charger dans la Pratique", de: "In die Praxis Laden", pt: "Carregar na Prática", ru: "Загрузить в практику" }[lang]}</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </button>
                     </div>
@@ -842,7 +848,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                             "{t.title}"
                           </h4>
                           <span className="text-[11px] text-amber-600 font-semibold block">
-                            {{ es: "Por", en: "By", fr: "Par", de: "Von", pt: "Por" }[lang]} {t.author}
+                            {{ es: "Por", en: "By", fr: "Par", de: "Von", pt: "Por", ru: "Автор" }[lang]} {t.author}
                           </span>
                         </div>
                         <span className="text-[9px] uppercase font-mono tracking-wider text-amber-600 bg-amber-500/10 px-2 py-0.5 rounded-md font-bold shrink-0">
@@ -864,7 +870,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
               }`}>
                 <Users className="w-8 h-8 text-amber-500 mx-auto opacity-70" />
                 <h4 className={`text-sm font-bold ${isDark ? "text-slate-200" : "text-slate-800"}`}>
-                  {{ es: "¿Quieres enviarnos tus testimonios de práctica?", en: "Do you want to send us your practice testimonials?", fr: "Voulez-vous nous envoyer vos témoignages de pratique ?", de: "Möchten Sie uns Ihre Praxis-Erfahrungsberichte senden?", pt: "Queres enviar-nos os teus testemunhos de prática?" }[lang]}
+                  {{ es: "¿Quieres enviarnos tus testimonios de práctica?", en: "Do you want to send us your practice testimonials?", fr: "Voulez-vous nous envoyer vos témoignages de pratique ?", de: "Möchten Sie uns Ihre Praxis-Erfahrungsberichte senden?", pt: "Queres enviar-nos os teus testemunhos de prática?", ru: "Хотите прислать нам свои отзывы о практике?" }[lang]}
                 </h4>
                 <p className={`text-xs max-w-xl mx-auto leading-relaxed ${isDark ? "text-slate-400" : "text-slate-500"}`}>
 {{
@@ -872,7 +878,8 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     en: "Use the anonymous mailbox if you wish to share your story or reflections of change so we can include them in this section to inspire others.",
                     fr: "Utilisez la boîte anonyme si vous souhaitez partager votre récit ou vos réflexions de changement afin que nous puissions les inclure dans cette section pour inspirer les autres.",
                     de: "Nutzen Sie den anonymen Briefkasten, wenn Sie Ihren Bericht oder Ihre Reflexionen über Veränderung teilen möchten, damit wir sie in diesen Bereich aufnehmen und andere inspirieren können.",
-                    pt: "Usa a caixa anónima se desejares partilhar o teu relato ou reflexões de mudança para que o incluamos nesta secção para inspirar outros."
+                    pt: "Usa a caixa anónima se desejares partilhar o teu relato ou reflexões de mudança para que o incluamos nesta secção para inspirar outros.", ru: "Используйте анонимный почтовый ящик, если хотите поделиться своей историей или размышлениями об изменении, чтобы мы могли включить их в этот раздел и вдохновить других.",
+                    ru: "Используйте анонимный почтовый ящик, если хотите поделиться своей историей или размышлениями об изменении, чтобы мы могли включить их в этот раздел и вдохновить других."
                   }[lang]}
                 </p>
                 <div className="pt-2">
@@ -883,7 +890,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     }`}
                   >
                     <MessageSquare className="w-3.5 h-3.5 text-amber-500" />
-                    <span>{{ es: "Ir al buzón para enviar un testimonio", en: "Go to the mailbox to send a testimonial", fr: "Aller à la boîte pour envoyer un témoignage", de: "Zum Briefkasten, um einen Bericht zu senden", pt: "Ir à caixa para enviar um testemunho" }[lang]}</span>
+                    <span>{{ es: "Ir al buzón para enviar un testimonio", en: "Go to the mailbox to send a testimonial", fr: "Aller à la boîte pour envoyer un témoignage", de: "Zum Briefkasten, um einen Bericht zu senden", pt: "Ir à caixa para enviar um testemunho", ru: "Перейти к почтовому ящику, чтобы отправить отзыв" }[lang]}</span>
                   </button>
                 </div>
               </div>
@@ -904,7 +911,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                 <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                 <input
                   type="text"
-                  placeholder={{ es: "Buscar término o concepto clave (Ej: Aforismo, Cenestesia, Clima, Paisaje...)", en: "Search term or key concept (e.g., Aphorism, Coenesthesia, Climate, Landscape...)", fr: "Rechercher un terme ou concept clé (Ex : Aphorisme, Cénesthésie, Climat, Paysage...)", de: "Begriff oder Schlüsselkonzept suchen (z. B. Leitgedanke, Zönästhesie, Klima, Landschaft...)", pt: "Procurar termo ou conceito-chave (Ex.: Aforismo, Cenestesia, Clima, Paisagem...)" }[lang]}
+                  placeholder={{ es: "Buscar término o concepto clave (Ej: Aforismo, Cenestesia, Clima, Paisaje...)", en: "Search term or key concept (e.g., Aphorism, Coenesthesia, Climate, Landscape...)", fr: "Rechercher un terme ou concept clé (Ex : Aphorisme, Cénesthésie, Climat, Paysage...)", de: "Begriff oder Schlüsselkonzept suchen (z. B. Leitgedanke, Zönästhesie, Klima, Landschaft...)", pt: "Procurar termo ou conceito-chave (Ex.: Aforismo, Cenestesia, Clima, Paisagem...)", ru: "Искать термин или ключевое понятие (напр., Афоризм, Ценестезия, Климат, Ландшафт...)" }[lang]}
                   value={glossarySearch}
                   onChange={(e) => setGlossarySearch(e.target.value)}
                   className={`w-full pl-10 pr-4 py-3 rounded-xl border text-xs font-medium focus:outline-none focus:ring-1 transition-all ${
@@ -929,9 +936,9 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                         {g.term}
                       </h4>
                       <span className={`text-[9px] px-2 py-0.5 rounded font-bold font-mono ${
-                        g.tag === "Metodología" || g.tag === "Methodology" || g.tag === "Méthodologie" || g.tag === "Methodik" || g.tag === "Metodologia"
+                        g.tag === "Metodología" || g.tag === "Methodology" || g.tag === "Méthodologie" || g.tag === "Methodik" || g.tag === "Metodologia" || g.tag === "Методология"
                           ? "bg-blue-500/10 text-blue-400"
-                          : g.tag === "Estados" || g.tag === "States" || g.tag === "États" || g.tag === "Zustände"
+                          : g.tag === "Estados" || g.tag === "States" || g.tag === "États" || g.tag === "Zustände" || g.tag === "Состояния"
                           ? "bg-rose-500/10 text-rose-450"
                           : "bg-emerald-500/10 text-emerald-450"
                       }`}>
@@ -1057,7 +1064,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                             ) : (
                               <FilePdfIcon className="w-3.5 h-3.5" />
                             )}
-                            <span>{{ es: "Abrir Recurso", en: "Open Resource", fr: "Ouvrir la Ressource", de: "Ressource Öffnen", pt: "Abrir Recurso" }[lang]}</span>
+                            <span>{{ es: "Abrir Recurso", en: "Open Resource", fr: "Ouvrir la Ressource", de: "Ressource Öffnen", pt: "Abrir Recurso", ru: "Открыть ресурс" }[lang]}</span>
                             <ExternalLink className="w-3 h-3" />
                           </a>
                         </div>
@@ -1093,7 +1100,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                   <h3 className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${
                     isDark ? "text-emerald-400" : "text-emerald-800"
                   }`}>
-                    {{ es: "🔒 Espacio de Devoluciones de Privacidad Absoluta", en: "🔒 Space of Absolute Privacy Feedback", fr: "🔒 Espace de Retours en Confidentialité Absolue", de: "🔒 Raum für Rückmeldungen mit Absoluter Privatsphäre", pt: "🔒 Espaço de Devoluções de Privacidade Absoluta" }[lang]}
+                    {{ es: "🔒 Espacio de Devoluciones de Privacidad Absoluta", en: "🔒 Space of Absolute Privacy Feedback", fr: "🔒 Espace de Retours en Confidentialité Absolue", de: "🔒 Raum für Rückmeldungen mit Absoluter Privatsphäre", pt: "🔒 Espaço de Devoluções de Privacidade Absoluta", ru: "🔒 Пространство абсолютно приватной обратной связи" }[lang]}
                   </h3>
                   <p className={`text-xs leading-relaxed ${isDark ? "text-slate-300" : "text-slate-600"}`}>
                     {lang === "es" ? (
@@ -1127,13 +1134,13 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     <label className={`text-xs font-bold uppercase tracking-wider block ${
                       isDark ? "text-slate-300" : "text-slate-700"
                     }`}>
-                      {{ es: "Categoría de la devolución", en: "Feedback Category", fr: "Catégorie du retour", de: "Kategorie der Rückmeldung", pt: "Categoria da devolução" }[lang]}
+                      {{ es: "Categoría de la devolución", en: "Feedback Category", fr: "Catégorie du retour", de: "Kategorie der Rückmeldung", pt: "Categoria da devolução", ru: "Категория обратной связи" }[lang]}
                     </label>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       {[
-                        { id: "opinion", label: { es: "Opinión General", en: "General Opinion", fr: "Opinion Générale", de: "Allgemeine Meinung", pt: "Opinião Geral" }[lang] },
-                        { id: "testimonio", label: { es: "Nuevo Testimonio", en: "New Testimonial", fr: "Nouveau Témoignage", de: "Neuer Erfahrungsbericht", pt: "Novo Testemunho" }[lang] },
-                        { id: "sugerencia", label: { es: "Sugerencias", en: "Suggestions", fr: "Suggestions", de: "Vorschläge", pt: "Sugestões" }[lang] }
+                        { id: "opinion", label: { es: "Opinión General", en: "General Opinion", fr: "Opinion Générale", de: "Allgemeine Meinung", pt: "Opinião Geral", ru: "Общее мнение" }[lang] },
+                        { id: "testimonio", label: { es: "Nuevo Testimonio", en: "New Testimonial", fr: "Nouveau Témoignage", de: "Neuer Erfahrungsbericht", pt: "Novo Testemunho", ru: "Новый отзыв" }[lang] },
+                        { id: "sugerencia", label: { es: "Sugerencias", en: "Suggestions", fr: "Suggestions", de: "Vorschläge", pt: "Sugestões", ru: "Предложения" }[lang] }
                       ].map(cat => (
                         <button
                           key={cat.id}
@@ -1159,12 +1166,12 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     <label className={`text-xs font-bold uppercase tracking-wider block ${
                       isDark ? "text-slate-300" : "text-slate-700"
                     }`}>
-                      {{ es: "Tu mensaje reflexivo u opinión", en: "Your reflective message or opinion", fr: "Votre message réflexif ou opinion", de: "Ihre reflektierende Nachricht oder Meinung", pt: "A tua mensagem reflexiva ou opinião" }[lang]}
+                      {{ es: "Tu mensaje reflexivo u opinión", en: "Your reflective message or opinion", fr: "Votre message réflexif ou opinion", de: "Ihre reflektierende Nachricht oder Meinung", pt: "A tua mensagem reflexiva ou opinião", ru: "Ваше размышление или мнение" }[lang]}
                     </label>
                     <textarea
                       rows={5}
                       required
-                      placeholder={{ es: "Escribe libremente aquí tu experiencia con la práctica, tus ideas de mejora o el testimonio que desees compartir...", en: "Write freely here your experience with the practice, your improvement ideas, or the testimonial you wish to share...", fr: "Écrivez librement ici votre expérience de la pratique, vos idées d’amélioration ou le témoignage que vous souhaitez partager...", de: "Schreiben Sie hier frei über Ihre Erfahrung mit der Praxis, Ihre Verbesserungsideen oder den Bericht, den Sie teilen möchten...", pt: "Escreve livremente aqui a tua experiência com a prática, as tuas ideias de melhoria ou o testemunho que desejes partilhar..." }[lang]}
+                      placeholder={{ es: "Escribe libremente aquí tu experiencia con la práctica, tus ideas de mejora o el testimonio que desees compartir...", en: "Write freely here your experience with the practice, your improvement ideas, or the testimonial you wish to share...", fr: "Écrivez librement ici votre expérience de la pratique, vos idées d’amélioration ou le témoignage que vous souhaitez partager...", de: "Schreiben Sie hier frei über Ihre Erfahrung mit der Praxis, Ihre Verbesserungsideen oder den Bericht, den Sie teilen möchten...", pt: "Escreve livremente aqui a tua experiência com a prática, as tuas ideias de melhoria ou o testemunho que desejes partilhar...", ru: "Пишите здесь свободно о своём опыте практики, идеях по улучшению или отзыве, которым хотите поделиться..." }[lang]}
                       value={feedbackText}
                       onChange={(e) => setFeedbackText(e.target.value)}
                       className={`w-full p-4 rounded-xl border text-xs leading-relaxed focus:outline-none focus:ring-1 transition-all ${
@@ -1190,12 +1197,12 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                       {isSendingFeedback ? (
                         <>
                           <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                          <span>{{ es: "Transmitiendo de forma segura...", en: "Transmitting securely...", fr: "Transmission sécurisée en cours...", de: "Sichere Übertragung läuft...", pt: "A transmitir de forma segura..." }[lang]}</span>
+                          <span>{{ es: "Transmitiendo de forma segura...", en: "Transmitting securely...", fr: "Transmission sécurisée en cours...", de: "Sichere Übertragung läuft...", pt: "A transmitir de forma segura...", ru: "Безопасная передача..." }[lang]}</span>
                         </>
                       ) : (
                         <>
                           <Send className="w-3.5 h-3.5" />
-                          <span>{{ es: "Enviar Devolución Anónima", en: "Send Anonymous Feedback", fr: "Envoyer un Retour Anonyme", de: "Anonyme Rückmeldung Senden", pt: "Enviar Devolução Anónima" }[lang]}</span>
+                          <span>{{ es: "Enviar Devolución Anónima", en: "Send Anonymous Feedback", fr: "Envoyer un Retour Anonyme", de: "Anonyme Rückmeldung Senden", pt: "Enviar Devolução Anónima", ru: "Отправить анонимный отзыв" }[lang]}</span>
                         </>
                       )}
                     </button>
@@ -1214,7 +1221,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                   </div>
                   <div className="space-y-1">
                     <h4 className={`text-base font-bold ${isDark ? "text-slate-100" : "text-slate-900"}`}>
-                      {{ es: "¡Mensaje transmitido con éxito!", en: "Message transmitted successfully!", fr: "Message transmis avec succès !", de: "Nachricht erfolgreich übermittelt!", pt: "Mensagem transmitida com sucesso!" }[lang]}
+                      {{ es: "¡Mensaje transmitido con éxito!", en: "Message transmitted successfully!", fr: "Message transmis avec succès !", de: "Nachricht erfolgreich übermittelt!", pt: "Mensagem transmitida com sucesso!", ru: "Сообщение успешно передано!" }[lang]}
                     </h4>
                     <p className={`text-xs ${isDark ? "text-slate-400" : "text-slate-500"}`}>
                       {{
@@ -1222,7 +1229,8 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                         en: "Your message has been encrypted and sent to the coordination feedback inbox. Any identifying header or session registry has been omitted to permanently safeguard your anonymity.",
                         fr: "Votre message a été chiffré et envoyé à la boîte de retours de la coordination. Tout en-tête identifiant ou registre de session a été omis afin de préserver définitivement votre anonymat.",
                         de: "Ihre Nachricht wurde verschlüsselt und an das Rückmelde-Postfach der Koordination gesendet. Jegliche identifizierende Kopfzeile oder Sitzungsregistrierung wurde weggelassen, um Ihre Anonymität dauerhaft zu schützen.",
-                        pt: "A tua mensagem foi encriptada e enviada para a caixa de devoluções da coordenação. Foi omitido qualquer cabeçalho identificativo ou registo de sessão para resguardar permanentemente o teu anonimato."
+                        pt: "A tua mensagem foi encriptada e enviada para a caixa de devoluções da coordenação. Foi omitido qualquer cabeçalho identificativo ou registo de sessão para resguardar permanentemente o teu anonimato.", ru: "Ваше сообщение зашифровано и отправлено в почтовый ящик обратной связи координации. Любой идентифицирующий заголовок или запись сессии были опущены, чтобы навсегда защитить вашу анонимность.",
+                        ru: "Ваше сообщение зашифровано и отправлено в почтовый ящик обратной связи координации. Любой идентифицирующий заголовок или запись сессии были опущены, чтобы навсегда защитить вашу анонимность."
                       }[lang]}
                     </p>
                   </div>
@@ -1234,7 +1242,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                         isDark ? "bg-slate-800 hover:bg-slate-750 text-slate-200" : "bg-slate-100 hover:bg-slate-200 text-slate-700"
                       }`}
                     >
-                      {{ es: "Enviar otra devolución", en: "Send another feedback", fr: "Envoyer un autre retour", de: "Weitere Rückmeldung senden", pt: "Enviar outra devolução" }[lang]}
+                      {{ es: "Enviar otra devolución", en: "Send another feedback", fr: "Envoyer un autre retour", de: "Weitere Rückmeldung senden", pt: "Enviar outra devolução", ru: "Отправить ещё один отзыв" }[lang]}
                     </button>
                   </div>
                 </motion.div>
