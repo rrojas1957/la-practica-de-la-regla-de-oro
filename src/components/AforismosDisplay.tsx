@@ -326,6 +326,7 @@ export default function AforismosDisplay({
                         lang === "fr" ? "Cliquer pour éditer le texte" :
                         lang === "de" ? "Klicken, um den Text zu bearbeiten" :
                         lang === "pt" ? "Clicar para editar o texto" :
+                        lang === "ru" ? "Нажмите, чтобы редактировать текст" :
                         "Click to edit text"
                       }
                     >
@@ -352,6 +353,7 @@ export default function AforismosDisplay({
                               lang === "fr" ? "Cliquer pour éditer et personnaliser" :
                               lang === "de" ? "Klicken, um Ihren Stil anzupassen" :
                               lang === "pt" ? "Clica para editares e integrares o teu estilo" :
+                              lang === "ru" ? "Нажмите, чтобы редактировать и добавить свой стиль" :
                               "Click to edit and integrate your style"
                             }
                           </span>
@@ -374,6 +376,7 @@ export default function AforismosDisplay({
                       lang === "fr" ? "La Règle d'Or" :
                       lang === "de" ? "Die Goldene Regel" :
                       lang === "pt" ? "A Regra de Ouro" :
+                      lang === "ru" ? "Золотое правило" :
                       "The Golden Rule"
                     }
                   </span>
@@ -384,6 +387,7 @@ export default function AforismosDisplay({
                     lang === "fr" ? "Réflexion Active" :
                     lang === "de" ? "Aktive Reflexion" :
                     lang === "pt" ? "Reflexão Ativa" :
+                    lang === "ru" ? "Активное размышление" :
                     "Active Reflection"
                   }
                 </span>
