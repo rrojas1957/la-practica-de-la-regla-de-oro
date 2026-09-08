@@ -1099,7 +1099,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt" | "ru", Trans
     practiceBtnHelp: "Показать помощь",
     practiceBtnHideHelp: "Скрыть подсказки",
     practiceHelpTitle: "Не можете найти подходящее слово?",
-    practiceHelpSuffix: "Нажмите на любую из этих подсказок, чтобы выбрать её:",
+    practiceHelpSuffix: " Нажмите на любую из этих подсказок, чтобы выбрать её:",
     practiceHelpOptional: "Вы также можете написать любое другое слово, которое лучше отражает ваши чувства.",
     previewTitle: "Ключевая идея в процессе построения",
     previewMainTitle: "Главный афоризм (Восходящие пути 6 + 8):",
