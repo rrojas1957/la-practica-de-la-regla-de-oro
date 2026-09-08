@@ -325,7 +325,14 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
           </div>
           <div>
             <h4 className="text-sm font-bold tracking-tight uppercase flex items-center gap-1">
-              <span>{lang === "es" ? "Paz Mental: Relajación Guiada" : "Mental Peace: Guided Relaxation"}</span>
+              <span>{
+                lang === "es" ? "Paz Mental: Relajación Guiada" :
+                lang === "fr" ? "Paix Mentale : Relaxation Guidée" :
+                lang === "de" ? "Innerer Frieden: Geführte Entspannung" :
+                lang === "pt" ? "Paz Mental: Relaxamento Guiado" :
+                lang === "ru" ? "Душевный покой: управляемое расслабление" :
+                "Mental Peace: Guided Relaxation"
+              }</span>
               <Sparkles className="w-3.5 h-3.5 text-amber-400" />
             </h4>
             <p className="text-[10px] text-slate-400">
@@ -334,6 +341,7 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
               {lang === "fr" && "Relaxation externe, interne et mentale de Silo"}
               {lang === "de" && "Silos äußere, innere und mentale Entspannung"}
               {lang === "pt" && "Relaxamento Externo, Interno e Mental de Silo"}
+              {lang === "ru" && "Внешнее, внутреннее и умственное расслабление Сило"}
             </p>
           </div>
         </div>
