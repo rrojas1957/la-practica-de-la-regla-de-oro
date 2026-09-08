@@ -707,6 +707,8 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     <>Wir haben diese <strong>echten und anonymen Beispiele</strong> aus der direkten Arbeit der Autoren integriert. Sie können die begriffliche Zuordnung jedes Punktes untersuchen oder sie direkt in Ihren Arbeitsbereich laden, um in Echtzeit zu sehen, wie die Formeln der moralischen Überwindung aufgebaut werden.</>
                   ) : lang === "pt" ? (
                     <>Integrámos estes <strong>exemplos reais e anónimos</strong> extraídos do trabalho direto dos autores. Podes examinar o mapeamento conceptual de cada ponto ou carregá-los diretamente no teu espaço de trabalho para ver em tempo real como se constroem as fórmulas de superação moral.</>
+                  ) : lang === "ru" ? (
+                    <>Мы интегрировали эти <strong>реальные и анонимные примеры</strong>, взятые из непосредственной работы авторов. Вы можете изучить концептуальную схему каждого пункта или загрузить их прямо в своё рабочее пространство, чтобы в реальном времени увидеть, как строятся формулы нравственного преодоления.</>
                   ) : (
                     <>We have integrated these <strong>real and anonymous examples</strong> extracted from the authors' direct work. You can examine the conceptual mapping of each point or load them directly into your workspace to see in real-time how the moral overcoming formulas are built.</>
                   )}
@@ -826,6 +828,8 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     <>Die <strong>echten Erfahrungsberichte</strong> sind Berichte persönlicher Verwandlung, geteilt von Praktizierenden der Goldenen Regel. Sie zeigen uns, wie die Übung geholfen hat, chronische Spannungen zu beruhigen und familiäre oder soziale Beziehungen zu heilen.</>
                   ) : lang === "pt" ? (
                     <>Os <strong>testemunhos reais</strong> são relatos de transformação pessoal partilhados por praticantes da Regra de Ouro. Mostram-nos de que forma o exercício permitiu acalmar tensões crónicas e sarar relações familiares ou sociais.</>
+                  ) : lang === "ru" ? (
+                    <><strong>Реальные отзывы</strong> — это рассказы о личном преображении, которыми делятся практикующие Золотое правило. Они показывают нам, как это упражнение позволило успокоить хронические напряжения и исцелить семейные или социальные отношения.</>
                   ) : (
                     <>The <strong>real testimonials</strong> are accounts of personal transformation shared by practitioners of the Golden Rule. They show us how the exercise has allowed them to calm chronic tensions and heal family or social relationships.</>
                   )}
@@ -990,6 +994,8 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     <><strong>Bibliothek der Gewaltfreiheit:</strong> Konsultieren Sie die gesammelten Werke von Silo und anderen Referenzautoren. Die vollständige Bibliografie von Silo kann frei als PDF auf der offiziellen Website <a href="https://www.silo.net" target="_blank" rel="noreferrer" className="text-amber-500 hover:underline font-bold inline-flex items-center gap-0.5">silo.net <ExternalLink className="w-3 h-3 inline" /></a> eingesehen werden.</>
                   ) : lang === "pt" ? (
                     <><strong>Biblioteca da Não-Violência:</strong> Consulta as obras completas de Silo e de outros autores de referência. A bibliografia completa de Silo pode ser consultada livremente em PDF no site oficial <a href="https://www.silo.net" target="_blank" rel="noreferrer" className="text-amber-500 hover:underline font-bold inline-flex items-center gap-0.5">silo.net <ExternalLink className="w-3 h-3 inline" /></a>.</>
+                  ) : lang === "ru" ? (
+                    <><strong>Библиотека ненасилия:</strong> Ознакомьтесь с полным собранием сочинений Сило и других авторов. Полную библиографию Сило можно свободно просмотреть в формате PDF на официальном сайте <a href="https://www.silo.net" target="_blank" rel="noreferrer" className="text-amber-500 hover:underline font-bold inline-flex items-center gap-0.5">silo.net <ExternalLink className="w-3 h-3 inline" /></a>.</>
                   ) : (
                     <><strong>Nonviolence Library:</strong> Consult the complete works of Silo and other reference authors. Silo's complete bibliography can be accessed freely in PDF format on the official website <a href="https://www.silo.net" target="_blank" rel="noreferrer" className="text-amber-500 hover:underline font-bold inline-flex items-center gap-0.5">silo.net <ExternalLink className="w-3 h-3 inline" /></a>.</>
                   )}
@@ -1119,6 +1125,10 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     ) : lang === "pt" ? (
                       <>
                         <strong>Como garantimos o teu anonimato?</strong> A caixa funciona de forma 100% cega. Não registamos endereços IP, não geramos cookies persistentes neste formulário, nem pedimos e-mails ou dados identificativos. A informação viaja encriptada por um canal unidirecional direto para os coordenadores da prática. A tua voz é valiosa e a tua intimidade está completamente protegida.
+                      </>
+                    ) : lang === "ru" ? (
+                      <>
+                        <strong>Как мы гарантируем вашу анонимность?</strong> Почтовый ящик работает на 100% вслепую. Мы не регистрируем IP-адреса, не создаём постоянных файлов cookie в этой форме и не запрашиваем адреса электронной почты или идентифицирующие данные. Информация передаётся в зашифрованном виде по прямому одностороннему каналу к координаторам практики. Ваш голос ценен, и ваша конфиденциальность полностью защищена.
                       </>
                     ) : (
                       <>
