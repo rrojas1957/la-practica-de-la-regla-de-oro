@@ -203,7 +203,7 @@ export const RESOURCES_LIST_RU = [
   },
   {
     type: "Книга",
-    title: "La Mirada Interna",
+    title: "Взгляд изнутри",
     author: "Silo",
     publisher: "Editorial ATE, Barcelona",
     year: "1979",
@@ -211,7 +211,7 @@ export const RESOURCES_LIST_RU = [
   },
   {
     type: "Книга",
-    title: "El Mensaje de Silo",
+    title: "Послание Сило",
     author: "Silo",
     publisher: "Editorial EDAF, Madrid",
     year: "2008",
@@ -219,7 +219,7 @@ export const RESOURCES_LIST_RU = [
   },
   {
     type: "Книга",
-    title: "Diccionario del Nuevo Humanismo",
+    title: "Словарь нового гуманизма",
     author: "Silo",
     publisher: "Ediciones León Alado, Madrid",
     year: "2014",
@@ -227,21 +227,21 @@ export const RESOURCES_LIST_RU = [
   },
   {
     type: "Конференция",
-    title: "Comentarios sobre la Regla de Oro",
+    title: "Комментарии к «Золотому правилу»",
     author: "Silo",
     year: "17 декабря 1995",
     description: "Лекция, прочитанная в Мендосе, Аргентина, излагающая охват взаимности и законы правильного действия в повседневной жизни."
   },
   {
     type: "Обращение Сило",
-    title: "La Curación del Sufrimiento",
+    title: "Исцеление от страдания",
     author: "Silo",
     year: "4 мая 1969",
     description: "Обращение, произнесённое Сило в Пунта-де-Вакас, Мендоса, Аргентина, заложившее основы преодоления насилия и боли."
   },
   {
     type: "Книга",
-    title: "Autoliberación",
+    title: "Самоосвобождение",
     author: "L.A. Ammann",
     publisher: "Editorial ATE, Barcelona",
     year: "1980",
@@ -249,7 +249,7 @@ export const RESOURCES_LIST_RU = [
   },
   {
     type: "Книга",
-    title: "Apuntes de Psicología",
+    title: "ЗАПИСИ ПО ПСИХОЛОГИИ",
     author: "Silo",
     publisher: "Ediciones León Alado, Madrid",
     year: "2014",
@@ -265,21 +265,21 @@ export const RESOURCES_LIST_RU = [
   },
   {
     type: "Конференция",
-    title: "Las Condiciones del Diálogo",
+    title: "Условия диалога",
     author: "Silo",
     year: "6 октября 1993",
     description: "Лекция, прочитанная в Академии наук в Москве, Россия, исследующая ключи подлинно ненасильственного общения."
   },
   {
     type: "Конференция",
-    title: "La Misión de los 80",
+    title: "Миссия 80-х",
     author: "Silo",
     year: "27 сентября 1981",
     description: "Обращение, излагающее историческую и духовную направленность гуманистического движения."
   },
   {
     type: "Книга",
-    title: "Cartas a mis amigos",
+    title: "Письма моим друзьям",
     author: "Silo",
     publisher: "Ediciones León Alado, Madrid",
     year: "2013",
@@ -287,7 +287,7 @@ export const RESOURCES_LIST_RU = [
   },
   {
     type: "Книга",
-    title: "El Día del León Alado",
+    title: "День Крылатого Льва",
     author: "Silo",
     publisher: "Ediciones León Alado, Madrid",
     year: "2013",
