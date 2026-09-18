@@ -1295,7 +1295,22 @@ export const GLOSSARY_TERMS_EN = [
   {
     term: "Reversibility",
     definition: "The faculty of consciousness to direct itself, through attention, to its sources of information. For example, when we speak of reversibility of thought, we refer to the ability to return to a starting point or an initial situation.",
+      tag: "Methodology" as const
+  },
+  {
+    term: "Golden Rule",
+    definition: "The ethical principle of universal nonviolence: treat others as you want them to treat you. In New Humanism it is understood as a practical tool for personal transformation and for reducing inner and outer violence.",
+    tag: "Action" as const
+  },
+  {
+    term: "Self-Liberation",
+    definition: "A key work within Silo's teaching that presents a system of self-knowledge, relaxation, and personal-transformation practices, including the Golden Rule exercise.",
     tag: "Methodology" as const
+  },
+  {
+    term: "Nonviolence (Active)",
+    definition: "Not merely the absence of violence, but the active commitment to treat others with kindness, empathy, and justice, even when facing mistreatment. It is both a personal practice and a social stance.",
+    tag: "Action" as const
   }
 ];
 
