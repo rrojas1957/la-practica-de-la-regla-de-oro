@@ -1231,10 +1231,10 @@ ${t.downloadFooterQuote}
                     <div className="space-y-1 text-center sm:text-left">
                       <h4 className="font-bold text-sm text-amber-400 flex items-center justify-center sm:justify-start gap-1">
                         <Save className="w-4 h-4" />
-                        <span>{t.practiceSaveSessionTitle}</span>
+                        <span>{t.actionTitle}</span>
                       </h4>
                       <p className="text-xs text-slate-400">
-                        {t.practiceSaveSessionDesc}
+                        {t.actionSubtitle}
                       </p>
                     </div>
 
@@ -1244,14 +1244,14 @@ ${t.downloadFooterQuote}
                         className="flex-1 sm:flex-none px-4 py-2.5 bg-slate-800 hover:bg-slate-755 border border-slate-700 text-slate-200 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer"
                       >
                         <RotateCcw className="w-3.5 h-3.5" />
-                        <span>{t.practiceBtnReset}</span>
+                        <span>{t.actionBtnReset}</span>
                       </button>
                       <button
                         onClick={handleSavePractice}
                         className="flex-1 sm:flex-none px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-slate-950 rounded-xl text-xs font-extrabold transition flex items-center justify-center gap-1.5 shadow-sm cursor-pointer"
                       >
                         <BookmarkCheck className="w-3.5 h-3.5" />
-                        <span>{t.practiceBtnSave}</span>
+                        <span>{t.actionBtnSave}</span>
                       </button>
                     </div>
                   </div>
@@ -1283,12 +1283,12 @@ ${t.downloadFooterQuote}
                             <h3 className={`font-bold text-base sm:text-lg ${
                               theme === "dark" ? "text-emerald-300" : "text-slate-900"
                             }`}>
-                              {t.practiceCompleteTitle}
+                              {t.resultsCompletedTitle}
                             </h3>
                             <p className={`text-xs sm:text-sm ${
                               theme === "dark" ? "text-emerald-400" : "text-slate-600"
                             }`}>
-                              {t.practiceCompleteDesc}
+                              {t.resultsCompletedSubtitle}
                             </p>
                           </div>
                         </div>
@@ -1302,7 +1302,7 @@ ${t.downloadFooterQuote}
                           }`}
                         >
                           <Save className="w-4 h-4 text-emerald-400" />
-                          <span>{t.practiceBtnSaveHistory}</span>
+                          <span>{t.resultsBtnSaveHistory}</span>
                         </button>
                       </div>
 
@@ -1333,7 +1333,7 @@ ${t.downloadFooterQuote}
                         theme === "dark" ? "text-slate-600" : "text-slate-300"
                       }`} />
                       <div className="space-y-1">
-                        <h4 className={`font-bold text-sm ${theme === "dark" ? "text-slate-200" : "text-slate-800"}`}>{t.practiceSynthesisOnWayTitle}</h4>
+                        <h4 className={`font-bold text-sm ${theme === "dark" ? "text-slate-200" : "text-slate-800"}`}>{t.resultsSynthesisTitle}</h4>
                         <p className={`text-xs leading-relaxed ${theme === "dark" ? "text-slate-400" : "text-slate-500"}`}>
                           {synthesisPendingText(lang, totalSteps, answeredCount)}
                         </p>
