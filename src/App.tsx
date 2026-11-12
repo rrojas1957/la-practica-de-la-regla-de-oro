@@ -360,6 +360,11 @@ const answersMatchExample = (ans: Record<number, string>, l: Lang): boolean => {
 export default function App() {
   // Language selection: 'es' | 'en' | 'fr' | 'de' | 'pt' (Defaults to Spanish always on first load)
   const [lang, setLang] = useState<Lang>("es");
+
+  // Declara en la página el idioma que se está mostrando (accesibilidad, traductores del navegador y reglas CSS por idioma).
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const t = translations[lang];
   const ui = APP_UI[lang];

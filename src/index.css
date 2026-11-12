@@ -6,3 +6,12 @@
   --font-display: "Space Grotesk", "Noto Sans Devanagari", sans-serif;
   --font-mono: "JetBrains Mono", "Noto Sans Devanagari", ui-monospace, SFMono-Regular, monospace;
 }
+
+/* Hindi (devanagari): las letras de cada palabra van unidas por una línea superior.
+   El espaciado entre letras la rompe y la letra de ancho fijo ensancha los espacios. */
+html[lang="hi"] * {
+  letter-spacing: normal !important;
+}
+html[lang="hi"] .font-mono {
+  font-family: "Noto Sans Devanagari", var(--font-sans);
+}
