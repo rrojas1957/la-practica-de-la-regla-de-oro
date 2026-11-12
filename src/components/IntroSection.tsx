@@ -8,12 +8,12 @@ interface IntroSectionProps {
   onStart: () => void;
   onLoadExample: () => void;
   theme: "light" | "dark";
-  lang?: "es" | "en" | "fr" | "de" | "pt" | "ru";
+  lang?: "es" | "en" | "fr" | "de" | "pt" | "ru" | "hi";
   showRelaxation: boolean;
   onToggleRelaxation: () => void;
 }
 
-type IntroLang = "es" | "en" | "fr" | "de" | "pt" | "ru";
+type IntroLang = "es" | "en" | "fr" | "de" | "pt" | "ru" | "hi";
 
 const INTRO_UI: Record<IntroLang, {
   heroTitlePre: string;
@@ -27,7 +27,7 @@ const INTRO_UI: Record<IntroLang, {
     heroTitlePre: "La Práctica de la ",
     heroTitleHighlight: "Regla de Oro",
     relaxRecoTitle: "🧘 Recomendación: Relajación Guiada",
-    relaxRecoText: "Antes de iniciar tu reflexión, te proponemos realizar una relajación guiada de 3 minutos (física externa, interna y mental). Es la mejor condición para acallar el ruido interno y reflexionar de corazón.",
+    relaxRecoText: "Antes de iniciar tu reflexión, te proponemos realizar una relajación guiada de unos 5 minutos (física externa, interna y mental). Es la mejor condición para acallar el ruido interno y reflexionar de corazón.",
     relaxListenBtn: "Escuchar Relajación",
     accordionLabel: "¿Qué es y para qué sirve?"
   },
@@ -35,7 +35,7 @@ const INTRO_UI: Record<IntroLang, {
     heroTitlePre: "The Practice of the ",
     heroTitleHighlight: "Golden Rule",
     relaxRecoTitle: "🧘 Recommended: Guided Relaxation",
-    relaxRecoText: "Before starting your reflection, we suggest a 3-minute guided relaxation (external physical, internal, and mental). This is the best state to quiet internal noise and reflect deeply.",
+    relaxRecoText: "Before starting your reflection, we suggest a guided relaxation of a few minutes (external physical, internal, and mental). This is the best state to quiet internal noise and reflect deeply.",
     relaxListenBtn: "Listen to Relaxation",
     accordionLabel: "What is it and what is it for?"
   },
@@ -43,7 +43,7 @@ const INTRO_UI: Record<IntroLang, {
     heroTitlePre: "La Pratique de la ",
     heroTitleHighlight: "Règle d'Or",
     relaxRecoTitle: "🧘 Recommandation : Relaxation Guidée",
-    relaxRecoText: "Avant de commencer votre réflexion, nous vous proposons une relaxation guidée de 3 minutes (physique externe, interne et mentale). C'est la meilleure condition pour apaiser le bruit intérieur et réfléchir avec le cœur.",
+    relaxRecoText: "Avant de commencer votre réflexion, nous vous proposons une relaxation guidée de quelques minutes (physique externe, interne et mentale). C'est la meilleure condition pour apaiser le bruit intérieur et réfléchir avec le cœur.",
     relaxListenBtn: "Écouter la Relaxation",
     accordionLabel: "Qu'est-ce que c'est et à quoi ça sert ?"
   },
@@ -51,7 +51,7 @@ const INTRO_UI: Record<IntroLang, {
     heroTitlePre: "Die Praxis der ",
     heroTitleHighlight: "Goldenen Regel",
     relaxRecoTitle: "🧘 Empfehlung: Geführte Entspannung",
-    relaxRecoText: "Bevor Sie mit Ihrer Reflexion beginnen, schlagen wir Ihnen eine 3-minütige geführte Entspannung vor (äußerlich körperlich, innerlich und mental). Das ist die beste Voraussetzung, um den inneren Lärm zu beruhigen und von Herzen zu reflektieren.",
+    relaxRecoText: "Bevor Sie mit Ihrer Reflexion beginnen, schlagen wir Ihnen eine geführte Entspannung von wenigen Minuten vor (äußerlich körperlich, innerlich und mental). Das ist die beste Voraussetzung, um den inneren Lärm zu beruhigen und von Herzen zu reflektieren.",
     relaxListenBtn: "Entspannung Anhören",
     accordionLabel: "Was ist das und wofür ist es?"
   },
@@ -59,7 +59,7 @@ const INTRO_UI: Record<IntroLang, {
     heroTitlePre: "A Prática da ",
     heroTitleHighlight: "Regra de Ouro",
     relaxRecoTitle: "🧘 Recomendação: Relaxamento Guiado",
-    relaxRecoText: "Antes de iniciares a tua reflexão, propomos-te realizar um relaxamento guiado de 3 minutos (físico externo, interno e mental). É a melhor condição para silenciar o ruído interno e refletir de coração.",
+    relaxRecoText: "Antes de iniciares a tua reflexão, propomos-te realizar um relaxamento guiado de alguns minutos (físico externo, interno e mental). É a melhor condição para silenciar o ruído interno e refletir de coração.",
     relaxListenBtn: "Ouvir o Relaxamento",
     accordionLabel: "O que é e para que serve?"
   },
@@ -67,9 +67,17 @@ const INTRO_UI: Record<IntroLang, {
     heroTitlePre: "Практика ",
     heroTitleHighlight: "Золотого правила",
     relaxRecoTitle: "🧘 Рекомендация: управляемое расслабление",
-    relaxRecoText: "Прежде чем начать своё размышление, мы предлагаем вам выполнить трёхминутное управляемое расслабление (внешнее физическое, внутреннее и умственное). Это наилучшее условие, чтобы утихомирить внутренний шум и размышлять от сердца.",
+    relaxRecoText: "Прежде чем начать своё размышление, мы предлагаем вам выполнить управляемое расслабление на несколько минут (внешнее физическое, внутреннее и умственное). Это наилучшее условие, чтобы утихомирить внутренний шум и размышлять от сердца.",
     relaxListenBtn: "Слушать расслабление",
     accordionLabel: "Что это и для чего это нужно?"
+  },
+  hi: {
+    heroTitlePre: "",
+    heroTitleHighlight: "स्वर्णिम नियम का अभ्यास",
+    relaxRecoTitle: "🧘 सुझाव: निर्देशित विश्राम",
+    relaxRecoText: "अपना चिंतन शुरू करने से पहले हम आपको कुछ मिनट का निर्देशित विश्राम करने का सुझाव देते हैं (शरीर का बाहरी, भीतरी और मानसिक)। भीतर के शोर को शांत करने और दिल से चिंतन करने के लिए यह सबसे अच्छी स्थिति है।",
+    relaxListenBtn: "विश्राम सुनें",
+    accordionLabel: "यह क्या है और किस काम आता है?"
   }
 };
 

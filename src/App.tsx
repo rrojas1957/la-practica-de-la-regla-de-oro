@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { STEPS, generateAforismos, INTRODUCTION_TEXT } from "./data/helpLists";
-import { translations, STEPS_EN, STEPS_FR, STEPS_DE, STEPS_PT, STEPS_RU, generateAforismosTranslated } from "./data/translations";
+import { translations, STEPS_EN, STEPS_FR, STEPS_DE, STEPS_PT, STEPS_RU, STEPS_HI, generateAforismosTranslated } from "./data/translations";
 import IntroSection from "./components/IntroSection";
 import InteractiveMap from "./components/InteractiveMap";
 import HelpWordsPanel from "./components/HelpWordsPanel";
@@ -111,9 +111,19 @@ const EXAMPLE_ANSWERS_RU: Record<number, string> = {
   7: "Выгорание",
   8: "Я соединяюсь с Человеческим в себе и в других"
 };
+const EXAMPLE_ANSWERS_HI: Record<number, string> = {
+  1: "बहिष्कार",
+  2: "दुखी होकर सबसे कट जाना",
+  3: "ख़याल रखना और शामिल करना",
+  4: "दूसरों के पास जाना और उनकी क़द्र करना",
+  5: "असुरक्षा की भावना",
+  6: "अपनी भावनाएँ और विचार खुलकर कहना",
+  7: "तंग आ जाना",
+  8: "अपने और दूसरों के भीतर की इंसानियत से जुड़ना"
+};
 
 // Supported UI languages
-type Lang = "es" | "en" | "fr" | "de" | "pt" | "ru";
+type Lang = "es" | "en" | "fr" | "de" | "pt" | "ru" | "hi";
 
 // Example data mapped by language (keeps the sample exercise in sync with the language selector)
 const EXAMPLE_ANSWERS_BY_LANG: Record<Lang, Record<number, string>> = {
@@ -122,7 +132,8 @@ const EXAMPLE_ANSWERS_BY_LANG: Record<Lang, Record<number, string>> = {
   fr: EXAMPLE_ANSWERS_FR,
   de: EXAMPLE_ANSWERS_DE,
   pt: EXAMPLE_ANSWERS_PT,
-  ru: EXAMPLE_ANSWERS_RU
+  ru: EXAMPLE_ANSWERS_RU,
+  hi: EXAMPLE_ANSWERS_HI
 };
 
 const EXAMPLE_TITLES: Record<Lang, string> = {
@@ -131,7 +142,8 @@ const EXAMPLE_TITLES: Record<Lang, string> = {
   fr: "Exemple - Dépassement du Traitement Excluant",
   de: "Beispiel - Überwindung der ausgrenzenden Behandlung",
   pt: "Exemplo - Superação do Trato Excludente",
-  ru: "Пример — Преодоление исключающего обращения"
+  ru: "Пример — Преодоление исключающего обращения",
+  hi: "उदाहरण - बहिष्कार भरे व्यवहार से उबरना"
 };
 
 const EXAMPLE_NOTES: Record<Lang, string> = {
@@ -140,7 +152,8 @@ const EXAMPLE_NOTES: Record<Lang, string> = {
   fr: "Ceci est l'exemple classique d'application de la Règle d'Or : il aborde la violence externe du traitement excluant par la considération et l'inclusion, en dépassant la souffrance défensive et la méfiance grâce à une communication honnête.",
   de: "Dies ist das klassische Beispiel für die Anwendung der Goldenen Regel: Es begegnet der äußeren Gewalt der ausgrenzenden Behandlung mit Rücksicht und Einbeziehung und überwindet defensives Leiden und Misstrauen durch ehrliche Kommunikation.",
   pt: "Este é o exemplo clássico de aplicação da Regra de Ouro, abordando a violência externa do trato excludente através da consideração e inclusão, superando o sofrimento defensivo e a desconfiança por meio da comunicação honesta.",
-  ru: "Это классический пример применения Золотого правила: он обращается к внешнему насилию исключающего обращения через внимание и включённость, преодолевая защитное страдание и недоверие посредством честной коммуникации."
+  ru: "Это классический пример применения Золотого правила: он обращается к внешнему насилию исключающего обращения через внимание и включённость, преодолевая защитное страдание и недоверие посредством честной коммуникации.",
+  hi: "यह स्वर्णिम नियम को लागू करने का जाना-माना उदाहरण है: यह बहिष्कार भरे व्यवहार की बाहरी हिंसा का सामना ख़याल रखने और शामिल करने से करता है, और ईमानदार संवाद के ज़रिए बचाव वाले दुख और अविश्वास से उबरता है।"
 };
 
 // Date locales per language
@@ -150,7 +163,8 @@ const LOCALES: Record<Lang, string> = {
   fr: "fr-FR",
   de: "de-DE",
   pt: "pt-PT",
-  ru: "ru-RU"
+  ru: "ru-RU",
+  hi: "hi-IN"
 };
 
 // Miscellaneous in-component UI strings that are not part of the shared translations dictionary
@@ -265,6 +279,22 @@ const APP_UI: Record<Lang, {
     footerCopyright: "© 2026 — На основе Школы Сило",
     footerStorage: "Приватное локальное сохранение (без базы данных)",
     footerDeveloped: "Разработано R.E.R.H., со смирением и добротой"
+  },
+  hi: {
+    themeLight: "लाइट",
+    themeDark: "डार्क",
+    ofWord: "/",
+    myReflection: "मेरा चिंतन",
+    filePrefix: "Swarnim_Niyam",
+    relaxPrompt: "🧘 क्या आप शुरू करने से पहले अपने मन को शांत करना चाहेंगे? निर्देशित विश्राम कीजिए",
+    relaxListen: "सुनें",
+    notesLabel: "आपके नोट्स या चिंतन की डायरी (ऐच्छिक):",
+    notesPlaceholder: "इस जगह का उपयोग बाहरी स्थिति को और विस्तार से लिखने, शरीर में महसूस होने वाले बदलावों के बारे में लिखने या अपने संकल्प दर्ज करने के लिए कीजिए...",
+    footerTitle: "स्वर्णिम नियम का अभ्यास",
+    footerDesc: "सक्रिय अहिंसा की कार्य-पद्धति पर आधारित एक साधन, जो सोच, भावना और कर्म के मेल, मन की शांति तथा व्यक्तिगत और सामाजिक मेल-मिलाप को बढ़ावा देता है।",
+    footerCopyright: "© 2026 - सिलो के स्कूल पर आधारित",
+    footerStorage: "निजी स्थानीय संग्रह (बिना डेटाबेस के)",
+    footerDeveloped: "R.E.R.H. द्वारा विनम्रता और भलाई के साथ विकसित"
   }
 };
 
@@ -276,6 +306,7 @@ const BOTTOM_NAV_LABELS: Record<Lang, { intro: string; practice: string; history
   de: { intro: "Start",      practice: "Praxis",    history: "Verlauf",   support: "Bibliothek" },
   pt: { intro: "Início",     practice: "Prática",   history: "Historial", support: "Biblioteca" },
   ru: { intro: "Начало",     practice: "Практика",  history: "История",   support: "Библиотека" },
+  hi: { intro: "शुरुआत", practice: "अभ्यास", history: "इतिहास", support: "पुस्तकालय" },
 };
 
 // Default title used when saving a practice without a custom title
@@ -286,7 +317,8 @@ const defaultSaveTitle = (lang: Lang, word: string): string => {
     fr: `Dépasser le rejet de « ${word} »`,
     de: `Die Ablehnung von "${word}" überwinden`,
     pt: `Superar a rejeição de "${word}"`,
-    ru: `Преодолеть отвержение «${word}»`
+    ru: `Преодолеть отвержение «${word}»`,
+    hi: `"${word}" की अस्वीकृति से ऊपर उठना`
   };
   return map[lang];
 };
@@ -299,7 +331,8 @@ const supportExampleNotes = (lang: Lang, title: string): string => {
     fr: `Ceci est l'exercice de réflexion chargé depuis les exemples de soutien de l'application : « ${title} ». Utilisez-le comme inspiration pour votre propre travail.`,
     de: `Dies ist die Reflexionsübung, die aus den Unterstützungsbeispielen der Anwendung geladen wurde: "${title}". Nutzen Sie sie als Inspiration für Ihre eigene Arbeit.`,
     pt: `Este é o exercício de reflexão carregado a partir dos exemplos de apoio da aplicação: "${title}". Usa-o como inspiração para o teu próprio trabalho.`,
-    ru: `Это рефлективное упражнение, загруженное из вспомогательных примеров приложения: «${title}». Используйте его как вдохновение для собственной работы.`
+    ru: `Это рефлективное упражнение, загруженное из вспомогательных примеров приложения: «${title}». Используйте его как вдохновение для собственной работы.`,
+    hi: `यह चिंतन-अभ्यास ऐप के सहायक उदाहरणों से लोड किया गया है: "${title}"। इसे अपने काम के लिए प्रेरणा के रूप में इस्तेमाल कीजिए।`
   };
   return map[lang];
 };
@@ -312,7 +345,8 @@ const synthesisPendingText = (lang: Lang, totalSteps: number, answeredCount: num
     fr: `Répondez aux ${totalSteps} questions du questionnaire pour générer l'ensemble d'aphorismes interactifs de développement personnel. Vous en avez actuellement répondu ${answeredCount} sur ${totalSteps}.`,
     de: `Beantworten Sie die ${totalSteps} Fragen des Fragebogens, um Ihren Satz interaktiver Leitgedanken zur Selbstüberwindung zu erzeugen. Derzeit haben Sie ${answeredCount} von ${totalSteps} beantwortet.`,
     pt: `Responde às ${totalSteps} perguntas do questionário para gerar o conjunto de aforismos interativos de superação pessoal. Atualmente respondeste ${answeredCount} de ${totalSteps}.`,
-    ru: `Ответьте на ${totalSteps} вопросов анкеты, чтобы сгенерировать набор интерактивных афоризмов для личного преодоления. Сейчас вы ответили на ${answeredCount} из ${totalSteps}.`
+    ru: `Ответьте на ${totalSteps} вопросов анкеты, чтобы сгенерировать набор интерактивных афоризмов для личного преодоления. Сейчас вы ответили на ${answeredCount} из ${totalSteps}.`,
+    hi: `इंटरैक्टिव और आत्म-विकास की सूक्तियों का पूरा समूह बनाने के लिए प्रश्नावली के ${totalSteps} प्रश्नों के उत्तर दीजिए। अभी तक आप ${totalSteps} में से ${answeredCount} के उत्तर दे चुके हैं।`
   };
   return map[lang];
 };
@@ -335,6 +369,7 @@ export default function App() {
     lang === "fr" ? STEPS_FR : 
     lang === "de" ? STEPS_DE : 
     lang === "ru" ? STEPS_RU : 
+    lang === "hi" ? STEPS_HI : 
     STEPS_PT;
 
   // Navigation tabs: 'intro' | 'practice' | 'history' | 'support'
@@ -782,6 +817,8 @@ ${t.downloadFooterQuote}
                   lang === "en" ? "Change language" :
                   lang === "fr" ? "Changer de langue" :
                   lang === "de" ? "Sprache ändern" :
+                  lang === "ru" ? "Сменить язык (Change language)" :
+                  lang === "hi" ? "भाषा बदलें (Change language)" :
                   "Alterar idioma"
                 }
               >
@@ -806,7 +843,8 @@ ${t.downloadFooterQuote}
                       { code: "fr" as Lang, label: "Français" },
                       { code: "de" as Lang, label: "Deutsch" },
                       { code: "pt" as Lang, label: "Português" },
-                      { code: "ru" as Lang, label: "Русский" }
+                      { code: "ru" as Lang, label: "Русский" },
+                      { code: "hi" as Lang, label: "हिन्दी" }
                     ]).map(({ code, label }) => (
                       <button
                         key={code}
@@ -833,7 +871,8 @@ ${t.downloadFooterQuote}
                             fr: "Langue changée en Français",
                             de: "Sprache auf Deutsch umgestellt",
                             pt: "Idioma alterado para Português",
-                            ru: "Язык изменён на русский"
+                            ru: "Язык изменён на русский",
+                            hi: "भाषा बदलकर हिन्दी कर दी गई"
                           };
                           showToast(msgs[code]);
                         }}

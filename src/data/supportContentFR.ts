@@ -206,7 +206,7 @@ export const RESOURCES_LIST_FR = [
     author: "Silo",
     publisher: "Editorial ATE, Barcelone",
     year: "1979",
-    description: "L'œuvre fondatrice de la pensée de Silo, qui invite à l'introspection profonde et à la rencontre avec le sens de l'existence humaine."
+    description: "L'œuvre fondatrice de la pensée de Silo, qui invite à la méditation profonde et à la rencontre avec le sens de l'existence humaine."
   },
   {
     type: "Livre",
@@ -229,7 +229,7 @@ export const RESOURCES_LIST_FR = [
     title: "Commentaires sur la Règle d'Or",
     author: "Silo",
     year: "17 décembre 1995",
-    description: "Conférence donnée à Mendoza, Argentine, détaillant la portée de la réciprocité et les lois de l'action valable dans la vie quotidienne."
+    description: "Conférence donnée à Mendoza, Argentine, détaillant la portée de la réciprocité et les principes de l'action valable dans la vie quotidienne."
   },
   {
     type: "Harangue",

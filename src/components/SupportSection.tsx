@@ -24,19 +24,20 @@ import { GLOSSARY_TERMS_FR, TESTIMONIALS_LIST_FR, RESOURCES_LIST_FR, EXAMPLES_LI
 import { GLOSSARY_TERMS_DE, TESTIMONIALS_LIST_DE, RESOURCES_LIST_DE, EXAMPLES_LIST_DE } from "../data/supportContentDE";
 import { GLOSSARY_TERMS_PT, TESTIMONIALS_LIST_PT, RESOURCES_LIST_PT, EXAMPLES_LIST_PT } from "../data/supportContentPT";
 import { GLOSSARY_TERMS_RU, TESTIMONIALS_LIST_RU, RESOURCES_LIST_RU, EXAMPLES_LIST_RU } from "../data/supportContentRU";
+import { GLOSSARY_TERMS_HI, TESTIMONIALS_LIST_HI, RESOURCES_LIST_HI, EXAMPLES_LIST_HI } from "../data/supportContentHI";
 
 interface SupportSectionProps {
   theme: "light" | "dark";
   onLoadExampleAnswers: (answers: Record<number, string>, title: string) => void;
   showToast: (message: string) => void;
-  lang?: "es" | "en" | "fr" | "de" | "pt" | "ru";
+  lang?: "es" | "en" | "fr" | "de" | "pt" | "ru" | "hi";
 }
 
 // Key terms for Glossary
 interface GlossaryTerm {
   term: string;
   definition: string;
-  tag: "Metodología" | "Estados" | "Acción" | "Methodology" | "States" | "Action" | "Méthodologie" | "États" | "Methodik" | "Zustände" | "Handlung" | "Metodologia" | "Ação";
+  tag: "Metodología" | "Estados" | "Acción" | "Methodology" | "States" | "Action" | "Méthodologie" | "États" | "Methodik" | "Zustände" | "Handlung" | "Metodologia" | "Ação" | "कार्य-पद्धति" | "अवस्थाएँ" | "कर्म";
 }
 
 const TESTIMONIALS_LIST_EN = [
@@ -241,7 +242,7 @@ const TESTIMONIALS_LIST: Testimonial[] = [
     author: "T. R.",
     title: "Lo que no quería ver",
     tag: "Descubrimiento",
-    content: "A partir de un ejercicio, en el que se planteaba una pregunta sobre una situación sufriente, comprendí que esa actitud, ese comportamiento, también estaba en mí. Entonces comprendí que el otro me mostraba algo que yo no quería ver en mí y por eso chocábamos. Después de ese momento iba con un cuaderno haciendo el ejercicio ante situaciones en las que ya sabía, por repetición, que me iba a tensar, a climatizar, y por otras nuevas que surgían. Así construía aforismos que me ayudaran a dar una respuesta diferente a la habitual, más posibilitadora. Poco a poco y tras pedir ayuda para una situación que me desestabilizaba bastante, pude comprobar que la Regla de Oro me abría el futuro, me ayudaba a reconciliar, y que el ser humano del futuro estaba más cerca, ya habitaba en mí y en cada uno de nosotros. A partir de ahí, puedo decir que muchas cosas han cambiado en mi vida. He aprendido a aplicar la Regla de Oro apoyándose en las virtudes y estando atenta a las situaciones que se van presentando con la autoobservación de cómo me siento, que quiero cambiar y que respuesta quiero dar."
+    content: "A partir de un ejercicio, en el que se planteaba una pregunta sobre una situación sufriente, comprendí que esa actitud, ese comportamiento, también estaba en mí. Entonces comprendí que el otro me mostraba algo que yo no quería ver en mí y por eso chocábamos. Después de ese momento iba con un cuaderno haciendo el ejercicio ante situaciones en las que ya sabía, por repetición, que me iba a tensar, a climatizar, y por otras nuevas que surgían. Así construía aforismos que me ayudaran a dar una respuesta diferente a la habitual, más posibilitadora. Poco a poco y tras pedir ayuda para una situación que me desestabilizaba bastante, pude comprobar que la Regla de Oro me abría el futuro, me ayudaba a reconciliar, y que el ser humano del futuro estaba más cerca, ya habitaba en mí y en cada uno de nosotros. A partir de ahí, puedo decir que muchas cosas han cambiado en mi vida. He aprendido a aplicar la Regla de Oro apoyándome en las virtudes y estando atenta a las situaciones que se van presentando con la autoobservación de cómo me siento, qué quiero cambiar y qué respuesta quiero dar."
   },
   {
     author: "G. T.",
@@ -259,13 +260,13 @@ const TESTIMONIALS_LIST: Testimonial[] = [
     author: "F. F.",
     title: "Un regalo de la vida",
     tag: "Integración",
-    content: "El otro es un regalo que la vida me ofrece para crecer, para liberarme, para tratar y tratarme coherentemente, para aprender a tratar como quiero que me traten. Y yo estoy para él o para ella, pero ésta es su historia... Y me reconcilio conmigo misma por todas las veces que frente al 'diverso' me he sentido atacada, que frente a quien inseguro o insegura se defiende, me defendí, ofendiendo, attacking. Me reconcilio cada vez que yo 'diversa' me sentí rechazada, me aislé... me reconcilio, dejo de defenderme, me calmo, me libero: la vida busca el crecimiento, no compensación de la nada. El otro resuena en mí según cómo yo sueno por dentro... y de nuevo descubro la co-existencia: yo existo porque tú existes. Me libero, liviana, indiferente al paisaje interno y externo, superando contradicciones."
+    content: "El otro es un regalo que la vida me ofrece para crecer, para liberarme, para tratar y tratarme coherentemente, para aprender a tratar como quiero que me traten. Y yo estoy para él o para ella, pero ésta es su historia... Y me reconcilio conmigo misma por todas las veces que frente al 'diverso' me he sentido atacada, que frente a quien inseguro o insegura se defiende, me defendí, ofendiendo, atacando. Me reconcilio cada vez que yo 'diversa' me sentí rechazada, me aislé... me reconcilio, dejo de defenderme, me calmo, me libero: la vida busca el crecimiento, no compensación de la nada. El otro resuena en mí según cómo yo sueno por dentro... y de nuevo descubro la co-existencia: yo existo porque tú existes. Me libero, liviana, indiferente al paisaje interno y externo, superando contradicciones."
   },
   {
     author: "G. R.",
     title: "Otra realidad es posible",
     tag: "Paz Interior",
-    content: "¿Qué ha sido para mí la Regla de Oro? El descubrimiento de que otra realidad es posible. Al intencionar el trato al otro y a mí mismo en base a la Regla de Oro, he ido ganado en paz interior, me ha hecho ver a los demás como 'otro yo', y comprender el porqué de sus reacciones y conductas, poniendo un manto humanizador sobre éstas. Me ha ayudado a dilucidar el trato que deseo para mí mismo, el que me doy y el que quiero recibir. Trato que estaba desdibujado por el 'deber ser' y las creencias epocales. Me he ido despojando de tensiones, malos pensamientos y especulaciones sobre los vínculos y el trato recíproco. Siento que he crecido, estoy más seguro de mis actos y, sintetizando, soy más feliz."
+    content: "¿Qué ha sido para mí la Regla de Oro? El descubrimiento de que otra realidad es posible. Al intencionar el trato al otro y a mí mismo en base a la Regla de Oro, he ido ganando en paz interior, me ha hecho ver a los demás como 'otro yo', y comprender el porqué de sus reacciones y conductas, poniendo un manto humanizador sobre éstas. Me ha ayudado a dilucidar el trato que deseo para mí mismo, el que me doy y el que quiero recibir. Trato que estaba desdibujado por el 'deber ser' y las creencias epocales. Me he ido despojando de tensiones, malos pensamientos y especulaciones sobre los vínculos y el trato recíproco. Siento que he crecido, estoy más seguro de mis actos y, sintetizando, soy más feliz."
   },
   {
     author: "G. G.",
@@ -319,7 +320,7 @@ const RESOURCES_LIST: Resource[] = [
     author: "Silo",
     publisher: "Editorial ATE, Barcelona",
     year: "1979",
-    description: "La obra fundacional del pensamiento de Silo, que invita a la introspección profunda y al encuentro con el sentido de la existencia humana."
+    description: "La obra fundacional del pensamiento de Silo, que invita a la meditación profunda y al encuentro con el sentido de la existencia humana."
   },
   {
     type: "Libro",
@@ -342,7 +343,7 @@ const RESOURCES_LIST: Resource[] = [
     title: "Comentarios sobre la Regla de Oro",
     author: "Silo",
     year: "17 de diciembre de 1995",
-    description: "Conferencia dictada en Mendoza, Argentina, detallando el alcance de la reciprocidad y las leyes de acción válida en la vida cotidiana."
+    description: "Conferencia dictada en Mendoza, Argentina, detallando el alcance de la reciprocidad y los principios de acción válida en la vida cotidiana."
   },
   {
     type: "Arenga",
@@ -525,6 +526,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
     lang === "de" ? TESTIMONIALS_LIST_DE :
     lang === "pt" ? TESTIMONIALS_LIST_PT :
     lang === "ru" ? TESTIMONIALS_LIST_RU :
+    lang === "hi" ? TESTIMONIALS_LIST_HI :
     TESTIMONIALS_LIST_EN;
   const resourcesList =
     lang === "es" ? RESOURCES_LIST :
@@ -532,6 +534,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
     lang === "de" ? RESOURCES_LIST_DE :
     lang === "pt" ? RESOURCES_LIST_PT :
     lang === "ru" ? RESOURCES_LIST_RU :
+    lang === "hi" ? RESOURCES_LIST_HI :
     RESOURCES_LIST_EN;
   const examplesList =
     lang === "es" ? EXAMPLES_LIST :
@@ -539,6 +542,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
     lang === "de" ? EXAMPLES_LIST_DE :
     lang === "pt" ? EXAMPLES_LIST_PT :
     lang === "ru" ? EXAMPLES_LIST_RU :
+    lang === "hi" ? EXAMPLES_LIST_HI :
     EXAMPLES_LIST_EN;
   const glossaryList =
     lang === "es" ? GLOSSARY_TERMS :
@@ -546,6 +550,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
     lang === "de" ? GLOSSARY_TERMS_DE :
     lang === "pt" ? GLOSSARY_TERMS_PT :
     lang === "ru" ? GLOSSARY_TERMS_RU :
+    lang === "hi" ? GLOSSARY_TERMS_HI :
     GLOSSARY_TERMS_EN;
 
   // Filter glossary
@@ -628,11 +633,11 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
       <div className="space-y-3">
         <div className="flex items-center gap-2">
           <span className="text-xs font-bold text-amber-500 uppercase tracking-widest bg-amber-500/10 px-2.5 py-1 rounded-full">
-            {{ es: "Materiales de Apoyo y Buzón", en: "Support Materials & Mailbox", fr: "Matériels de Soutien et Boîte à Messages", de: "Unterstützungsmaterialien & Briefkasten", pt: "Materiais de Apoio e Caixa de Mensagens", ru: "Вспомогательные материалы и почтовый ящик" }[lang]}
+            {{ es: "Materiales de Apoyo y Buzón", en: "Support Materials & Mailbox", fr: "Matériels de Soutien et Boîte à Messages", de: "Unterstützungsmaterialien & Briefkasten", pt: "Materiais de Apoio e Caixa de Mensagens", ru: "Вспомогательные материалы и почтовый ящик", hi: "सहायक सामग्री और संदेश-पेटी" }[lang]}
           </span>
         </div>
         <h2 className={`text-2xl sm:text-3xl font-bold tracking-tight ${isDark ? "text-white" : "text-slate-900"}`}>
-          {{ es: "Recursos de Consulta y Participación", en: "Resources for Inquiry & Participation", fr: "Ressources de Consultation et de Participation", de: "Ressourcen zum Nachschlagen und Mitwirken", pt: "Recursos de Consulta e Participação", ru: "Ресурсы для ознакомления и участия" }[lang]}
+          {{ es: "Recursos de Consulta y Participación", en: "Resources for Inquiry & Participation", fr: "Ressources de Consultation et de Participation", de: "Ressourcen zum Nachschlagen und Mitwirken", pt: "Recursos de Consulta e Participação", ru: "Ресурсы для ознакомления и участия", hi: "संदर्भ और भागीदारी के साधन" }[lang]}
         </h2>
         <p className={`text-sm max-w-3xl leading-relaxed ${isDark ? "text-slate-300" : "text-slate-600"}`}>
           {{
@@ -640,8 +645,9 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
             en: "Explore practical examples extracted from the authors' direct practice, search key terms from the active nonviolence glossary, or share your feedback in a 100% private and anonymous manner.",
             fr: "Explorez des exemples pratiques issus de la pratique directe des auteurs, consultez les concepts clés du glossaire de la non-violence ou partagez vos retours de manière 100 % privée et anonyme.",
             de: "Erkunden Sie praktische Beispiele aus der direkten Praxis der Autoren, schlagen Sie Schlüsselbegriffe im Glossar der Gewaltfreiheit nach oder teilen Sie Ihre Rückmeldungen 100 % privat und anonym mit.",
-            pt: "Explora exemplos práticos extraídos da prática direta dos autores, consulta conceitos-chave do glossário da não-violência ou partilha as tuas avaliações de forma 100% privada e anónima.", ru: "Изучайте практические примеры из непосредственной практики авторов, ищите ключевые термины в глоссарии активного ненасилия или делитесь своими отзывами полностью приватно и анонимно.",
-            ru: "Изучайте практические примеры из непосредственной практики авторов, ищите ключевые термины в глоссарии активного ненасилия или делитесь своими отзывами полностью приватно и анонимно."
+            pt: "Explora exemplos práticos extraídos da prática direta dos autores, consulta conceitos-chave do glossário da não-violência ou partilha as tuas avaliações de forma 100% privada e anónima.",
+            ru: "Изучайте практические примеры из непосредственной практики авторов, ищите ключевые термины в глоссарии активного ненасилия или делитесь своими отзывами полностью приватно и анонимно.",
+            hi: "लेखकों के अपने अभ्यास से लिए गए व्यावहारिक उदाहरण देखिए, अहिंसा की शब्दावली की मुख्य अवधारणाएँ पढ़िए, या अपनी राय 100% निजी और गुमनाम ढंग से साझा कीजिए।"
           }[lang]}
         </p>
       </div>
@@ -651,11 +657,11 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
         isDark ? "border-slate-800" : "border-slate-200"
       }`}>
         {[
-          { id: "examples", label: { es: "Ejemplos Reales", en: "Real Examples", fr: "Exemples Réels", de: "Echte Beispiele", pt: "Exemplos Reais", ru: "Реальные примеры" }[lang], icon: FileText },
-          { id: "testimonials", label: { es: "Testimonios (9)", en: "Testimonials (9)", fr: "Témoignages (9)", de: "Erfahrungsberichte (9)", pt: "Testemunhos (9)", ru: "Отзывы (9)" }[lang], icon: Users },
-          { id: "glossary", label: { es: "Glosario Completo", en: "Complete Glossary", fr: "Glossaire Complet", de: "Vollständiges Glossar", pt: "Glossário Completo", ru: "Полный глоссарий" }[lang], icon: Bookmark },
-          { id: "resources", label: { es: "Biblioteca y Enlaces", en: "Library & Links", fr: "Bibliothèque et Liens", de: "Bibliothek & Links", pt: "Biblioteca e Ligações", ru: "Библиотека и ссылки" }[lang], icon: BookOpen },
-          { id: "mailbox", label: { es: "Buzón Anónimo", en: "Anonymous Mailbox", fr: "Boîte Anonyme", de: "Anonymer Briefkasten", pt: "Caixa Anónima", ru: "Анонимный почтовый ящик" }[lang], icon: MessageSquare }
+          { id: "examples", label: { es: "Ejemplos Reales", en: "Real Examples", fr: "Exemples Réels", de: "Echte Beispiele", pt: "Exemplos Reais", ru: "Реальные примеры", hi: "असली उदाहरण" }[lang], icon: FileText },
+          { id: "testimonials", label: { es: "Testimonios (9)", en: "Testimonials (9)", fr: "Témoignages (9)", de: "Erfahrungsberichte (9)", pt: "Testemunhos (9)", ru: "Отзывы (9)", hi: "अनुभव (9)" }[lang], icon: Users },
+          { id: "glossary", label: { es: "Glosario Completo", en: "Complete Glossary", fr: "Glossaire Complet", de: "Vollständiges Glossar", pt: "Glossário Completo", ru: "Полный глоссарий", hi: "पूरी शब्दावली" }[lang], icon: Bookmark },
+          { id: "resources", label: { es: "Biblioteca y Enlaces", en: "Library & Links", fr: "Bibliothèque et Liens", de: "Bibliothek & Links", pt: "Biblioteca e Ligações", ru: "Библиотека и ссылки", hi: "पुस्तकालय और लिंक" }[lang], icon: BookOpen },
+          { id: "mailbox", label: { es: "Buzón Anónimo", en: "Anonymous Mailbox", fr: "Boîte Anonyme", de: "Anonymer Briefkasten", pt: "Caixa Anónima", ru: "Анонимный почтовый ящик", hi: "गुमनाम संदेश-पेटी" }[lang], icon: MessageSquare }
         ].map(tab => {
           const Icon = tab.icon;
           const active = activeSubTab === tab.id;
@@ -709,6 +715,8 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     <>Integrámos estes <strong>exemplos reais e anónimos</strong> extraídos do trabalho direto dos autores. Podes examinar o mapeamento conceptual de cada ponto ou carregá-los diretamente no teu espaço de trabalho para ver em tempo real como se constroem as fórmulas de superação moral.</>
                   ) : lang === "ru" ? (
                     <>Мы интегрировали эти <strong>реальные и анонимные примеры</strong>, взятые из непосредственной работы авторов. Вы можете изучить концептуальную схему каждого пункта или загрузить их прямо в своё рабочее пространство, чтобы в реальном времени увидеть, как строятся формулы нравственного преодоления.</>
+                  ) : lang === "hi" ? (
+                    <>हमने लेखकों के अपने काम से लिए गए ये <strong>असली और गुमनाम उदाहरण</strong> यहाँ जोड़े हैं। आप हर बिंदु का वैचारिक ढाँचा देख सकते हैं, या इन्हें सीधे अपने कार्य-क्षेत्र में लोड करके उसी क्षण देख सकते हैं कि नैतिक रूप से ऊपर उठने के सूत्र कैसे बनते हैं।</>
                   ) : (
                     <>We have integrated these <strong>real and anonymous examples</strong> extracted from the authors' direct work. You can examine the conceptual mapping of each point or load them directly into your workspace to see in real-time how the moral overcoming formulas are built.</>
                   )}
@@ -744,20 +752,20 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                         isDark ? "bg-slate-950 border-slate-850/60" : "bg-slate-50 border-slate-100"
                       }`}>
                         <div className="grid grid-cols-12 gap-1 pb-1 border-b border-dashed border-slate-800/20 dark:border-slate-200/10">
-                          <span className="col-span-4 text-slate-400 font-bold">{{ es: "PUNTO", en: "POINT", fr: "POINT", de: "PUNKT", pt: "PONTO", ru: "ПУНКТ" }[lang]}</span>
+                          <span className="col-span-4 text-slate-400 font-bold">{{ es: "PUNTO", en: "POINT", fr: "POINT", de: "PUNKT", pt: "PONTO", ru: "ПУНКТ", hi: "बिंदु" }[lang]}</span>
                           <span className={`col-span-8 font-bold ${isDark ? "text-slate-200" : "text-slate-800"}`}>
-                            {{ es: "CONTENIDO DEL EJERCICIO", en: "EXERCISE CONTENT", fr: "CONTENU DE L’EXERCICE", de: "INHALT DER ÜBUNG", pt: "CONTEÚDO DO EXERCÍCIO", ru: "СОДЕРЖАНИЕ УПРАЖНЕНИЯ" }[lang]}
+                            {{ es: "CONTENIDO DEL EJERCICIO", en: "EXERCISE CONTENT", fr: "CONTENU DE L’EXERCICE", de: "INHALT DER ÜBUNG", pt: "CONTEÚDO DO EXERCÍCIO", ru: "СОДЕРЖАНИЕ УПРАЖНЕНИЯ", hi: "अभ्यास की विषय-वस्तु" }[lang]}
                           </span>
                         </div>
                         {[
-                          { num: 1, label: { es: "P1. Rechazo", en: "P1. Rejection", fr: "P1. Rejet", de: "P1. Ablehnung", pt: "P1. Rejeição", ru: "П1. Отвержение" }[lang], val: ex.answers[1] },
-                          { num: 2, label: { es: "P2. Reacción", en: "P2. Reaction", fr: "P2. Réaction", de: "P2. Reaktion", pt: "P2. Reação", ru: "П2. Реакция" }[lang], val: ex.answers[2] },
-                          { num: 3, label: { es: "P3. Pido / Doy", en: "P3. Ask / Give", fr: "P3. Demande / Don", de: "P3. Bitte / Gebe", pt: "P3. Peço / Dou", ru: "П3. Прошу / Даю" }[lang], val: ex.answers[3] },
-                          { num: 4, label: { es: "P4. Buen Trato", en: "P4. Good Treatment", fr: "P4. Bon Traitement", de: "P4. Gute Behandlung", pt: "P4. Bom Trato", ru: "П4. Доброе обращение" }[lang], val: ex.answers[4] },
-                          { num: 5, label: { es: "P5. Caída (3-2)", en: "P5. Fall (3-2)", fr: "P5. Chute (3-2)", de: "P5. Absturz (3-2)", pt: "P5. Queda (3-2)", ru: "П5. Падение (3-2)" }[lang], val: ex.answers[5] },
-                          { num: 6, label: { es: "P6. Subida (2-3)", en: "P6. Rise (2-3)", fr: "P6. Montée (2-3)", de: "P6. Aufstieg (2-3)", pt: "P6. Subida (2-3)", ru: "П6. Подъём (2-3)" }[lang], val: ex.answers[6] },
-                          { num: 7, label: { es: "P7. Caída (4-1)", en: "P7. Fall (4-1)", fr: "P7. Chute (4-1)", de: "P7. Absturz (4-1)", pt: "P7. Queda (4-1)", ru: "П7. Падение (4-1)" }[lang], val: ex.answers[7] },
-                          { num: 8, label: { es: "P8. Subida (1-4)", en: "P8. Rise (1-4)", fr: "P8. Montée (1-4)", de: "P8. Aufstieg (1-4)", pt: "P8. Subida (1-4)", ru: "П8. Подъём (1-4)" }[lang], val: ex.answers[8] }
+                          { num: 1, label: { es: "P1. Rechazo", en: "P1. Rejection", fr: "P1. Rejet", de: "P1. Ablehnung", pt: "P1. Rejeição", ru: "П1. Отвержение", hi: "बिंदु 1. अस्वीकार" }[lang], val: ex.answers[1] },
+                          { num: 2, label: { es: "P2. Reacción", en: "P2. Reaction", fr: "P2. Réaction", de: "P2. Reaktion", pt: "P2. Reação", ru: "П2. Реакция", hi: "बिंदु 2. प्रतिक्रिया" }[lang], val: ex.answers[2] },
+                          { num: 3, label: { es: "P3. Pido / Doy", en: "P3. Ask / Give", fr: "P3. Demande / Don", de: "P3. Bitte / Gebe", pt: "P3. Peço / Dou", ru: "П3. Прошу / Даю", hi: "बिंदु 3. चाहिए / दूँ" }[lang], val: ex.answers[3] },
+                          { num: 4, label: { es: "P4. Buen Trato", en: "P4. Good Treatment", fr: "P4. Bon Traitement", de: "P4. Gute Behandlung", pt: "P4. Bom Trato", ru: "П4. Доброе обращение", hi: "बिंदु 4. अच्छा व्यवहार" }[lang], val: ex.answers[4] },
+                          { num: 5, label: { es: "P5. Caída (3-2)", en: "P5. Fall (3-2)", fr: "P5. Chute (3-2)", de: "P5. Absturz (3-2)", pt: "P5. Queda (3-2)", ru: "П5. Падение (3-2)", hi: "बिंदु 5. गिरना (3-2)" }[lang], val: ex.answers[5] },
+                          { num: 6, label: { es: "P6. Subida (2-3)", en: "P6. Rise (2-3)", fr: "P6. Montée (2-3)", de: "P6. Aufstieg (2-3)", pt: "P6. Subida (2-3)", ru: "П6. Подъём (2-3)", hi: "बिंदु 6. ऊपर उठना (2-3)" }[lang], val: ex.answers[6] },
+                          { num: 7, label: { es: "P7. Caída (4-1)", en: "P7. Fall (4-1)", fr: "P7. Chute (4-1)", de: "P7. Absturz (4-1)", pt: "P7. Queda (4-1)", ru: "П7. Падение (4-1)", hi: "बिंदु 7. गिरना (4-1)" }[lang], val: ex.answers[7] },
+                          { num: 8, label: { es: "P8. Subida (1-4)", en: "P8. Rise (1-4)", fr: "P8. Montée (1-4)", de: "P8. Aufstieg (1-4)", pt: "P8. Subida (1-4)", ru: "П8. Подъём (1-4)", hi: "बिंदु 8. ऊपर उठना (1-4)" }[lang], val: ex.answers[8] }
                         ].map(p => (
                           <div key={p.num} className="grid grid-cols-12 gap-1 items-start">
                             <span className="col-span-4 text-slate-450 font-bold text-[10px]">{p.label}:</span>
@@ -771,7 +779,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                         isDark ? "bg-amber-950/10 border-amber-900/30 text-amber-300" : "bg-amber-50/50 border-amber-100 text-amber-900"
                       }`}>
                         <span className="text-[9px] uppercase font-bold block tracking-wider opacity-80">
-                          {{ es: "Aforismo Conclusivo:", en: "Concluding Aphorism:", fr: "Aphorisme Conclusif :", de: "Abschließender Leitgedanke:", pt: "Aforismo Conclusivo:", ru: "Итоговый афоризм:" }[lang]}
+                          {{ es: "Aforismo Conclusivo:", en: "Concluding Aphorism:", fr: "Aphorisme Conclusif :", de: "Abschließender Leitgedanke:", pt: "Aforismo Conclusivo:", ru: "Итоговый афоризм:", hi: "निष्कर्ष की सूक्ति:" }[lang]}
                         </span>
                         <p className="text-xs font-bold mt-1 italic">
                           "{ex.aforismo}"
@@ -780,7 +788,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
 
                       {/* Commentary details */}
                       <p className={`text-xs leading-relaxed italic ${isDark ? "text-slate-400" : "text-slate-500"}`}>
-                        💡 <strong>{{ es: "Análisis:", en: "Analysis:", fr: "Analyse :", de: "Analyse:", pt: "Análise:", ru: "Анализ:" }[lang]}</strong> {ex.commentary}
+                        💡 <strong>{{ es: "Análisis:", en: "Analysis:", fr: "Analyse :", de: "Analyse:", pt: "Análise:", ru: "Анализ:", hi: "विश्लेषण:" }[lang]}</strong> {ex.commentary}
                       </p>
                     </div>
 
@@ -796,7 +804,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                         }`}
                       >
                         <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
-                        <span>{{ es: "Cargar en la Práctica", en: "Load into Practice", fr: "Charger dans la Pratique", de: "In die Praxis Laden", pt: "Carregar na Prática", ru: "Загрузить в практику" }[lang]}</span>
+                        <span>{{ es: "Cargar en la Práctica", en: "Load into Practice", fr: "Charger dans la Pratique", de: "In die Praxis Laden", pt: "Carregar na Prática", ru: "Загрузить в практику", hi: "अभ्यास में लोड करें" }[lang]}</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </button>
                     </div>
@@ -830,6 +838,8 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     <>Os <strong>testemunhos reais</strong> são relatos de transformação pessoal partilhados por praticantes da Regra de Ouro. Mostram-nos de que forma o exercício permitiu acalmar tensões crónicas e sarar relações familiares ou sociais.</>
                   ) : lang === "ru" ? (
                     <><strong>Реальные отзывы</strong> — это рассказы о личном преображении, которыми делятся практикующие Золотое правило. Они показывают нам, как это упражнение позволило успокоить хронические напряжения и исцелить семейные или социальные отношения.</>
+                  ) : lang === "hi" ? (
+                    <><strong>असली अनुभव</strong> व्यक्तिगत रूपांतरण की वे कहानियाँ हैं जो स्वर्णिम नियम का अभ्यास करने वालों ने साझा की हैं। ये हमें दिखाती हैं कि इस अभ्यास ने किस तरह पुराने तनावों को शांत करने और पारिवारिक या सामाजिक रिश्तों को भरने में मदद की है।</>
                   ) : (
                     <>The <strong>real testimonials</strong> are accounts of personal transformation shared by practitioners of the Golden Rule. They show us how the exercise has allowed them to calm chronic tensions and heal family or social relationships.</>
                   )}
@@ -852,7 +862,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                             "{t.title}"
                           </h4>
                           <span className="text-[11px] text-amber-600 font-semibold block">
-                            {{ es: "Por", en: "By", fr: "Par", de: "Von", pt: "Por", ru: "Автор" }[lang]} {t.author}
+                            {{ es: "Por", en: "By", fr: "Par", de: "Von", pt: "Por", ru: "Автор", hi: "साझा किया:" }[lang]} {t.author}
                           </span>
                         </div>
                         <span className="text-[9px] uppercase font-mono tracking-wider text-amber-600 bg-amber-500/10 px-2 py-0.5 rounded-md font-bold shrink-0">
@@ -874,7 +884,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
               }`}>
                 <Users className="w-8 h-8 text-amber-500 mx-auto opacity-70" />
                 <h4 className={`text-sm font-bold ${isDark ? "text-slate-200" : "text-slate-800"}`}>
-                  {{ es: "¿Quieres enviarnos tus testimonios de práctica?", en: "Do you want to send us your practice testimonials?", fr: "Voulez-vous nous envoyer vos témoignages de pratique ?", de: "Möchten Sie uns Ihre Praxis-Erfahrungsberichte senden?", pt: "Queres enviar-nos os teus testemunhos de prática?", ru: "Хотите прислать нам свои отзывы о практике?" }[lang]}
+                  {{ es: "¿Quieres enviarnos tus testimonios de práctica?", en: "Do you want to send us your practice testimonials?", fr: "Voulez-vous nous envoyer vos témoignages de pratique ?", de: "Möchten Sie uns Ihre Praxis-Erfahrungsberichte senden?", pt: "Queres enviar-nos os teus testemunhos de prática?", ru: "Хотите прислать нам свои отзывы о практике?", hi: "क्या आप अपने अभ्यास के अनुभव हमें भेजना चाहेंगे?" }[lang]}
                 </h4>
                 <p className={`text-xs max-w-xl mx-auto leading-relaxed ${isDark ? "text-slate-400" : "text-slate-500"}`}>
 {{
@@ -882,8 +892,9 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     en: "Use the anonymous mailbox if you wish to share your story or reflections of change so we can include them in this section to inspire others.",
                     fr: "Utilisez la boîte anonyme si vous souhaitez partager votre récit ou vos réflexions de changement afin que nous puissions les inclure dans cette section pour inspirer les autres.",
                     de: "Nutzen Sie den anonymen Briefkasten, wenn Sie Ihren Bericht oder Ihre Reflexionen über Veränderung teilen möchten, damit wir sie in diesen Bereich aufnehmen und andere inspirieren können.",
-                    pt: "Usa a caixa anónima se desejares partilhar o teu relato ou reflexões de mudança para que o incluamos nesta secção para inspirar outros.", ru: "Используйте анонимный почтовый ящик, если хотите поделиться своей историей или размышлениями об изменении, чтобы мы могли включить их в этот раздел и вдохновить других.",
-                    ru: "Используйте анонимный почтовый ящик, если хотите поделиться своей историей или размышлениями об изменении, чтобы мы могли включить их в этот раздел и вдохновить других."
+                    pt: "Usa a caixa anónima se desejares partilhar o teu relato ou reflexões de mudança para que o incluamos nesta secção para inspirar outros.",
+                    ru: "Используйте анонимный почтовый ящик, если хотите поделиться своей историей или размышлениями об изменении, чтобы мы могли включить их в этот раздел и вдохновить других.",
+                    hi: "अगर आप अपनी कहानी या बदलाव के अपने चिंतन साझा करना चाहें, तो गुमनाम संदेश-पेटी का उपयोग कीजिए, ताकि हम उन्हें इस भाग में शामिल करें और दूसरों को प्रेरणा मिले।"
                   }[lang]}
                 </p>
                 <div className="pt-2">
@@ -894,7 +905,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     }`}
                   >
                     <MessageSquare className="w-3.5 h-3.5 text-amber-500" />
-                    <span>{{ es: "Ir al buzón para enviar un testimonio", en: "Go to the mailbox to send a testimonial", fr: "Aller à la boîte pour envoyer un témoignage", de: "Zum Briefkasten, um einen Bericht zu senden", pt: "Ir à caixa para enviar um testemunho", ru: "Перейти к почтовому ящику, чтобы отправить отзыв" }[lang]}</span>
+                    <span>{{ es: "Ir al buzón para enviar un testimonio", en: "Go to the mailbox to send a testimonial", fr: "Aller à la boîte pour envoyer un témoignage", de: "Zum Briefkasten, um einen Bericht zu senden", pt: "Ir à caixa para enviar um testemunho", ru: "Перейти к почтовому ящику, чтобы отправить отзыв", hi: "अनुभव भेजने के लिए संदेश-पेटी पर जाएँ" }[lang]}</span>
                   </button>
                 </div>
               </div>
@@ -915,7 +926,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                 <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                 <input
                   type="text"
-                  placeholder={{ es: "Buscar término o concepto clave (Ej: Aforismo, Cenestesia, Clima, Paisaje...)", en: "Search term or key concept (e.g., Aphorism, Coenesthesia, Climate, Landscape...)", fr: "Rechercher un terme ou concept clé (Ex : Aphorisme, Cénesthésie, Climat, Paysage...)", de: "Begriff oder Schlüsselkonzept suchen (z. B. Leitgedanke, Zönästhesie, Klima, Landschaft...)", pt: "Procurar termo ou conceito-chave (Ex.: Aforismo, Cenestesia, Clima, Paisagem...)", ru: "Искать термин или ключевое понятие (напр., Афоризм, Ценестезия, Климат, Ландшафт...)" }[lang]}
+                  placeholder={{ es: "Buscar término o concepto clave (Ej: Aforismo, Cenestesia, Clima, Paisaje...)", en: "Search term or key concept (e.g., Aphorism, Coenesthesia, Climate, Landscape...)", fr: "Rechercher un terme ou concept clé (Ex : Aphorisme, Cénesthésie, Climat, Paysage...)", de: "Begriff oder Schlüsselkonzept suchen (z. B. Leitgedanke, Zönästhesie, Klima, Landschaft...)", pt: "Procurar termo ou conceito-chave (Ex.: Aforismo, Cenestesia, Clima, Paisagem...)", ru: "Искать термин или ключевое понятие (напр., Афоризм, Ценестезия, Климат, Ландшафт...)", hi: "शब्द या मुख्य अवधारणा खोजें (जैसे: सूक्ति, आंतरिक देह-संवेदना, भावनात्मक वातावरण, परिदृश्य...)" }[lang]}
                   value={glossarySearch}
                   onChange={(e) => setGlossarySearch(e.target.value)}
                   className={`w-full pl-10 pr-4 py-3 rounded-xl border text-xs font-medium focus:outline-none focus:ring-1 transition-all ${
@@ -940,9 +951,9 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                         {g.term}
                       </h4>
                       <span className={`text-[9px] px-2 py-0.5 rounded font-bold font-mono ${
-                        g.tag === "Metodología" || g.tag === "Methodology" || g.tag === "Méthodologie" || g.tag === "Methodik" || g.tag === "Metodologia" || g.tag === "Методология"
+                        g.tag === "Metodología" || g.tag === "Methodology" || g.tag === "Méthodologie" || g.tag === "Methodik" || g.tag === "Metodologia" || g.tag === "Методология" || g.tag === "कार्य-पद्धति"
                           ? "bg-blue-500/10 text-blue-400"
-                          : g.tag === "Estados" || g.tag === "States" || g.tag === "États" || g.tag === "Zustände" || g.tag === "Состояния"
+                          : g.tag === "Estados" || g.tag === "States" || g.tag === "États" || g.tag === "Zustände" || g.tag === "Состояния" || g.tag === "अवस्थाएँ"
                           ? "bg-rose-500/10 text-rose-450"
                           : "bg-emerald-500/10 text-emerald-450"
                       }`}>
@@ -963,7 +974,8 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                       fr: `Aucun terme trouvé pour "${glossarySearch}". Essayez un autre mot.`,
                       de: `Keine Begriffe für "${glossarySearch}" gefunden. Versuchen Sie ein anderes Wort.`,
                       pt: `Não foram encontrados termos para "${glossarySearch}". Tenta outra palavra.`,
-                      ru: `Термины по запросу "${glossarySearch}" не найдены. Попробуйте другое слово.`
+                      ru: `Термины по запросу "${glossarySearch}" не найдены. Попробуйте другое слово.`,
+                      hi: `"${glossarySearch}" के लिए कोई शब्द नहीं मिला। कोई और शब्द आज़माइए।`
                     }[lang]}
                   </div>
                 )}
@@ -996,6 +1008,8 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     <><strong>Biblioteca da Não-Violência:</strong> Consulta as obras completas de Silo e de outros autores de referência. A bibliografia completa de Silo pode ser consultada livremente em PDF no site oficial <a href="https://www.silo.net" target="_blank" rel="noreferrer" className="text-amber-500 hover:underline font-bold inline-flex items-center gap-0.5">silo.net <ExternalLink className="w-3 h-3 inline" /></a>.</>
                   ) : lang === "ru" ? (
                     <><strong>Библиотека ненасилия:</strong> Ознакомьтесь с полным собранием сочинений Сило и других авторов. Полную библиографию Сило можно свободно просмотреть в формате PDF на официальном сайте <a href="https://www.silo.net" target="_blank" rel="noreferrer" className="text-amber-500 hover:underline font-bold inline-flex items-center gap-0.5">silo.net <ExternalLink className="w-3 h-3 inline" /></a>.</>
+                  ) : lang === "hi" ? (
+                    <><strong>अहिंसा का पुस्तकालय:</strong> सिलो और दूसरे प्रमुख लेखकों की संपूर्ण कृतियाँ देखिए। सिलो का पूरा साहित्य आधिकारिक वेबसाइट <a href="https://www.silo.net" target="_blank" rel="noreferrer" className="text-amber-500 hover:underline font-bold inline-flex items-center gap-0.5">silo.net <ExternalLink className="w-3 h-3 inline" /></a> पर PDF में निःशुल्क पढ़ा जा सकता है।</>
                   ) : (
                     <><strong>Nonviolence Library:</strong> Consult the complete works of Silo and other reference authors. Silo's complete bibliography can be accessed freely in PDF format on the official website <a href="https://www.silo.net" target="_blank" rel="noreferrer" className="text-amber-500 hover:underline font-bold inline-flex items-center gap-0.5">silo.net <ExternalLink className="w-3 h-3 inline" /></a>.</>
                   )}
@@ -1018,13 +1032,13 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                       <div className="space-y-2.5">
                         <div className="flex items-center justify-between">
                           <span className={`text-[9px] px-2 py-0.5 rounded font-bold font-mono ${
-                            r.type === "Libro" || r.type === "Book"
+                            r.type === "Libro" || r.type === "Book" || r.type === "पुस्तक"
                               ? "bg-amber-500/10 text-amber-500"
-                              : r.type === "Conferencia" || r.type === "Conference"
+                              : r.type === "Conferencia" || r.type === "Conference" || r.type === "व्याख्यान"
                               ? "bg-blue-500/10 text-blue-400"
-                              : r.type === "Arenga" || r.type === "Harangue"
+                              : r.type === "Arenga" || r.type === "Harangue" || r.type === "संबोधन"
                               ? "bg-rose-500/10 text-rose-450"
-                              : r.type === "Manual"
+                              : r.type === "Manual" || r.type === "मार्गदर्शिका"
                               ? "bg-purple-500/10 text-purple-400"
                               : "bg-emerald-500/10 text-emerald-450"
                           }`}>
@@ -1071,7 +1085,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                             ) : (
                               <FilePdfIcon className="w-3.5 h-3.5" />
                             )}
-                            <span>{{ es: "Abrir Recurso", en: "Open Resource", fr: "Ouvrir la Ressource", de: "Ressource Öffnen", pt: "Abrir Recurso", ru: "Открыть ресурс" }[lang]}</span>
+                            <span>{{ es: "Abrir Recurso", en: "Open Resource", fr: "Ouvrir la Ressource", de: "Ressource Öffnen", pt: "Abrir Recurso", ru: "Открыть ресурс", hi: "सामग्री खोलें" }[lang]}</span>
                             <ExternalLink className="w-3 h-3" />
                           </a>
                         </div>
@@ -1107,7 +1121,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                   <h3 className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${
                     isDark ? "text-emerald-400" : "text-emerald-800"
                   }`}>
-                    {{ es: "🔒 Espacio de Devoluciones de Privacidad Absoluta", en: "🔒 Space of Absolute Privacy Feedback", fr: "🔒 Espace de Retours en Confidentialité Absolue", de: "🔒 Raum für Rückmeldungen mit Absoluter Privatsphäre", pt: "🔒 Espaço de Devoluções de Privacidade Absoluta", ru: "🔒 Пространство абсолютно приватной обратной связи" }[lang]}
+                    {{ es: "🔒 Espacio de Devoluciones de Privacidad Absoluta", en: "🔒 Space of Absolute Privacy Feedback", fr: "🔒 Espace de Retours en Confidentialité Absolue", de: "🔒 Raum für Rückmeldungen mit Absoluter Privatsphäre", pt: "🔒 Espaço de Devoluções de Privacidade Absoluta", ru: "🔒 Пространство абсолютно приватной обратной связи", hi: "🔒 पूर्ण निजता के साथ अपनी राय देने की जगह" }[lang]}
                   </h3>
                   <p className={`text-xs leading-relaxed ${isDark ? "text-slate-300" : "text-slate-600"}`}>
                     {lang === "es" ? (
@@ -1130,6 +1144,10 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                       <>
                         <strong>Как мы гарантируем вашу анонимность?</strong> Почтовый ящик работает на 100% вслепую. Мы не регистрируем IP-адреса, не создаём постоянных файлов cookie в этой форме и не запрашиваем адреса электронной почты или идентифицирующие данные. Информация передаётся в зашифрованном виде по прямому одностороннему каналу к координаторам практики. Ваш голос ценен, и ваша конфиденциальность полностью защищена.
                       </>
+                    ) : lang === "hi" ? (
+                      <>
+                        <strong>हम आपकी गुमनामी कैसे पक्की करते हैं?</strong> संदेश-पेटी 100% «अंधे» ढंग से काम करती है। हम IP पते दर्ज नहीं करते, इस फ़ॉर्म में स्थायी कुकीज़ नहीं बनाते, और न ही आपसे ईमेल या पहचान बताने वाली कोई जानकारी माँगते हैं। जानकारी एन्क्रिप्टेड रूप में, एक-तरफ़ा सीधे रास्ते से अभ्यास के समन्वयकों तक पहुँचती है। आपकी आवाज़ क़ीमती है और आपकी निजता पूरी तरह सुरक्षित है।
+                      </>
                     ) : (
                       <>
                         <strong>How do we guarantee your anonymity?</strong> The mailbox operates 100% blindly. We do not register IP addresses, we do not generate persistent cookies in this form, nor do we ask for emails or identifying data. Information travels encrypted through a direct one-way channel to the practice coordinators. Your voice is valuable and your privacy is completely safe.
@@ -1145,13 +1163,13 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     <label className={`text-xs font-bold uppercase tracking-wider block ${
                       isDark ? "text-slate-300" : "text-slate-700"
                     }`}>
-                      {{ es: "Categoría de la devolución", en: "Feedback Category", fr: "Catégorie du retour", de: "Kategorie der Rückmeldung", pt: "Categoria da devolução", ru: "Категория обратной связи" }[lang]}
+                      {{ es: "Categoría de la devolución", en: "Feedback Category", fr: "Catégorie du retour", de: "Kategorie der Rückmeldung", pt: "Categoria da devolução", ru: "Категория обратной связи", hi: "राय की श्रेणी" }[lang]}
                     </label>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       {[
-                        { id: "opinion", label: { es: "Opinión General", en: "General Opinion", fr: "Opinion Générale", de: "Allgemeine Meinung", pt: "Opinião Geral", ru: "Общее мнение" }[lang] },
-                        { id: "testimonio", label: { es: "Nuevo Testimonio", en: "New Testimonial", fr: "Nouveau Témoignage", de: "Neuer Erfahrungsbericht", pt: "Novo Testemunho", ru: "Новый отзыв" }[lang] },
-                        { id: "sugerencia", label: { es: "Sugerencias", en: "Suggestions", fr: "Suggestions", de: "Vorschläge", pt: "Sugestões", ru: "Предложения" }[lang] }
+                        { id: "opinion", label: { es: "Opinión General", en: "General Opinion", fr: "Opinion Générale", de: "Allgemeine Meinung", pt: "Opinião Geral", ru: "Общее мнение", hi: "सामान्य राय" }[lang] },
+                        { id: "testimonio", label: { es: "Nuevo Testimonio", en: "New Testimonial", fr: "Nouveau Témoignage", de: "Neuer Erfahrungsbericht", pt: "Novo Testemunho", ru: "Новый отзыв", hi: "नया अनुभव" }[lang] },
+                        { id: "sugerencia", label: { es: "Sugerencias", en: "Suggestions", fr: "Suggestions", de: "Vorschläge", pt: "Sugestões", ru: "Предложения", hi: "सुझाव" }[lang] }
                       ].map(cat => (
                         <button
                           key={cat.id}
@@ -1177,12 +1195,12 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     <label className={`text-xs font-bold uppercase tracking-wider block ${
                       isDark ? "text-slate-300" : "text-slate-700"
                     }`}>
-                      {{ es: "Tu mensaje reflexivo u opinión", en: "Your reflective message or opinion", fr: "Votre message réflexif ou opinion", de: "Ihre reflektierende Nachricht oder Meinung", pt: "A tua mensagem reflexiva ou opinião", ru: "Ваше размышление или мнение" }[lang]}
+                      {{ es: "Tu mensaje reflexivo u opinión", en: "Your reflective message or opinion", fr: "Votre message réflexif ou opinion", de: "Ihre reflektierende Nachricht oder Meinung", pt: "A tua mensagem reflexiva ou opinião", ru: "Ваше размышление или мнение", hi: "आपका चिंतन-भरा संदेश या राय" }[lang]}
                     </label>
                     <textarea
                       rows={5}
                       required
-                      placeholder={{ es: "Escribe libremente aquí tu experiencia con la práctica, tus ideas de mejora o el testimonio que desees compartir...", en: "Write freely here your experience with the practice, your improvement ideas, or the testimonial you wish to share...", fr: "Écrivez librement ici votre expérience de la pratique, vos idées d’amélioration ou le témoignage que vous souhaitez partager...", de: "Schreiben Sie hier frei über Ihre Erfahrung mit der Praxis, Ihre Verbesserungsideen oder den Bericht, den Sie teilen möchten...", pt: "Escreve livremente aqui a tua experiência com a prática, as tuas ideias de melhoria ou o testemunho que desejes partilhar...", ru: "Пишите здесь свободно о своём опыте практики, идеях по улучшению или отзыве, которым хотите поделиться..." }[lang]}
+                      placeholder={{ es: "Escribe libremente aquí tu experiencia con la práctica, tus ideas de mejora o el testimonio que desees compartir...", en: "Write freely here your experience with the practice, your improvement ideas, or the testimonial you wish to share...", fr: "Écrivez librement ici votre expérience de la pratique, vos idées d’amélioration ou le témoignage que vous souhaitez partager...", de: "Schreiben Sie hier frei über Ihre Erfahrung mit der Praxis, Ihre Verbesserungsideen oder den Bericht, den Sie teilen möchten...", pt: "Escreve livremente aqui a tua experiência com a prática, as tuas ideias de melhoria ou o testemunho que desejes partilhar...", ru: "Пишите здесь свободно о своём опыте практики, идеях по улучшению или отзыве, которым хотите поделиться...", hi: "अभ्यास का अपना अनुभव, सुधार के अपने विचार या जो अनुभव आप साझा करना चाहें, यहाँ खुलकर लिखिए..." }[lang]}
                       value={feedbackText}
                       onChange={(e) => setFeedbackText(e.target.value)}
                       className={`w-full p-4 rounded-xl border text-xs leading-relaxed focus:outline-none focus:ring-1 transition-all ${
@@ -1208,12 +1226,12 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                       {isSendingFeedback ? (
                         <>
                           <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                          <span>{{ es: "Transmitiendo de forma segura...", en: "Transmitting securely...", fr: "Transmission sécurisée en cours...", de: "Sichere Übertragung läuft...", pt: "A transmitir de forma segura...", ru: "Безопасная передача..." }[lang]}</span>
+                          <span>{{ es: "Transmitiendo de forma segura...", en: "Transmitting securely...", fr: "Transmission sécurisée en cours...", de: "Sichere Übertragung läuft...", pt: "A transmitir de forma segura...", ru: "Безопасная передача...", hi: "सुरक्षित रूप से भेजा जा रहा है..." }[lang]}</span>
                         </>
                       ) : (
                         <>
                           <Send className="w-3.5 h-3.5" />
-                          <span>{{ es: "Enviar Devolución Anónima", en: "Send Anonymous Feedback", fr: "Envoyer un Retour Anonyme", de: "Anonyme Rückmeldung Senden", pt: "Enviar Devolução Anónima", ru: "Отправить анонимный отзыв" }[lang]}</span>
+                          <span>{{ es: "Enviar Devolución Anónima", en: "Send Anonymous Feedback", fr: "Envoyer un Retour Anonyme", de: "Anonyme Rückmeldung Senden", pt: "Enviar Devolução Anónima", ru: "Отправить анонимный отзыв", hi: "गुमनाम राय भेजें" }[lang]}</span>
                         </>
                       )}
                     </button>
@@ -1232,7 +1250,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                   </div>
                   <div className="space-y-1">
                     <h4 className={`text-base font-bold ${isDark ? "text-slate-100" : "text-slate-900"}`}>
-                      {{ es: "¡Mensaje transmitido con éxito!", en: "Message transmitted successfully!", fr: "Message transmis avec succès !", de: "Nachricht erfolgreich übermittelt!", pt: "Mensagem transmitida com sucesso!", ru: "Сообщение успешно передано!" }[lang]}
+                      {{ es: "¡Mensaje transmitido con éxito!", en: "Message transmitted successfully!", fr: "Message transmis avec succès !", de: "Nachricht erfolgreich übermittelt!", pt: "Mensagem transmitida com sucesso!", ru: "Сообщение успешно передано!", hi: "संदेश सफलतापूर्वक भेज दिया गया!" }[lang]}
                     </h4>
                     <p className={`text-xs ${isDark ? "text-slate-400" : "text-slate-500"}`}>
                       {{
@@ -1240,8 +1258,9 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                         en: "Your message has been encrypted and sent to the coordination feedback inbox. Any identifying header or session registry has been omitted to permanently safeguard your anonymity.",
                         fr: "Votre message a été chiffré et envoyé à la boîte de retours de la coordination. Tout en-tête identifiant ou registre de session a été omis afin de préserver définitivement votre anonymat.",
                         de: "Ihre Nachricht wurde verschlüsselt und an das Rückmelde-Postfach der Koordination gesendet. Jegliche identifizierende Kopfzeile oder Sitzungsregistrierung wurde weggelassen, um Ihre Anonymität dauerhaft zu schützen.",
-                        pt: "A tua mensagem foi encriptada e enviada para a caixa de devoluções da coordenação. Foi omitido qualquer cabeçalho identificativo ou registo de sessão para resguardar permanentemente o teu anonimato.", ru: "Ваше сообщение зашифровано и отправлено в почтовый ящик обратной связи координации. Любой идентифицирующий заголовок или запись сессии были опущены, чтобы навсегда защитить вашу анонимность.",
-                        ru: "Ваше сообщение зашифровано и отправлено в почтовый ящик обратной связи координации. Любой идентифицирующий заголовок или запись сессии были опущены, чтобы навсегда защитить вашу анонимность."
+                        pt: "A tua mensagem foi encriptada e enviada para a caixa de devoluções da coordenação. Foi omitido qualquer cabeçalho identificativo ou registo de sessão para resguardar permanentemente o teu anonimato.",
+                        ru: "Ваше сообщение зашифровано и отправлено в почтовый ящик обратной связи координации. Любой идентифицирующий заголовок или запись сессии были опущены, чтобы навсегда защитить вашу анонимность.",
+                        hi: "आपका संदेश एन्क्रिप्ट करके समन्वय-टीम के संदेश-बॉक्स में भेज दिया गया है। आपकी गुमनामी को हमेशा के लिए सुरक्षित रखने के लिए पहचान बताने वाला कोई भी शीर्ष-विवरण या सत्र का रिकॉर्ड शामिल नहीं किया गया।"
                       }[lang]}
                     </p>
                   </div>
@@ -1253,7 +1272,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                         isDark ? "bg-slate-800 hover:bg-slate-750 text-slate-200" : "bg-slate-100 hover:bg-slate-200 text-slate-700"
                       }`}
                     >
-                      {{ es: "Enviar otra devolución", en: "Send another feedback", fr: "Envoyer un autre retour", de: "Weitere Rückmeldung senden", pt: "Enviar outra devolução", ru: "Отправить ещё один отзыв" }[lang]}
+                      {{ es: "Enviar otra devolución", en: "Send another feedback", fr: "Envoyer un autre retour", de: "Weitere Rückmeldung senden", pt: "Enviar outra devolução", ru: "Отправить ещё один отзыв", hi: "एक और राय भेजें" }[lang]}
                     </button>
                   </div>
                 </motion.div>

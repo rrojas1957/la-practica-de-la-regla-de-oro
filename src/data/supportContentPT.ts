@@ -206,7 +206,7 @@ export const RESOURCES_LIST_PT = [
     author: "Silo",
     publisher: "Editorial ATE, Barcelona",
     year: "1979",
-    description: "A obra fundacional do pensamento de Silo, que convida à introspeção profunda e ao encontro com o sentido da existência humana."
+    description: "A obra fundacional do pensamento de Silo, que convida à meditação profunda e ao encontro com o sentido da existência humana."
   },
   {
     type: "Livro",
@@ -229,7 +229,7 @@ export const RESOURCES_LIST_PT = [
     title: "Comentários sobre a Regra de Ouro",
     author: "Silo",
     year: "17 de dezembro de 1995",
-    description: "Conferência proferida em Mendoza, Argentina, detalhando o alcance da reciprocidade e as leis da ação válida na vida quotidiana."
+    description: "Conferência proferida em Mendoza, Argentina, detalhando o alcance da reciprocidade e os princípios da ação válida na vida quotidiana."
   },
   {
     type: "Arenga",

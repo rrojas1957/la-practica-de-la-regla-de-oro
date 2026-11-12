@@ -206,7 +206,7 @@ export const RESOURCES_LIST_DE = [
     author: "Silo",
     publisher: "Editorial ATE, Barcelona",
     year: "1979",
-    description: "Das Grundlagenwerk von Silos Denken, das zur tiefen Innenschau und zur Begegnung mit dem Sinn der menschlichen Existenz einlädt."
+    description: "Das Grundlagenwerk von Silos Denken, das zur tiefen Meditation und zur Begegnung mit dem Sinn der menschlichen Existenz einlädt."
   },
   {
     type: "Buch",
@@ -229,7 +229,7 @@ export const RESOURCES_LIST_DE = [
     title: "Kommentare zur Goldenen Regel",
     author: "Silo",
     year: "17. Dezember 1995",
-    description: "In Mendoza, Argentinien, gehaltener Vortrag, der die Reichweite der Gegenseitigkeit und die Gesetze des gültigen Handelns im Alltagsleben darlegt."
+    description: "In Mendoza, Argentinien, gehaltener Vortrag, der die Reichweite der Gegenseitigkeit und die Prinzipien des gültigen Handelns im Alltagsleben darlegt."
   },
   {
     type: "Ansprache",

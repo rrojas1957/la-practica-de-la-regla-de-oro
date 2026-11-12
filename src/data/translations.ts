@@ -160,7 +160,7 @@ export interface TranslationDict {
   downloadFooterQuote: string;
 }
 
-export const translations: Record<"es" | "en" | "fr" | "de" | "pt" | "ru", TranslationDict> = {
+export const translations: Record<"es" | "en" | "fr" | "de" | "pt" | "ru" | "hi", TranslationDict> = {
   es: {
     logoTitle: "La Regla de Oro",
     logoSubtitle: "Práctica Interactiva",
@@ -206,7 +206,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt" | "ru", Trans
       "Romper la cadena de violencia interna y externa.",
       "Actuar desde nuestras mejores virtudes, no desde el impulso del momento.",
       "Elevar nuestro nivel de conciencia, lo que mejora nuestra vida y la de quienes nos rodean.",
-      "Con el tempo, esta práctica se convierte en una herramienta para vivir con más unidad interna: pensar, sentir y actuar en la misma dirección.",
+      "Con el tiempo, esta práctica se convierte en una herramienta para vivir con más unidad interna: pensar, sentir y actuar en la misma dirección.",
       "Esta aplicación te acompañará paso a paso para que puedas practicarla de manera sencilla, profunda y accesible. No importa tu edad, tu cultura, tu historia o tu situación actual: Todos podemos aprender a vivir con menos violencia y más libertad interna."
     ],
     introExplanation: "Todas las personas experimentamos momentos de tensión, enojo, frustración o confusión. A veces reaccionamos de forma puramente mecánica o compulsiva desde un bajo nivel de conciencia. Esta práctica es una herramienta de autoconocimiento y transformación personal diseñada para ayudarte a detener la reacción automática, comprender tus estados internos y elegir el buen trato de manera consciente. No es una norma rígida ni una obligación moral, sino un camino hacia una vida con menos sufrimiento, más unidad interna y verdadera libertad.",
@@ -220,7 +220,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt" | "ru", Trans
     practiceProgressLabel: "Progreso global:",
     practiceCompletedCount: " completados",
     practicePrivacyTitle: "Garantía de Confidencialidad y Privacidad Absoluta",
-    practicePrivacyText: "Tu práctica de reflexión es absolutamente privada. Todo lo que escribes se almacena localmente y de manera cifrada en la base de datos de tu propio navegador (localStorage). Ningún dato personal, reflexión o respuesta se envía a servidores externos ni a bases de datos en la nube. Tu intimidad emocional está completamente resguardada.",
+    practicePrivacyText: "Tu práctica de reflexión es absolutamente privada. Todo lo que escribes se almacena localmente en la base de datos de tu propio navegador (localStorage). Ningún dato personal, reflexión o respuesta se envía a servidores externos ni a bases de datos en la nube. Tu intimidad emocional está completamente resguardada.",
     practiceQuestionLabel: "Pregunta ",
     practiceTypeLuminous: "Espacio Luminoso",
     practiceTypeDark: "Espacio Climático",
@@ -322,7 +322,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt" | "ru", Trans
     supportMailboxBtnSend: "Enviar Mensaje Anónimo",
     supportMailboxBtnSending: "Enviando de forma segura...",
     supportMailboxSuccessTitle: "¡Mensaje Enviado con Éxito!",
-    supportMailboxSuccessText: "Muchas gracias por tu contribución. Tu mensaje ha sido incorporado a nuestra hoja de cálculo de gestión y será analizado con profundo respeto por el equipo técnico. Tu aporte nos ayuda a mejorar la experiencia de todos.",
+    supportMailboxSuccessText: "Muchas gracias por tu contribución. Tu mensaje ha sido incorporado a nuestro registro y será analizado con profundo respeto por el equipo técnico. Tu aporte nos ayuda a mejorar la experiencia de todos.",
     supportMailboxBtnSendAnother: "Enviar Otro Mensaje",
 
     // Download Output File Format
@@ -496,7 +496,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt" | "ru", Trans
     supportMailboxBtnSend: "Send Anonymous Message",
     supportMailboxBtnSending: "Sending securely...",
     supportMailboxSuccessTitle: "Message Sent Successfully!",
-    supportMailboxSuccessText: "Thank you very much for your contribution. Your message has been safely integrated into our management spreadsheet and will be analyzed with deep respect by the technical team. Your input helps us improve the experience for everyone.",
+    supportMailboxSuccessText: "Thank you very much for your contribution. Your message has been safely added to our records and will be analyzed with deep respect by the technical team. Your input helps us improve the experience for everyone.",
     supportMailboxBtnSendAnother: "Send Another Message",
 
     // Download Output File Format
@@ -568,7 +568,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt" | "ru", Trans
     practiceProgressLabel: "Progression globale :",
     practiceCompletedCount: " terminés",
     practicePrivacyTitle: "Garantie de confidentialité et de vie privée absolue",
-    practicePrivacyText: "Votre pratique de réflexion est absolument privée. Tout ce que vous écrivez est stocké localement et de manière chiffrée dans la base de données de votre propre navigateur (localStorage). Aucune donnée personnelle, réflexion ou réponse n'est envoyée à des serveurs externes ou à des bases de données dans le cloud. Votre intimité émotionnelle est entièrement protégée.",
+    practicePrivacyText: "Votre pratique de réflexion est absolument privée. Tout ce que vous écrivez est stocké localement dans la base de données de votre propre navigateur (localStorage). Aucune donnée personnelle, réflexion ou réponse n'est envoyée à des serveurs externes ou à des bases de données dans le cloud. Votre intimité émotionnelle est entièrement protégée.",
     practiceQuestionLabel: "Question ",
     practiceTypeLuminous: "Espace Lumineux",
     practiceTypeDark: "Espace Perturbé",
@@ -670,7 +670,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt" | "ru", Trans
     supportMailboxBtnSend: "Envoyer un message anonyme",
     supportMailboxBtnSending: "Envoi sécurisé en cours...",
     supportMailboxSuccessTitle: "Message envoyé avec succès !",
-    supportMailboxSuccessText: "Merci beaucoup pour votre contribution. Votre message a été intégré en toute sécurité dans notre feuille de calcul de gestion et sera analysé avec le plus profond respect par l'équipe technique. Votre contribution nous aide à améliorer l'expérience de tous.",
+    supportMailboxSuccessText: "Merci beaucoup pour votre contribution. Votre message a été intégré en toute sécurité dans notre registre et sera analysé avec le plus profond respect par l'équipe technique. Votre contribution nous aide à améliorer l'expérience de tous.",
     supportMailboxBtnSendAnother: "Envoyer un autre message",
 
     // Download Output File Format
@@ -742,7 +742,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt" | "ru", Trans
     practiceProgressLabel: "Gesamtfortschritt:",
     practiceCompletedCount: " abgeschlossen",
     practicePrivacyTitle: "Garantie für absolute Vertraulichkeit und Privatsphäre",
-    practicePrivacyText: "Ihre Reflexionspraxis ist absolut privat. Alles, was Sie schreiben, wird lokal und verschlüsselt in der Datenbank Ihres eigenen Browsers (localStorage) gespeichert. Es werden keine persönlichen Daten, Reflexionen oder Antworten an externe Server oder Cloud-Datenbanken gesendet. Ihre emotionale Privatsphäre ist vollständig geschützt.",
+    practicePrivacyText: "Ihre Reflexionspraxis ist absolut privat. Alles, was Sie schreiben, wird lokal in der Datenbank Ihres eigenen Browsers (localStorage) gespeichert. Es werden keine persönlichen Daten, Reflexionen oder Antworten an externe Server oder Cloud-Datenbanken gesendet. Ihre emotionale Privatsphäre ist vollständig geschützt.",
     practiceQuestionLabel: "Frage ",
     practiceTypeLuminous: "Lichter Raum",
     practiceTypeDark: "Gestörter Raum",
@@ -844,7 +844,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt" | "ru", Trans
     supportMailboxBtnSend: "Anonyme Nachricht senden",
     supportMailboxBtnSending: "Sicheres Senden läuft...",
     supportMailboxSuccessTitle: "Nachricht erfolgreich gesendet!",
-    supportMailboxSuccessText: "Vielen Dank für Ihren Beitrag. Ihre Nachricht wurde sicher in unsere Verwaltungstabelle integriert und wird vom technischen Team mit tiefem Respekt analysiert. Ihr Beitrag hilft uns, die Erfahrung für alle zu verbessern.",
+    supportMailboxSuccessText: "Vielen Dank für Ihren Beitrag. Ihre Nachricht wurde sicher in unser Register aufgenommen und wird vom technischen Team mit tiefem Respekt analysiert. Ihr Beitrag hilft uns, die Erfahrung für alle zu verbessern.",
     supportMailboxBtnSendAnother: "Eine weitere Nachricht senden",
 
     // Download Output File Format
@@ -916,7 +916,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt" | "ru", Trans
     practiceProgressLabel: "Progresso global:",
     practiceCompletedCount: " completados",
     practicePrivacyTitle: "Garantia de Confidencialidade e Privacidade Absoluta",
-    practicePrivacyText: "A tua prática de reflexão é absolutamente privada. Tudo o que escreves é guardado localmente e de forma encriptada na base de dados do teu próprio navegador (localStorage). Nenhum dado pessoal, reflexão ou resposta é enviado para servidores externos ou bases de dados na nuvem. A tua intimidade emocional está completamente protegida.",
+    practicePrivacyText: "A tua prática de reflexão é absolutamente privada. Tudo o que escreves é guardado localmente na base de dados do teu próprio navegador (localStorage). Nenhum dado pessoal, reflexão ou resposta é enviado para servidores externos ou bases de dados na nuvem. A tua intimidade emocional está completamente protegida.",
     practiceQuestionLabel: "Pergunta ",
     practiceTypeLuminous: "Espaço Luminoso",
     practiceTypeDark: "Espaço Perturbado",
@@ -1018,7 +1018,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt" | "ru", Trans
     supportMailboxBtnSend: "Enviar Mensagem Anónima",
     supportMailboxBtnSending: "A enviar de forma segura...",
     supportMailboxSuccessTitle: "Mensagem Enviada com Sucesso!",
-    supportMailboxSuccessText: "Muito obrigado pela tua contribuição. A tua mensagem foi integrada de forma segura na nossa folha de cálculo de gestão e será analisada com profundo respeito pela equipa técnica. O teu contributo ajuda-nos a melhorar a experiência de todos.",
+    supportMailboxSuccessText: "Muito obrigado pela tua contribuição. A tua mensagem foi integrada de forma segura no nosso registo e será analisada com profundo respeito pela equipa técnica. O teu contributo ajuda-nos a melhorar a experiência de todos.",
     supportMailboxBtnSendAnother: "Enviar Outra Mensagem",
 
     // Download Output File Format
@@ -1168,7 +1168,7 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt" | "ru", Trans
     supportMailboxBtnSend: "Отправить анонимное сообщение",
     supportMailboxBtnSending: "Безопасная отправка...",
     supportMailboxSuccessTitle: "Сообщение успешно отправлено!",
-    supportMailboxSuccessText: "Большое спасибо за ваш вклад. Ваше сообщение было безопасно интегрировано в нашу таблицу управления и будет проанализировано с глубоким уважением технической командой.",
+    supportMailboxSuccessText: "Большое спасибо за ваш вклад. Ваше сообщение было безопасно внесено в наш реестр и будет проанализировано с глубоким уважением технической командой.",
     supportMailboxBtnSendAnother: "Отправить ещё одно сообщение",
     downloadHeader: "ПРАКТИКА ЗОЛОТОГО ПРАВИЛА",
     downloadPracticeTitle: "Название размышления:",
@@ -1178,6 +1178,154 @@ export const translations: Record<"es" | "en" | "fr" | "de" | "pt" | "ru", Trans
     downloadNotesHeader: "ЛИЧНЫЕ ЗАМЕТКИ / РАБОЧИЙ ДНЕВНИК:",
     downloadNotesEmpty: "Нет дополнительных заметок.",
     downloadFooterQuote: "Когда ты обращаешься с другими так, как хочешь, чтобы обращались с тобой, ты освобождаешь себя. — Сило"
+  },
+  hi: {
+    logoTitle: "स्वर्णिम नियम",
+    logoSubtitle: "इंटरैक्टिव अभ्यास",
+    tabIntro: "परिचय",
+    tabPractice: "अभ्यास",
+    tabHistory: "इतिहास",
+    tabSupport: "पुस्तकालय और लिंक",
+    themeToggleDark: "डार्क थीम पर जाएँ",
+    themeToggleLight: "लाइट थीम पर जाएँ",
+    toastThemeChanged: "थीम बदली गई: ",
+    toastFormReset: "फ़ॉर्म सफलतापूर्वक फिर से शुरू हो गया।",
+    toastPracticeSaved: "अभ्यास आपके इतिहास में सफलतापूर्वक सहेज लिया गया!",
+    toastPracticeLoaded: "अभ्यास लोड हुआ: ",
+    toastPracticeDeleted: "अभ्यास आपके इतिहास से हटा दिया गया।",
+    toastExampleLoaded: "हल किया हुआ एक पूरा उदाहरण लोड हो गया है। नक़्शा और प्रेरक विचार देखिए।",
+    toastPracticeReady: "उदाहरण आपके कार्य-क्षेत्र में सफलतापूर्वक लोड हो गया। नक़्शे से इसकी तुलना कीजिए!",
+    toastFormCheck: "कृपया सहेजने से पहले कम से कम शुरुआती प्रश्नों के उत्तर दीजिए।",
+    toastDownloadSuccess: "टेक्स्ट फ़ाइल सही ढंग से डाउनलोड हो गई।",
+    introTagline: "व्यक्तिगत रूपांतरण और अहिंसा",
+    introTitle: "स्वर्णिम नियम का अभ्यास",
+    introSubtitle: "यांत्रिक प्रतिक्रिया से ऊपर उठने, अपनी भीतरी अवस्थाओं को समझने और सचेत रूप से अच्छा व्यवहार चुनने का एक व्यावहारिक मार्ग।",
+    introPrivacyTitle: "🔒 100% सुरक्षित और निजी स्थान",
+    introPrivacyText: "यह अभ्यास आत्म-ज्ञान का एक साधन है और पूरी तरह व्यक्तिगत है। आपकी पूरी निश्चिंतता के लिए: इन बिंदुओं में आप जो उत्तर लिखते हैं, वे किसी बाहरी सर्वर पर जमा नहीं होते और न ही किसी ऐसे डेटाबेस में दर्ज होते हैं जिस तक कोई और पहुँच सके। आप जो कुछ लिखते हैं, वह आपके अपने भीतरी काम के लिए केवल आपकी स्क्रीन पर, अस्थायी और स्थानीय रूप से संसाधित होता है। पूरी आज़ादी से अभ्यास कीजिए।",
+    introPrincipleTitle: "केंद्रीय सिद्धांत",
+    introSiloQuote: "जब आप दूसरों के साथ वैसा व्यवहार करते हैं जैसा आप अपने साथ चाहते हैं, तो आप मुक्त हो जाते हैं।",
+    introInspiration: "यह अभ्यास नव मानवतावाद के स्वर्णिम नियम से प्रेरित है, जो रोबेर्तो कोहानोफ़ और इसाबेल लाज़ारोनी की पुस्तक «अहिंसा का स्वर्णिम नियम» में प्रस्तुत है।",
+    introSiloAuthor: "— सिलो, सार्वभौमिक मानवतावाद",
+    introBenefitsTitle: "स्वर्णिम नियम का अभ्यास हमारी मदद करता है:",
+    introBenefits: [
+      "बाध्यकारी प्रतिक्रिया को रोकने और यह चुनने में कि हम कैसे पेश आना चाहते हैं (विलंबित उत्तर)।",
+      "यह समझने में कि दूसरों के कुछ रवैये या व्यवहार हम पर इतना गहरा असर क्यों डालते हैं।",
+      "भीतरी तनावों, अंतर्विरोधों और नकारात्मक मनोदशाओं (भावनात्मक वातावरण) से मुक्त होने में।",
+      "अपने रिश्ते बेहतर बनाने में, क्योंकि हम यह माँगना छोड़ देते हैं कि दूसरा बदले और खुद बदलना शुरू करते हैं।",
+      "एक ऐसी जीवन-शैली बनाने में जिसमें सोच, भावना और कर्म का ज़्यादा मेल हो, ज़्यादा स्नेह हो और ज़्यादा आज़ादी हो।",
+      "बात परिपूर्ण होने या «अच्छा बनकर रहने» की नहीं है। बात है कदम-दर-कदम ज़्यादा जागरूकता और कम भीतरी हिंसा के साथ जीना सीखने की।",
+    ],
+    introPurposeTitle: "यह अभ्यास इन बातों में काम आता है:",
+    introPurposes: [
+      "खुद को बेहतर समझना और यह पहचानना कि हमें क्या दुख देता है और क्यों।",
+      "बार-बार दोहराए जाने वाले उन ढर्रों को पकड़ना जो हमारे निजी इतिहास से आते हैं।",
+      "भीतरी और बाहरी हिंसा की ज़ंजीर को तोड़ना।",
+      "क्षणिक आवेग से नहीं, बल्कि अपने सबसे अच्छे सद्गुणों से काम लेना।",
+      "अपनी चेतना का स्तर ऊँचा उठाना, जिससे हमारा और हमारे आसपास के लोगों का जीवन बेहतर होता है।",
+      "समय के साथ यह अभ्यास ज़्यादा आंतरिक एकता के साथ जीने का साधन बन जाता है: सोचना, महसूस करना और करना — एक ही दिशा में।",
+      "यह ऐप कदम-दर-कदम आपका साथ देगा, ताकि आप इसका अभ्यास सरल, गहरे और सुलभ ढंग से कर सकें। आपकी उम्र, संस्कृति, इतिहास या मौजूदा हालात कुछ भी हों: हम सब कम हिंसा और ज़्यादा भीतरी आज़ादी के साथ जीना सीख सकते हैं।",
+    ],
+    introExplanation: "हम सभी के जीवन में तनाव, गुस्से, हताशा या उलझन के क्षण आते हैं। कभी-कभी हम चेतना के निचले स्तर से, बिल्कुल यांत्रिक या बाध्यकारी ढंग से प्रतिक्रिया कर बैठते हैं। यह अभ्यास आत्म-ज्ञान और व्यक्तिगत रूपांतरण का एक साधन है, जो आपको अपने-आप उठने वाली प्रतिक्रिया को रोकने, अपनी भीतरी अवस्थाओं को समझने और सचेत रूप से अच्छा व्यवहार चुनने में मदद करने के लिए बनाया गया है। यह कोई कठोर नियम या नैतिक बाध्यता नहीं है, बल्कि कम दुख, ज़्यादा आंतरिक एकता और सच्ची आज़ादी वाले जीवन की ओर एक रास्ता है।",
+    introPurposesExtra: "यह ऐप कदम-दर-कदम आपका साथ देगा, ताकि आप इसका अभ्यास सरल, गहरे और सुलभ ढंग से कर सकें। आपकी उम्र, संस्कृति, इतिहास या मौजूदा हालात कुछ भी हों: हम सब कम हिंसा और ज़्यादा भीतरी आज़ादी के साथ जीना सीख सकते हैं।",
+    introBtnStart: "नया अभ्यास शुरू करें",
+    introBtnExample: "हल किया हुआ एक उदाहरण देखें",
+    practiceTitleLabel: "जारी अभ्यास",
+    practiceTitlePlaceholder: "अपने चिंतन को एक शीर्षक दीजिए (जैसे: काम की जगह के टकराव से उबरना)",
+    practiceProgressLabel: "कुल प्रगति:",
+    practiceCompletedCount: " पूरे हुए",
+    practicePrivacyTitle: "गोपनीयता और पूर्ण निजता की गारंटी",
+    practicePrivacyText: "आपका चिंतन-अभ्यास पूरी तरह निजी है। आप जो कुछ लिखते हैं, वह आपके अपने ब्राउज़र के डेटाबेस (localStorage) में स्थानीय रूप से सहेजा जाता है। कोई भी निजी जानकारी, चिंतन या उत्तर बाहरी सर्वरों या क्लाउड डेटाबेस को नहीं भेजा जाता। आपकी भावनात्मक निजता पूरी तरह सुरक्षित है।",
+    practiceQuestionLabel: "प्रश्न ",
+    practiceTypeLuminous: "प्रकाशमय क्षेत्र",
+    practiceTypeDark: "भावनात्मक वातावरण का क्षेत्र",
+    practiceTypeTransition: "बदलाव",
+    practiceInputWordLabel: "आपका शब्द या छोटा वाक्यांश:",
+    practiceBtnPrev: "पिछला",
+    practiceBtnNext: "अगला",
+    practiceBtnLastPrompt: "आख़िरी प्रश्न!",
+    practiceHelpPrompt: "अगर आपको सही शब्द नहीं मिल रहा, तो इस सहायता बटन से उपयुक्त उत्तर खोज सकते हैं।",
+    practiceBtnHelp: "सहायता देखें",
+    practiceBtnHideHelp: "सहायता के सुझाव छिपाएँ",
+    practiceHelpTitle: "सही शब्द नहीं मिल रहा?",
+    practiceHelpSuffix: " चुनने के लिए इनमें से किसी भी सुझाव पर क्लिक कीजिए:",
+    practiceHelpOptional: "आप कोई और शब्द भी लिख सकते हैं जो आपकी भावना को बेहतर व्यक्त करे।",
+    previewTitle: "बनता हुआ प्रेरक विचार",
+    previewMainTitle: "मुख्य सूक्ति (ऊपर उठने के रास्ते 6 + 8):",
+    previewGoldenTitle: "उबरने का सूत्र (ऐच्छिक I):",
+    previewGoldenTemplate: "{p1}: इसके सामने, {p2}: इससे बचने के लिए, मैं यह व्यवहार दूँ: {p3}; और यह करूँ: {p4}।",
+    previewHint: "✨ देखिए कैसे आपके चिंतन इन तार्किक वाक्यों में उसी क्षण अपने-आप जुड़ते जाते हैं।",
+    actionTitle: "क्या आप अपना सत्र सँभालकर रखना चाहते हैं?",
+    actionSubtitle: "अपने उत्तर अपने निजी इतिहास में सहेजिए, ताकि बाद में उन्हें फिर देख सकें।",
+    actionBtnReset: "फिर से शुरू करें",
+    actionBtnSave: "अभ्यास सहेजें",
+    actionResetConfirm: "क्या आप सचमुच मौजूदा उत्तर मिटाकर फिर से शुरू करना चाहते हैं? मौजूदा मसौदा खो जाएगा।",
+    resultsCompletedTitle: "आपने अभ्यास के सभी 8 बिंदु पूरे कर लिए!",
+    resultsCompletedSubtitle: "आपका मन प्रतिक्रियाशीलता से आत्म-जागरूकता तक की यात्रा कर चुका है। नीचे आप अपनी तैयार सूक्तियाँ देख सकते हैं।",
+    resultsBtnSaveHistory: "इतिहास में सहेजें",
+    resultsSynthesisTitle: "आपका सार तैयार हो रहा है",
+    resultsSynthesisSubtitle: "इंटरैक्टिव और आत्म-विकास की सूक्तियों का पूरा समूह बनाने के लिए प्रश्नावली के {totalSteps} प्रश्नों के उत्तर दीजिए। अभी तक आप {totalSteps} में से {answeredCount} के उत्तर दे चुके हैं।",
+    aforismosTitle: "आपके प्रेरक विचार और बनी हुई सूक्तियाँ",
+    aforismosSubtitle: "आपके चिंतन से साथ-साथ बने सूत्र और तार्किक वाक्य।",
+    aforismosBtnDownload: "सब डाउनलोड करें",
+    aforismosCopiedTitle: "सूक्ति कॉपी करें",
+    aforismosCopiedMessage: "सूक्ति क्लिपबोर्ड पर कॉपी हो गई",
+    historyTitle: "आपके सहेजे हुए अभ्यासों का इतिहास",
+    historySubtitle: "यहाँ आत्म-ज्ञान के आपके पिछले काम रखे हैं। ये केवल आपके अपने उपकरण में सहेजे जाते हैं।",
+    historyEmptyTitle: "अभ्यासों का इतिहास ख़ाली है",
+    historyEmptyText: "आपके ब्राउज़र में अभी कोई चिंतन सहेजा नहीं गया है। अपनी निजी डायरी बनाना शुरू करने के लिए «अभ्यास» टैब में प्रश्नावली पूरी कीजिए और «अभ्यास सहेजें» दबाइए।",
+    historyBtnStartNew: "पहला अभ्यास शुरू करें",
+    historyCardDate: "दर्ज करने की तारीख़: ",
+    historyBtnLoad: "कार्य-क्षेत्र में लोड करें",
+    historyBtnDelete: "हटाएँ",
+    historyDeleteConfirm: "क्या आप सचमुच इस अभ्यास को इतिहास से हटाना चाहते हैं? इसे वापस नहीं लाया जा सकता।",
+    supportTitle: "पुस्तकालय और सहायक सामग्री",
+    supportSubtitle: "मूल ग्रंथ-संदर्भों और नव मानवतावाद की शब्दावली के साथ स्वर्णिम नियम को गहराई से समझिए।",
+    supportTabExamples: "उदाहरण और अनुभव",
+    supportTabGlossary: "शब्दावली",
+    supportTabResources: "लिंक का पुस्तकालय",
+    supportTabMailbox: "संदेश-पेटी और संपर्क",
+    supportExamplesTitle: "अध्ययन के उदाहरण और प्रेरक अभ्यास",
+    supportExamplesSubtitle: "अपने भीतरी चिंतन में मार्गदर्शन के लिए ये असली, गुमनाम और हल किए हुए अभ्यास देखिए।",
+    supportExamplesBtnLoad: "यह उदाहरण कार्य-क्षेत्र में लोड करें",
+    supportExamplesAforismoLabel: "निकली हुई मुख्य सूक्ति:",
+    supportExamplesCommentaryLabel: "अभ्यास पर टिप्पणी:",
+    supportGlossarySearchPlaceholder: "शब्द या परिभाषा खोजें...",
+    supportGlossaryEmpty: "इस खोज के लिए कोई शब्द नहीं मिला।",
+    supportResourcesTitle: "संदर्भ के लिए पुस्तकें और व्याख्यान",
+    supportResourcesSubtitle: "मानवतावादी विचार और अहिंसा की कार्य-पद्धति के आधारभूत साहित्य तक सीधे पहुँचिए।",
+    supportResourcesAuthor: "लेखक: ",
+    supportResourcesPublisher: "प्रकाशक: ",
+    supportResourcesYear: "वर्ष: ",
+    supportResourcesTypeBook: "पुस्तक",
+    supportResourcesTypeConference: "व्याख्यान",
+    supportResourcesTypeSpeech: "संबोधन",
+    supportResourcesTypeManual: "मार्गदर्शिका",
+    supportResourcesTypeVideo: "यूट्यूब चैनल",
+    supportResourcesTypePdf: "PDF पुस्तक",
+    supportMailboxTitle: "संदेश-पेटी और सुझाव",
+    supportMailboxSubtitle: "अपनी राय, शंकाएँ या रिपोर्ट पूरी तरह गुमनाम रहकर सीधे विकास-टीम को भेजिए।",
+    supportMailboxPrivateCheckTitle: "पूर्ण गुमनामी की गारंटी",
+    supportMailboxPrivateCheckText: "आपकी निजता पूरी तरह सुरक्षित है। यह संदेश-पेटी आपका ईमेल, आपका IP, आपकी भौगोलिक स्थिति या ऐसी कोई भी जानकारी नहीं लेती जिससे आपकी पहचान हो सके। संदेश एन्क्रिप्टेड रूप में सीधे संग्रह-सर्वर को भेजा जाता है, जहाँ केवल तकनीकी और विषय-वस्तु की समीक्षा होती है। अगर आप व्यक्तिगत उत्तर चाहते हैं, तो चाहें तो अपने संदेश के अंत में संपर्क का कोई माध्यम लिख दीजिए।",
+    supportMailboxLabelCategory: "संदेश की श्रेणी:",
+    supportMailboxCategoryOpinion: "राय या सुझाव",
+    supportMailboxCategoryError: "तकनीकी ख़राबी की सूचना",
+    supportMailboxCategoryQuestion: "अवधारणा या पद्धति से जुड़ा प्रश्न",
+    supportMailboxCategoryOther: "अन्य विषय",
+    supportMailboxLabelMessage: "आपके संदेश की विषय-वस्तु:",
+    supportMailboxPlaceholderMessage: "अपने विचार, सुझाव या टिप्पणियाँ यहाँ पूरी आज़ादी से लिखिए...",
+    supportMailboxBtnSend: "गुमनाम संदेश भेजें",
+    supportMailboxBtnSending: "सुरक्षित रूप से भेजा जा रहा है...",
+    supportMailboxSuccessTitle: "संदेश सफलतापूर्वक भेज दिया गया!",
+    supportMailboxSuccessText: "आपके योगदान के लिए बहुत धन्यवाद। आपका संदेश हमारे रिकॉर्ड में दर्ज कर लिया गया है और तकनीकी टीम इसे गहरे सम्मान के साथ पढ़ेगी। आपका सहयोग सभी के अनुभव को बेहतर बनाने में हमारी मदद करता है।",
+    supportMailboxBtnSendAnother: "एक और संदेश भेजें",
+    downloadHeader: "स्वर्णिम नियम का अभ्यास",
+    downloadPracticeTitle: "अभ्यास का शीर्षक: ",
+    downloadDate: "डाउनलोड की तारीख़: ",
+    downloadResponsesHeader: "प्रश्नावली के उत्तर:",
+    downloadAforismosHeader: "प्रेरक विचार और बनी हुई सूक्तियाँ:",
+    downloadNotesHeader: "निजी टिप्पणियाँ / कार्य-डायरी:",
+    downloadNotesEmpty: "कोई अतिरिक्त टिप्पणी नहीं।",
+    downloadFooterQuote: "जब आप दूसरों के साथ वैसा व्यवहार करते हैं जैसा आप अपने साथ चाहते हैं, तो आप मुक्त हो जाते हैं। — सिलो"
   }
 };
 
@@ -2349,6 +2497,215 @@ export const STEPS_RU: StepConfig[] = [
   }
 ];
 
+// Hindi (AI-generated, beta): preguntas, descripciones y palabras de ayuda.
+// Puntos 2, 4, 6 y 8 en infinitivo (forma sin género).
+export const STEPS_HI: StepConfig[] = [
+  {
+    id: 1,
+    label: "बिंदु 1: वह दुर्व्यवहार जो मुझे स्वीकार नहीं",
+    shortName: "अस्वीकार्य दुर्व्यवहार",
+    question: "वह कौन-सा दुर्व्यवहार है जो मुझे स्वीकार नहीं?",
+    description: "दूसरों के उस रवैये, काम या व्यवहार को पहचानिए जो आपको हिंसक, पीड़ादायक या अस्वीकार्य लगता है। यह वह बाहरी स्थिति है जो आपके सुख-चैन को भंग करती है।",
+    helpDescription: "दुर्व्यवहार का वह प्रकार चुनिए जो आपके मन को सबसे ज़्यादा छुए, या अपना शब्द लिखिए:",
+    placeholder: "जैसे: बहिष्कार, आक्रामकता, दबाकर रखना...",
+    type: "dark",
+    categories: [
+      {
+        categoryName: "बहिष्कार और बेरुख़ी",
+        words: ["बहिष्कार", "बेरुख़ी", "अनदेखी", "ठुकराया जाना", "अकेला छोड़ दिया जाना", "तिरस्कार", "भुला दिया जाना", "हाशिये पर धकेला जाना", "अदृश्य बना दिया जाना"]
+      },
+      {
+        categoryName: "आक्रामकता और नीचा दिखाना",
+        words: ["आक्रामकता", "अपशब्द", "चीखना-चिल्लाना", "अपमान", "मज़ाक़ उड़ाना", "नीचा दिखाना", "आलोचना", "फ़ैसला सुना देना", "कम आँकना", "हिक़ारत"]
+      },
+      {
+        categoryName: "नियंत्रण और दबदबा",
+        words: ["दबाकर रखना", "चालबाज़ी", "बेजा माँगें", "अन्याय", "नियंत्रण", "ताक़त का दुरुपयोग", "थोपना", "तानाशाही रवैया", "झूठ", "विश्वासघात"]
+      }
+    ]
+  },
+  {
+    id: 2,
+    label: "बिंदु 2: मेरी प्रतिक्रिया और अवस्था",
+    shortName: "मेरी प्रतिक्रिया / अवस्था",
+    question: "उस दुर्व्यवहार के सामने मुझे कैसा महसूस होता है और मेरी प्रतिक्रिया क्या होती है?",
+    description: "बिंदु 1 के सामने अपनी यांत्रिक प्रतिक्रिया को पहचानिए। यह आपकी विचलित अवस्था को दिखाती है — बचाव, गुस्से या दुख की वह प्रतिक्रिया जो अपने-आप उठती है।",
+    helpDescription: "चुनिए कि उस विचलन के सामने आम तौर पर आपकी प्रतिक्रिया क्या होती है या आपको कैसा महसूस होता है:",
+    placeholder: "जैसे: दुखी होकर सबसे कट जाना, गुस्से में चिल्लाना, डरकर भाग जाना...",
+    type: "dark",
+    categories: [
+      {
+        categoryName: "सिमट जाना और दुख",
+        words: ["दुखी होकर सबसे कट जाना", "खुद को अलग कर लेना", "उदासी में डूब जाना", "मन में कड़वाहट लिए चुप हो जाना", "खुद को दोषी मानना", "हार मानकर सब सह लेना", "खुद को बेबस महसूस करना"]
+      },
+      {
+        categoryName: "गुस्सा और पलटवार",
+        words: ["गुस्से में चिल्लाना", "पलटकर वार करना", "बदला लेने की सोचना", "चिढ़ जाना", "उग्र होकर जवाब माँगना", "बिना सुने बहस करना", "जैसे को तैसा करना"]
+      },
+      {
+        categoryName: "घबराहट और जड़ हो जाना",
+        words: ["डरकर भाग जाना", "सुन्न पड़ जाना", "बेचैन और परेशान हो जाना", "शरीर का तन जाना", "खुद को बेसहारा महसूस करना", "झुककर दूसरों की मंज़ूरी चाहना"]
+      }
+    ]
+  },
+  {
+    id: 3,
+    label: "बिंदु 3: वह व्यवहार जो मुझे चाहिए और जो मैं दूँ",
+    shortName: "जो व्यवहार चाहिए / दूँ",
+    question: "जिसने मेरे साथ दुर्व्यवहार किया, उससे मुझे कैसा व्यवहार चाहिए — ताकि वही व्यवहार मैं स्वयं दे सकूँ?",
+    description: "बिंदु 1 का विपरीत सद्गुण। यह वह अच्छा व्यवहार है जो आप पाना चाहेंगे और जिसे पहले स्वयं देने का आप संकल्प लेते हैं — अपनी चेतना के स्तर को ऊँचा उठाते हुए।",
+    helpDescription: "वह प्रेरक अच्छा व्यवहार चुनिए जो बिंदु 1 के दुर्व्यवहार का विपरीत है:",
+    placeholder: "जैसे: ख़याल रखना और शामिल करना, सच्ची सराहना, आज़ादी...",
+    type: "luminous",
+    categories: [
+      {
+        categoryName: "शामिल करना और अपनाना",
+        words: ["ख़याल रखना और शामिल करना", "स्वीकृति", "सच्चे मन से अपनाना", "ध्यान से सुनना", "मान देना", "साथ जोड़ना", "अपनापन"]
+      },
+      {
+        categoryName: "स्नेह और क़द्र",
+        words: ["सच्ची सराहना", "गहरा सम्मान", "मीठा बर्ताव", "सहनशीलता", "एक-दूसरे का ख़याल", "करुणा", "हमदर्दी", "क़द्र"]
+      },
+      {
+        categoryName: "आज़ादी और शांति",
+        words: ["आज़ादी", "पूरा भरोसा", "बिना शर्त साथ", "न्याय", "समझ", "सच्चाई", "मन की शांति"]
+      }
+    ]
+  },
+  {
+    id: 4,
+    label: "बिंदु 4: वैकल्पिक अच्छा व्यवहार",
+    shortName: "वैकल्पिक अच्छा व्यवहार",
+    question: "यह मैं कैसे करूँ? (बिंदु 2 की मेरी प्रतिक्रिया के विपरीत अच्छा व्यवहार)",
+    description: "बिंदु 2 का विपरीत सद्गुण। यह वह सचेत और रचनात्मक कर्म है जो आप अपनी आदतन प्रतिक्रिया की जगह करते हैं।",
+    helpDescription: "वह सद्गुणपूर्ण कर्म चुनिए जो बिंदु 2 की नकारात्मक प्रतिक्रिया को बेअसर कर देता है:",
+    placeholder: "जैसे: दूसरों के पास जाना और उनकी क़द्र करना, शांति से साँस लेना, प्यार से स्वस्थ सीमाएँ तय करना...",
+    type: "luminous",
+    categories: [
+      {
+        categoryName: "पास आना और क़द्र करना",
+        words: ["दूसरों के पास जाना और उनकी क़द्र करना", "ईमानदारी से बातचीत करना", "अपना स्नेह जताना", "धैर्य से साथ देना", "दूसरे की ख़ूबियों की क़द्र करना"]
+      },
+      {
+        categoryName: "शांति और ठहराव",
+        words: ["शांति से साँस लेना", "खुले मन से सुनना", "बिना जल्दबाज़ी के काम करना", "राय बनाने से पहले समझने की कोशिश करना", "सच्चे मन से माफ़ करना", "मेल-मिलाप करना"]
+      },
+      {
+        categoryName: "दृढ़ता और अपनी देखभाल",
+        words: ["प्यार से स्वस्थ सीमाएँ तय करना", "दृढ़ता और शांति से अपनी बात कहना", "अपनी क़द्र करना", "अपनी भीतरी शक्ति पर भरोसा करना", "बिना डर के अपना मन खोलना"]
+      }
+    ]
+  },
+  {
+    id: 5,
+    label: "बिंदु 5: मेरे गिरने का रास्ता (3 से 2)",
+    shortName: "गिरने का रास्ता 3 ➔ 2",
+    question: "सद्गुणपूर्ण व्यवहार (3) से यांत्रिक प्रतिक्रिया (2) में मेरा गिरना कैसे होता है?",
+    description: "पहचानिए कि कौन-सा रवैया, विश्वास, डर, अपेक्षा या नाज़ुक पहलू अच्छे व्यवहार के आपके नेक इरादों को बिगाड़ देता है और आपको फिर से दुख या गुस्से में गिरा देता है।",
+    helpDescription: "वह भीतरी कारण चुनिए जो आपको बिंदु 2 की प्रतिक्रियाशीलता में नीचे गिरा देता है:",
+    placeholder: "जैसे: असुरक्षा की भावना, ज़रूरत से ज़्यादा अपेक्षाएँ, असफलता का डर...",
+    type: "transition",
+    direction: "down",
+    fromId: 3,
+    toId: 2,
+    categories: [
+      {
+        categoryName: "असुरक्षा और शंका",
+        words: ["असुरक्षा की भावना", "अविश्वास", "खुद पर शक", "जलन", "चोट खाया नाज़ुक पहलू", "ठुकराए जाने का डर"]
+      },
+      {
+        categoryName: "अपेक्षाएँ और अहंकार",
+        words: ["ज़रूरत से ज़्यादा अपेक्षाएँ", "आहत अहंकार", "घमंड", "दिखावे की चाह", "स्वार्थ", "हर चीज़ में पूर्णता की ज़िद"]
+      },
+      {
+        categoryName: "कमज़ोरी और डर",
+        words: ["असफलता का डर", "दर्द का डर", "लोगों के सामने बुज़दिली", "आराम में पड़े रहना", "भीतरी आलस", "उदासीनता"]
+      }
+    ]
+  },
+  {
+    id: 6,
+    label: "बिंदु 6: मेरे ऊपर उठने का रास्ता (2 से 3)",
+    shortName: "ऊपर उठने का रास्ता 2 ➔ 3",
+    question: "विचलित अवस्था (2) से सद्गुणपूर्ण व्यवहार (3) तक मेरा ऊपर उठना कैसे होता है?",
+    description: "उस सोचे-समझे कर्म को पहचानिए जो आपको अपनी चेतना का स्तर ऊँचा उठाने, दुख या गुस्से के चक्र को तोड़ने और सद्गुण से फिर जुड़ने में मदद करता है।",
+    helpDescription: "वह पुल चुनिए जो आपको बिंदु 3 की प्रकाशमय अवस्था में लौटने में मदद करता है:",
+    placeholder: "जैसे: अपनी भावनाएँ और विचार खुलकर कहना, मौन में चिंतन करना, सुधार के लिए खुद पहल करना...",
+    type: "transition",
+    direction: "up",
+    fromId: 2,
+    toId: 3,
+    categories: [
+      {
+        categoryName: "ईमानदार संवाद",
+        words: ["अपनी भावनाएँ और विचार खुलकर कहना", "विनम्रता से मदद माँगना", "जो मुझ पर बीत रही है, ईमानदारी से बताना", "खुलकर बातचीत करना", "दिल से बोलना"]
+      },
+      {
+        categoryName: "जागरूकता और चिंतन",
+        words: ["मौन में चिंतन करना", "अपनी यांत्रिकता को पहचान लेना", "गहरी साँस लेकर देखना", "अपने हिस्से की ज़िम्मेदारी मानना", "शांत होकर ध्यान करना"]
+      },
+      {
+        categoryName: "साहस भरा कर्म",
+        words: ["सुधार के लिए खुद पहल करना", "बदलने का जोखिम उठाना", "साहस से काम लेना", "अपनी ज़िम्मेदारी खुद लेना", "किसी को चोट न पहुँचाने का निश्चय करना"]
+      }
+    ]
+  },
+  {
+    id: 7,
+    label: "बिंदु 7: मेरे गिरने का रास्ता (4 से 1)",
+    shortName: "गिरने का रास्ता 4 ➔ 1",
+    question: "वैकल्पिक अच्छे व्यवहार (4) से प्रतिक्रियात्मक दुर्व्यवहार (1) में मेरा गिरना कैसे होता है?",
+    description: "पहचानिए कि अच्छा व्यवहार बनाए रखने की कोशिश में क्या चीज़ आपको थका देती है या निराश करती है, जिससे आपका धैर्य टूट जाता है और आप फिर से हिंसक या ठुकराने वाले रवैये में गिर जाते हैं।",
+    helpDescription: "चुनिए कि क्या चीज़ आपका उत्साह बुझा देती है और आपको फिर से हानिकारक व्यवहार में गिरा देती है:",
+    placeholder: "जैसे: तंग आ जाना, दूसरे से निराशा, बेसब्री...",
+    type: "transition",
+    direction: "down",
+    fromId: 4,
+    toId: 1,
+    categories: [
+      {
+        categoryName: "थकान और ऊब",
+        words: ["तंग आ जाना", "जमा हुई थकान", "दिमाग़ का भर जाना", "रोज़मर्रा का बोझ", "तनाव", "ऊर्जा का चुक जाना"]
+      },
+      {
+        categoryName: "हताशा और निराशा",
+        words: ["दूसरे से निराशा", "कोई बदलाव न दिखने की हताशा", "निराशावादी सोच", "दिलचस्पी ख़त्म होना", "ठेस से उपजी कड़वाहट", "यह लगना कि कोई फ़ायदा नहीं"]
+      },
+      {
+        categoryName: "बेसब्री और चिड़चिड़ापन",
+        words: ["बेसब्री", "दबा हुआ गुस्सा", "ज़रा भी बर्दाश्त न होना", "जमा हुई खीझ", "लगातार चिढ़", "सज़ा देने का मन"]
+      }
+    ]
+  },
+  {
+    id: 8,
+    label: "बिंदु 8: मेरे ऊपर उठने का रास्ता (1 से 4)",
+    shortName: "ऊपर उठने का रास्ता 1 ➔ 4",
+    question: "अस्वीकार/दुर्व्यवहार के रवैये (1) से वैकल्पिक अच्छे व्यवहार (4) तक मेरा ऊपर उठना कैसे होता है?",
+    description: "उस गहरे इरादे या कर्म को खोजिए जो आपको अस्वीकार से ऊपर उठने, मेल-मिलाप करने और बिंदु 4 के रचनात्मक कर्म के प्रति संकल्पित होने में मदद करता है।",
+    helpDescription: "वह गहरा पुल चुनिए जो आपको बिंदु 4 के सद्भावपूर्ण व्यवहार से फिर जोड़ता है:",
+    placeholder: "जैसे: अपने और दूसरों के भीतर की इंसानियत से जुड़ना, माफ़ करना और कड़वाहट छोड़ देना, सद्भाव से काम लेना...",
+    type: "transition",
+    direction: "up",
+    fromId: 1,
+    toId: 4,
+    categories: [
+      {
+        categoryName: "मानवीय जुड़ाव",
+        words: ["अपने और दूसरों के भीतर की इंसानियत से जुड़ना", "दूसरे को अपने बराबर देखना", "उसके दर्द से हमदर्दी महसूस करना", "वह खोजना जो हमें जोड़ता है, न कि वह जो हमें बाँटता है"]
+      },
+      {
+        categoryName: "मेल-मिलाप और करुणा",
+        words: ["माफ़ करना और कड़वाहट छोड़ देना", "भीतर से मेल-मिलाप कर लेना", "उसके अज्ञान पर करुणा महसूस करना", "यह मान लेना कि ग़लती सबसे होती है"]
+      },
+      {
+        categoryName: "कर्म में प्रेम",
+        words: ["सद्भाव से काम लेना", "दिल से दूसरों का भला चाहना", "एकता और शांति की खोज करना", "अहिंसा का संकल्प लेना"]
+      }
+    ]
+  }
+];
+
 export const RESOURCES_LIST_EN = [
   {
     type: "Book",
@@ -2365,7 +2722,7 @@ export const RESOURCES_LIST_EN = [
     author: "Silo",
     publisher: "Editorial ATE, Barcelona",
     year: "1979",
-    description: "The foundational work of Silo's thought, inviting deep introspection and an encounter with the meaning of human existence."
+    description: "The foundational work of Silo's thought, inviting deep meditation and an encounter with the meaning of human existence."
   },
   {
     type: "Book",
@@ -2388,7 +2745,7 @@ export const RESOURCES_LIST_EN = [
     title: "Comments on the Golden Rule",
     author: "Silo",
     year: "December 17, 1995",
-    description: "Lecture delivered in Mendoza, Argentina, detailing the scope of reciprocity and the laws of valid action in daily life."
+    description: "Lecture delivered in Mendoza, Argentina, detailing the scope of reciprocity and the principles of valid action in daily life."
   },
   {
     type: "Arenga",
@@ -2675,7 +3032,7 @@ export function toIngEn(text: string): string {
   return t;
 }
 
-export function generateAforismosTranslated(answers: Record<number, string>, lang: 'es' | 'en' | 'fr' | 'de' | 'pt' | 'ru'): AforismoOutput[] {
+export function generateAforismosTranslated(answers: Record<number, string>, lang: 'es' | 'en' | 'fr' | 'de' | 'pt' | 'ru' | 'hi'): AforismoOutput[] {
   const clean = (val: string, placeholder = "___") => {
     return val && val.trim() !== "" ? val.trim() : placeholder;
   };
@@ -2916,6 +3273,49 @@ export function generateAforismosTranslated(answers: Record<number, string>, lan
         id: "opcional-3",
         title: "Преодоление активного отвержения (Опционально III)",
         formula: "Через [Пункт 7] я падаю перед [Пункт 1], но через [Пункт 8] я поднимаюсь к [Пункт 4]",
+        text: opcionalIIIText
+      }
+    ];
+  } else if (lang === 'hi') {
+    // Hindi: la respuesta se inserta tal cual (sin declinar) y la frase la recoge con un demostrativo.
+    // 'subo' y 'doy' van en subjuntivo sin género; 'caigo' como 'mera girna hota hai'.
+    const hiClean = (s: string): string => s.trim().replace(/[.।!?]+$/, "");
+    const p1 = p1Raw !== "" ? hiClean(p1Raw) : "[दुर्व्यवहार 1]";
+    const p2 = p2Raw !== "" ? hiClean(p2Raw) : "[प्रतिक्रिया 2]";
+    const p3 = p3Raw !== "" ? hiClean(p3Raw) : "[सद्गुण 3]";
+    const p4 = p4Raw !== "" ? hiClean(p4Raw) : "[कर्म 4]";
+    const p5 = p5Raw !== "" ? hiClean(p5Raw) : "[गिरना 5]";
+    const p6 = p6Raw !== "" ? hiClean(p6Raw) : "[ऊपर उठना 6]";
+    const p7 = p7Raw !== "" ? hiClean(p7Raw) : "[गिरना 7]";
+    const p8 = p8Raw !== "" ? hiClean(p8Raw) : "[ऊपर उठना 8]";
+    const aforismoPrincipalText = `${p6}: इसी रास्ते से मैं ऊपर उठूँ, इस सद्गुण तक: ${p3}। और ${p8}: इसी रास्ते से मैं ऊपर उठूँ, इस कर्म तक: ${p4}।`;
+    const opcionalIText = `${p1}: इसके सामने, ${p2}: इससे बचने के लिए, मैं यह व्यवहार दूँ: ${p3}; और यह करूँ: ${p4}।`;
+    const opcionalIIText = `${p5}: इसी से मेरा गिरना होता है, यहाँ तक: ${p2}। पर ${p6}: इसी रास्ते से मैं ऊपर उठूँ, इस सद्गुण तक: ${p3}।`;
+    const opcionalIIIText = `${p7}: इसी से मेरा गिरना होता है, इसके सामने: ${p1}। पर ${p8}: इसी रास्ते से मैं ऊपर उठूँ, इस कर्म तक: ${p4}।`;
+
+    return [
+      {
+        id: "6+8",
+        title: "ऊपर उठने की सूक्ति (रास्तों का मेल)",
+        formula: "[बिंदु 6] के ज़रिए मैं [बिंदु 3] तक ऊपर उठूँ और [बिंदु 8] के ज़रिए मैं [बिंदु 4] तक ऊपर उठूँ",
+        text: aforismoPrincipalText
+      },
+      {
+        id: "opcional-1",
+        title: "संकट से उबरने की सूक्ति (ऐच्छिक I)",
+        formula: "[बिंदु 1] के सामने [बिंदु 2] से बचने के लिए, मैं [बिंदु 3] का व्यवहार दूँ, [बिंदु 4] के ज़रिए",
+        text: opcionalIText
+      },
+      {
+        id: "opcional-2",
+        title: "भावनात्मक टकराव का समाधान (ऐच्छिक II)",
+        formula: "[बिंदु 5] के कारण मेरा गिरना [बिंदु 2] में होता है, पर [बिंदु 6] के ज़रिए मैं [बिंदु 3] तक ऊपर उठूँ",
+        text: opcionalIIText
+      },
+      {
+        id: "opcional-3",
+        title: "सक्रिय अस्वीकार से ऊपर उठना (ऐच्छिक III)",
+        formula: "[बिंदु 7] के कारण मेरा गिरना [बिंदु 1] के सामने होता है, पर [बिंदु 8] के ज़रिए मैं [बिंदु 4] तक ऊपर उठूँ",
         text: opcionalIIIText
       }
     ];
