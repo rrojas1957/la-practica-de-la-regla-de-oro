@@ -379,6 +379,8 @@ export default function App() {
 
   // Navigation tabs: 'intro' | 'practice' | 'history' | 'support'
   const [activeTab, setActiveTab] = useState<"intro" | "practice" | "history" | "support">("intro");
+  // Pestaña inicial de la biblioteca: "mailbox" cuando se llega desde el aviso beta de la portada.
+  const [supportStartTab, setSupportStartTab] = useState<"examples" | "mailbox">("examples");
   
   // Questionnaire states
   const [answers, setAnswers] = useState<Record<number, string>>(EMPTY_ANSWERS);
@@ -788,7 +790,7 @@ ${t.downloadFooterQuote}
                 )}
               </button>
               <button
-                onClick={() => setActiveTab("support")}
+                onClick={() => { setSupportStartTab("examples"); setActiveTab("support"); }}
                 id="tab-btn-support"
                 className={`px-2 py-1.5 sm:px-3 sm:py-2 text-xs font-bold rounded-lg transition cursor-pointer flex items-center gap-1 ${
                   activeTab === "support"
@@ -848,8 +850,8 @@ ${t.downloadFooterQuote}
                       { code: "fr" as Lang, label: "Français" },
                       { code: "de" as Lang, label: "Deutsch" },
                       { code: "pt" as Lang, label: "Português" },
-                      { code: "ru" as Lang, label: "Русский" },
-                      { code: "hi" as Lang, label: "हिन्दी" }
+                      { code: "ru" as Lang, label: "Русский (beta)" },
+                      { code: "hi" as Lang, label: "हिन्दी (beta)" }
                     ]).map(({ code, label }) => (
                       <button
                         key={code}
@@ -941,6 +943,7 @@ ${t.downloadFooterQuote}
                 lang={lang}
                 showRelaxation={showRelaxation}
                 onToggleRelaxation={() => setShowRelaxation(!showRelaxation)}
+                onGoToMailbox={() => { setSupportStartTab("mailbox"); setActiveTab("support"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
               />
             </motion.div>
           )}
@@ -1446,6 +1449,7 @@ ${t.downloadFooterQuote}
                 onLoadExampleAnswers={handleLoadExampleAnswers}
                 showToast={showToast}
                 lang={lang}
+                initialSubTab={supportStartTab}
               />
             </motion.div>
           )}
@@ -1543,7 +1547,7 @@ ${t.downloadFooterQuote}
 
         {/* Tab: Support */}
         <button
-          onClick={() => setActiveTab("support")}
+          onClick={() => { setSupportStartTab("examples"); setActiveTab("support"); }}
           className={`flex-1 min-w-0 flex flex-col items-center justify-center gap-0.5 py-2 text-[10px] font-bold transition cursor-pointer ${
             activeTab === "support"
               ? "text-amber-500"

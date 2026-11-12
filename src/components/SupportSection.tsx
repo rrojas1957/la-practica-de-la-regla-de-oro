@@ -31,6 +31,7 @@ interface SupportSectionProps {
   onLoadExampleAnswers: (answers: Record<number, string>, title: string) => void;
   showToast: (message: string) => void;
   lang?: "es" | "en" | "fr" | "de" | "pt" | "ru" | "hi";
+  initialSubTab?: "examples" | "testimonials" | "glossary" | "resources" | "mailbox";
 }
 
 // Key terms for Glossary
@@ -427,8 +428,8 @@ const RESOURCES_LIST: Resource[] = [
   }
 ];
 
-export default function SupportSection({ theme, onLoadExampleAnswers, showToast, lang = "es" }: SupportSectionProps) {
-  const [activeSubTab, setActiveSubTab] = useState<"examples" | "testimonials" | "glossary" | "resources" | "mailbox">("examples");
+export default function SupportSection({ theme, onLoadExampleAnswers, showToast, lang = "es", initialSubTab }: SupportSectionProps) {
+  const [activeSubTab, setActiveSubTab] = useState<"examples" | "testimonials" | "glossary" | "resources" | "mailbox">(initialSubTab ?? "examples");
   
   // Glossary Search state
   const [glossarySearch, setGlossarySearch] = useState("");

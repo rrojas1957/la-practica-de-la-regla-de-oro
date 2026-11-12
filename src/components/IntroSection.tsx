@@ -11,6 +11,7 @@ interface IntroSectionProps {
   lang?: "es" | "en" | "fr" | "de" | "pt" | "ru" | "hi";
   showRelaxation: boolean;
   onToggleRelaxation: () => void;
+  onGoToMailbox?: () => void;
 }
 
 type IntroLang = "es" | "en" | "fr" | "de" | "pt" | "ru" | "hi";
@@ -81,13 +82,20 @@ const INTRO_UI: Record<IntroLang, {
   }
 };
 
+// Aviso de traducción beta (solo idiomas sin revisión nativa). Para retirarlo de un idioma, quitar su entrada.
+const BETA_NOTICE: Partial<Record<IntroLang, { title: string; text: string; link: string }>> = {
+  ru: { title: "Перевод в бета-версии", text: "Эта версия переведена с помощью искусственного интеллекта и ещё не проверена носителем языка. Если вы заметите ошибку или неестественное выражение, мы будем благодарны, если вы сообщите нам об этом через анонимный почтовый ящик.", link: "Перейти к почтовому ящику" },
+  hi: { title: "अनुवाद बीटा चरण में है", text: "इस संस्करण का अनुवाद कृत्रिम बुद्धिमत्ता की मदद से किया गया है और अभी तक किसी हिन्दी भाषी ने इसकी समीक्षा नहीं की है। अगर आपको कोई ग़लती या कोई ऐसा वाक्य दिखे जो स्वाभाविक न लगे, तो गुमनाम संदेश-पेटी के ज़रिए हमें बताइए — हम आपके आभारी रहेंगे।", link: "संदेश-पेटी पर जाएँ" }
+};
+
 export default function IntroSection({ 
   onStart, 
   onLoadExample, 
   theme, 
   lang = "es",
   showRelaxation,
-  onToggleRelaxation
+  onToggleRelaxation,
+  onGoToMailbox
 }: IntroSectionProps) {
   const isDark = theme === "dark";
   const t = translations[lang];
@@ -151,6 +159,44 @@ export default function IntroSection({
           {t.introBtnExample}
         </button>
       </motion.div>
+
+      {/* Aviso de traducción beta (solo ruso e hindi) */}
+      {BETA_NOTICE[lang] && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className={`rounded-2xl p-5 border flex gap-4 items-start shadow-xs ${
+            isDark
+              ? "bg-amber-950/20 border-amber-900/40 text-slate-200"
+              : "bg-amber-50 border-amber-200 text-slate-800"
+          }`}
+        >
+          <div className={`p-2 rounded-xl shrink-0 ${
+            isDark ? "bg-amber-900/30 text-amber-400" : "bg-amber-100 text-amber-800"
+          }`}>
+            <Info className="w-5 h-5" />
+          </div>
+          <div className="space-y-1.5 flex-1">
+            <h3 className={`text-sm font-bold ${isDark ? "text-amber-400" : "text-amber-800"}`}>
+              {BETA_NOTICE[lang]!.title}
+            </h3>
+            <p className={`text-xs leading-relaxed ${isDark ? "text-slate-300" : "text-slate-600"}`}>
+              {BETA_NOTICE[lang]!.text}
+            </p>
+            {onGoToMailbox && (
+              <button
+                type="button"
+                onClick={onGoToMailbox}
+                className={`mt-1 text-xs font-bold underline underline-offset-2 cursor-pointer ${
+                  isDark ? "text-amber-400 hover:text-amber-300" : "text-amber-700 hover:text-amber-900"
+                }`}
+              >
+                {BETA_NOTICE[lang]!.link} →
+              </button>
+            )}
+          </div>
+        </motion.div>
+      )}
 
       {/* 🔒 Espacio 100% Seguro y Privado */}
       <motion.div 
