@@ -714,30 +714,30 @@ ${t.downloadFooterQuote}
       <header className={`sticky top-0 z-40 shadow-xs border-b transition-colors duration-300 ${
         theme === "dark" ? "bg-slate-950 border-slate-900" : "bg-white border-slate-100"
       }`} id="app-header">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between max-[319px]:px-2 max-[319px]:gap-2 max-[319px]:h-auto max-[319px]:min-h-16 max-[319px]:py-1.5">
           
           {/* Logo Brand */}
           <div 
             onClick={() => setActiveTab("intro")} 
-            className="flex items-center gap-3 cursor-pointer group"
+            className="flex items-center gap-3 cursor-pointer group max-[319px]:gap-2 max-[319px]:min-w-0"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-600 to-amber-500 flex items-center justify-center text-white shadow-md shadow-amber-500/10 group-hover:scale-105 transition duration-200">
+            <div className="w-10 h-10 max-[319px]:w-8 max-[319px]:h-8 max-[319px]:shrink-0 rounded-xl bg-gradient-to-tr from-amber-600 to-amber-500 flex items-center justify-center text-white shadow-md shadow-amber-500/10 group-hover:scale-105 transition duration-200">
               <Heart className="w-5 h-5 fill-amber-100 text-amber-100 shrink-0" />
             </div>
-            <div>
-              <span className={`font-display font-bold tracking-tight text-base sm:text-lg block leading-none ${
+            <div className="max-[319px]:min-w-0">
+              <span className={`font-display font-bold tracking-tight text-base sm:text-lg block leading-none max-[319px]:text-sm max-[319px]:leading-tight max-[319px]:wrap-anywhere ${
                 theme === "dark" ? "text-white" : "text-slate-900"
               }`}>
                 {t.logoTitle}
               </span>
-              <span className="text-[10px] text-amber-600 font-bold uppercase tracking-widest mt-0.5 block leading-none">
+              <span className="text-[10px] text-amber-600 font-bold uppercase tracking-widest mt-0.5 block leading-none max-[319px]:text-[8px] max-[319px]:leading-tight max-[319px]:tracking-normal max-[319px]:wrap-anywhere">
                 {t.logoSubtitle}
               </span>
             </div>
           </div>
 
           {/* Navigation tabs & Theme toggle */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 max-[319px]:gap-1 max-[319px]:shrink-0">
             <nav className={`hidden sm:flex gap-1 p-1 rounded-xl border transition-colors ${
               theme === "dark" ? "bg-slate-900/80 border-slate-800" : "bg-slate-100/80 border-slate-200/50"
             }`}>
@@ -814,7 +814,7 @@ ${t.downloadFooterQuote}
                 id="language-switcher-btn"
                 aria-haspopup="listbox"
                 aria-expanded={langMenuOpen}
-                className={`px-2 sm:px-2.5 py-2 text-xs font-extrabold rounded-xl border transition cursor-pointer flex items-center gap-1 uppercase tracking-wider ${
+                className={`px-2 sm:px-2.5 py-2 text-xs font-extrabold rounded-xl border transition cursor-pointer flex items-center gap-1 uppercase tracking-wider max-[319px]:px-1.5 max-[319px]:tracking-normal ${
                   theme === "dark"
                     ? "bg-slate-900 border-slate-800 text-amber-400 hover:bg-slate-850 hover:text-amber-300"
                     : "bg-slate-100 border-slate-200 text-slate-600 hover:bg-slate-200 hover:text-slate-950"
@@ -1015,7 +1015,7 @@ ${t.downloadFooterQuote}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      className={`p-3.5 rounded-xl border flex items-center justify-between gap-4 text-xs font-bold cursor-pointer transition ${
+                      className={`p-3.5 rounded-xl border flex items-center justify-between gap-4 text-xs font-bold cursor-pointer transition max-[319px]:flex-col max-[319px]:items-start max-[319px]:gap-2 ${
                         theme === "dark" 
                           ? "bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-850/50" 
                           : "bg-slate-50/70 border-slate-200/60 text-slate-700 hover:border-slate-300/60 hover:bg-slate-100"
@@ -1043,8 +1043,8 @@ ${t.downloadFooterQuote}
                   : "bg-emerald-50/60 border-emerald-100 text-slate-700"
               }`}>
                 <ShieldCheck className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5 animate-pulse" />
-                <div className="space-y-1">
-                  <h4 className={`text-xs font-bold uppercase tracking-wider ${
+                <div className="space-y-1 max-[319px]:min-w-0">
+                  <h4 className={`text-xs font-bold uppercase tracking-wider max-[319px]:wrap-anywhere max-[319px]:hyphens-auto max-[319px]:tracking-normal ${
                     theme === "dark" ? "text-emerald-400" : "text-emerald-800"
                   }`}>
                     {t.practicePrivacyTitle}
@@ -1127,7 +1127,7 @@ ${t.downloadFooterQuote}
                     </div>
 
                     {/* Wizard Nav buttons */}
-                    <div className={`flex items-center justify-between pt-2 border-t ${
+                    <div className={`flex items-center justify-between pt-2 border-t max-[319px]:flex-wrap max-[319px]:gap-2 ${
                       theme === "dark" ? "border-slate-800" : "border-slate-150/50"
                     }`}>
                       <button
@@ -1272,7 +1272,7 @@ ${t.downloadFooterQuote}
                   </div>
 
                   {/* Workspace Actions Panel */}
-                  <div className={`rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-md transition-colors duration-200 ${
+                  <div className={`rounded-2xl p-6 max-[319px]:p-4 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-md transition-colors duration-200 ${
                     theme === "dark" ? "bg-slate-900 border border-slate-800 text-white" : "bg-slate-900 text-white"
                   }`}>
                     <div className="space-y-1 text-center sm:text-left">
@@ -1285,7 +1285,7 @@ ${t.downloadFooterQuote}
                       </p>
                     </div>
 
-                    <div className="flex gap-3 w-full sm:w-auto">
+                    <div className="flex gap-3 w-full sm:w-auto max-[319px]:flex-col">
                       <button
                         onClick={handleResetForm}
                         className="flex-1 sm:flex-none px-4 py-2.5 bg-slate-800 hover:bg-slate-755 border border-slate-700 text-slate-200 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer"
@@ -1322,7 +1322,7 @@ ${t.downloadFooterQuote}
                       <div className={`rounded-2xl p-6 border flex flex-col sm:flex-row items-center justify-between gap-4 transition-colors duration-200 ${
                         theme === "dark" ? "bg-emerald-950/20 border-emerald-900/40" : "bg-emerald-50 border-emerald-100"
                       }`}>
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-3 max-[319px]:flex-col max-[319px]:items-start">
                           <div className="w-12 h-12 rounded-xl bg-emerald-500 flex items-center justify-center text-white shrink-0 shadow-md">
                             <BookOpenCheck className="w-6 h-6" />
                           </div>
@@ -1493,7 +1493,7 @@ ${t.downloadFooterQuote}
         {/* Tab: Intro */}
         <button
           onClick={() => setActiveTab("intro")}
-          className={`flex-1 min-w-0 flex flex-col items-center justify-center gap-0.5 py-2 text-[10px] font-bold transition cursor-pointer ${
+          className={`flex-1 min-w-0 flex flex-col items-center justify-center gap-0.5 py-2 text-[10px] max-[319px]:text-[9px] max-[319px]:tracking-tighter font-bold transition cursor-pointer ${
             activeTab === "intro"
               ? "text-amber-500"
               : theme === "dark" ? "text-slate-500 hover:text-slate-300" : "text-slate-400 hover:text-slate-600"
@@ -1506,7 +1506,7 @@ ${t.downloadFooterQuote}
         {/* Tab: Practice */}
         <button
           onClick={() => setActiveTab("practice")}
-          className={`flex-1 min-w-0 flex flex-col items-center justify-center gap-0.5 py-2 text-[10px] font-bold transition cursor-pointer relative ${
+          className={`flex-1 min-w-0 flex flex-col items-center justify-center gap-0.5 py-2 text-[10px] max-[319px]:text-[9px] max-[319px]:tracking-tighter font-bold transition cursor-pointer relative ${
             activeTab === "practice"
               ? "text-amber-500"
               : theme === "dark" ? "text-slate-500 hover:text-slate-300" : "text-slate-400 hover:text-slate-600"
@@ -1526,7 +1526,7 @@ ${t.downloadFooterQuote}
         {/* Tab: History */}
         <button
           onClick={() => setActiveTab("history")}
-          className={`flex-1 min-w-0 flex flex-col items-center justify-center gap-0.5 py-2 text-[10px] font-bold transition cursor-pointer relative ${
+          className={`flex-1 min-w-0 flex flex-col items-center justify-center gap-0.5 py-2 text-[10px] max-[319px]:text-[9px] max-[319px]:tracking-tighter font-bold transition cursor-pointer relative ${
             activeTab === "history"
               ? "text-amber-500"
               : theme === "dark" ? "text-slate-500 hover:text-slate-300" : "text-slate-400 hover:text-slate-600"
@@ -1548,7 +1548,7 @@ ${t.downloadFooterQuote}
         {/* Tab: Support */}
         <button
           onClick={() => { setSupportStartTab("examples"); setActiveTab("support"); }}
-          className={`flex-1 min-w-0 flex flex-col items-center justify-center gap-0.5 py-2 text-[10px] font-bold transition cursor-pointer ${
+          className={`flex-1 min-w-0 flex flex-col items-center justify-center gap-0.5 py-2 text-[10px] max-[319px]:text-[9px] max-[319px]:tracking-tighter font-bold transition cursor-pointer ${
             activeTab === "support"
               ? "text-amber-500"
               : theme === "dark" ? "text-slate-500 hover:text-slate-300" : "text-slate-400 hover:text-slate-600"
