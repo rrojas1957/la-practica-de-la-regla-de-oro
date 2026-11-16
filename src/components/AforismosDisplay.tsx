@@ -182,7 +182,7 @@ export default function AforismosDisplay({
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.05 }}
-              className={`relative rounded-2xl border p-6 flex flex-col justify-between overflow-hidden shadow-xs transition-all duration-300 ${
+              className={`relative rounded-2xl border p-6 max-[319px]:p-4 flex flex-col justify-between overflow-hidden shadow-xs transition-all duration-300 ${
                 isPrimary
                   ? isDark
                     ? "border-amber-900/60 bg-gradient-to-br from-slate-900 via-slate-900 to-amber-950/15 ring-1 ring-amber-950"
@@ -194,9 +194,9 @@ export default function AforismosDisplay({
             >
               <div>
                 {/* Card top banner/tag */}
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
+                <div className="flex items-start justify-between gap-4 mb-4 max-[319px]:flex-col max-[319px]:gap-2">
+                  <div className="space-y-1 max-[319px]:min-w-0">
+                    <div className="flex items-center gap-2 max-[319px]:flex-wrap">
                       <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-md ${
                         isPrimary 
                           ? isDark ? "bg-amber-900 text-amber-100" : "bg-amber-100 text-amber-900" 
@@ -275,7 +275,7 @@ export default function AforismosDisplay({
                         }
                       />
                       
-                      <div className="flex items-center justify-between gap-3">
+                      <div className="flex items-center justify-between gap-3 max-[319px]:flex-col max-[319px]:items-start">
                         <p className={`text-[10px] ${isDark ? "text-slate-500" : "text-slate-400"}`}>
                           {
                             lang === "es" ? "Escribe con tus propias palabras respetando el sentido profundo de la fórmula." :
@@ -288,7 +288,7 @@ export default function AforismosDisplay({
                           }
                         </p>
                         
-                        <div className="flex gap-2 shrink-0">
+                        <div className="flex gap-2 shrink-0 max-[319px]:flex-wrap">
                           {isEdited && (
                             <button
                               onClick={() => {
@@ -340,13 +340,13 @@ export default function AforismosDisplay({
                         "Click to edit text"
                       }
                     >
-                      <Quote className={`w-8 h-8 shrink-0 rotate-180 transition-colors duration-200 ${
+                      <Quote className={`w-8 h-8 shrink-0 rotate-180 max-[319px]:hidden transition-colors duration-200 ${
                         isPrimary 
                           ? isDark ? "text-amber-800/30 group-hover:text-amber-600/50" : "text-amber-200 group-hover:text-amber-300" 
                           : isDark ? "text-slate-800 group-hover:text-slate-700" : "text-slate-100 group-hover:text-slate-200"
                       }`} />
-                      <div className="space-y-1 w-full">
-                        <p className={`font-bold tracking-tight text-base sm:text-lg leading-relaxed ${
+                      <div className="space-y-1 w-full max-[319px]:min-w-0">
+                        <p className={`font-bold tracking-tight text-base sm:text-lg leading-relaxed max-[319px]:text-sm max-[319px]:wrap-anywhere max-[319px]:hyphens-auto ${
                           isPrimary 
                             ? isDark ? "text-amber-100 font-extrabold" : "text-amber-950 font-extrabold"
                             : isDark ? "text-slate-200" : "text-slate-850"
@@ -376,7 +376,7 @@ export default function AforismosDisplay({
               </div>
 
               {/* Graphic bottom element */}
-              <div className={`mt-4 pt-4 border-t flex items-center justify-between text-[10px] text-slate-400 ${
+              <div className={`mt-4 pt-4 border-t flex items-center justify-between max-[319px]:flex-wrap max-[319px]:gap-1 text-[10px] text-slate-400 ${
                 isDark ? "border-slate-805" : "border-slate-100/60"
               }`}>
                 <span className="flex items-center gap-1">
