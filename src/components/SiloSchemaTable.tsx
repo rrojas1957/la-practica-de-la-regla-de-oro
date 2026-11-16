@@ -858,7 +858,7 @@ ${s.txtGeneratedOn}: ${new Date().toLocaleDateString(LOCALES[lang])}
 
         <button
           onClick={handleCopyTextWorksheet}
-          className={`px-4 py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition duration-150 cursor-pointer shadow-sm border ${
+          className={`px-4 py-2.5 max-[319px]:w-full rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition duration-150 cursor-pointer shadow-sm border ${
             copyTextSuccess
               ? "bg-emerald-600 border-emerald-600 text-white"
               : isDark
@@ -1110,10 +1110,10 @@ ${s.txtGeneratedOn}: ${new Date().toLocaleDateString(LOCALES[lang])}
         </div>
 
       {/* TEXT WORKSHEET — visible directly, no modal needed */}
-      <div className={`rounded-2xl border p-4 sm:p-6 space-y-3 ${
+      <div className={`rounded-2xl border p-4 sm:p-6 max-[319px]:p-3 space-y-3 ${
         isDark ? "bg-slate-900 border-slate-800" : "bg-slate-50 border-slate-200"
       }`}>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center max-[319px]:flex-col max-[319px]:items-start max-[319px]:gap-2">
           <span className={`text-xs font-bold ${isDark ? "text-slate-300" : "text-slate-600"}`}>
             {s.textReadyLabel}
           </span>
