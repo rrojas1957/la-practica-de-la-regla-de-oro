@@ -90,14 +90,14 @@ export default function HistorySection({
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.05 }}
-              className={`rounded-xl border p-5 shadow-sm hover:shadow-md transition duration-150 flex flex-col justify-between group ${
+              className={`rounded-xl border p-5 max-[319px]:p-4 shadow-sm hover:shadow-md transition duration-150 flex flex-col justify-between group ${
                 isDark ? "bg-slate-900 border-slate-800" : "bg-white border-slate-100"
               }`}
             >
               <div className="space-y-3">
                 {/* Header info */}
-                <div className="flex items-center justify-between gap-2 text-[11px] text-slate-400">
-                  <div className="flex items-center gap-1.5">
+                <div className="flex items-center justify-between gap-2 text-[11px] text-slate-400 max-[319px]:items-start">
+                  <div className="flex items-center gap-1.5 max-[319px]:min-w-0 max-[319px]:wrap-anywhere">
                     <Calendar className="w-3.5 h-3.5 text-slate-400" />
                     <span>{t.historyCardDate}{practice.date}</span>
                   </div>
@@ -121,27 +121,27 @@ export default function HistorySection({
 
                 {/* Title / Description of the case */}
                 <div className="space-y-1">
-                  <h4 className={`font-bold group-hover:text-amber-500 transition duration-150 text-sm ${
+                  <h4 className={`font-bold group-hover:text-amber-500 transition duration-150 text-sm max-[319px]:wrap-anywhere max-[319px]:hyphens-auto ${
                     isDark ? "text-slate-100" : "text-slate-900"
                   }`}>
                     {practice.title}
                   </h4>
-                  <div className="grid grid-cols-2 gap-3 pt-2 text-xs">
+                  <div className="grid grid-cols-2 gap-3 pt-2 text-xs max-[319px]:grid-cols-1 max-[319px]:gap-2">
                     <div className={`p-2 rounded-lg border ${
                       isDark ? "bg-slate-800 border-slate-700" : "bg-slate-50 border-slate-100"
                     }`}>
-                      <span className="text-[9px] uppercase tracking-wider font-bold text-slate-400 block">
+                      <span className="text-[9px] uppercase tracking-wider font-bold text-slate-400 block max-[319px]:tracking-normal max-[319px]:wrap-anywhere">
                         {{ es: "Maltrato recibido", en: "Mistreatment received", fr: "Maltraitance reçue", de: "Erlittene Fehlbehandlung", pt: "Maltrato recebido", ru: "Полученное плохое обращение", hi: "मिला हुआ दुर्व्यवहार" }[lang]}
                       </span>
-                      <span className={`font-semibold line-clamp-1 ${isDark ? "text-slate-200" : "text-slate-700"}`}>{maltrato}</span>
+                      <span className={`font-semibold line-clamp-1 max-[319px]:line-clamp-2 max-[319px]:wrap-anywhere ${isDark ? "text-slate-200" : "text-slate-700"}`}>{maltrato}</span>
                     </div>
                     <div className={`p-2 rounded-lg border ${
                       isDark ? "bg-slate-800 border-slate-700" : "bg-slate-50 border-slate-100"
                     }`}>
-                      <span className="text-[9px] uppercase tracking-wider font-bold text-slate-400 block">
+                      <span className="text-[9px] uppercase tracking-wider font-bold text-slate-400 block max-[319px]:tracking-normal max-[319px]:wrap-anywhere">
                         {{ es: "Mi reacción", en: "My reaction", fr: "Ma réaction", de: "Meine Reaktion", pt: "A minha reação", ru: "Моя реакция", hi: "मेरी प्रतिक्रिया" }[lang]}
                       </span>
-                      <span className={`font-semibold line-clamp-1 ${isDark ? "text-slate-200" : "text-slate-700"}`}>{reaccion}</span>
+                      <span className={`font-semibold line-clamp-1 max-[319px]:line-clamp-2 max-[319px]:wrap-anywhere ${isDark ? "text-slate-200" : "text-slate-700"}`}>{reaccion}</span>
                     </div>
                   </div>
                 </div>
