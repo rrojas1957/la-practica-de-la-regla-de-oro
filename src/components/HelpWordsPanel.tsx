@@ -26,7 +26,7 @@ export default function HelpWordsPanel({
   const isDark = theme === "dark";
 
   return (
-    <div className={`rounded-2xl p-5 border space-y-4 transition-colors duration-200 ${
+    <div className={`rounded-2xl p-5 max-[319px]:p-4 border space-y-4 transition-colors duration-200 ${
       isDark ? "bg-slate-900 border-slate-800" : "bg-slate-50 border-slate-200/60"
     }`} id="help-words-panel">
       {/* Header */}
@@ -61,7 +61,7 @@ export default function HelpWordsPanel({
                     whileTap={{ scale: 0.98 }}
                     onClick={() => onSelectWord(word)}
                     type="button"
-                    className={`px-3 py-1.5 text-xs font-semibold rounded-lg border transition duration-150 cursor-pointer ${
+                    className={`px-3 py-1.5 text-xs font-semibold rounded-lg border transition duration-150 cursor-pointer max-[319px]:max-w-full max-[319px]:px-2 max-[319px]:wrap-anywhere max-[319px]:hyphens-auto ${
                       isSelected
                         ? "bg-amber-600 text-white border-amber-600 shadow-sm"
                         : isDark
