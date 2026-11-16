@@ -118,7 +118,7 @@ export default function IntroSection({
           <Sparkles className="w-4 h-4 text-amber-500 animate-pulse" />
           <span>{t.introTagline}</span>
         </div>
-        <h1 className={`text-4xl sm:text-5xl font-extrabold tracking-tight balance ${
+        <h1 className={`text-4xl sm:text-5xl max-[319px]:text-3xl max-[319px]:wrap-anywhere max-[319px]:hyphens-auto font-extrabold tracking-tight balance ${
           isDark ? "text-white" : "text-slate-900"
         }`}>
           <>
@@ -165,7 +165,7 @@ export default function IntroSection({
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className={`rounded-2xl p-5 border flex gap-4 items-start shadow-xs ${
+          className={`rounded-2xl p-5 border flex gap-4 items-start shadow-xs max-[319px]:flex-col max-[319px]:gap-3 max-[319px]:p-4 ${
             isDark
               ? "bg-amber-950/20 border-amber-900/40 text-slate-200"
               : "bg-amber-50 border-amber-200 text-slate-800"
@@ -176,7 +176,7 @@ export default function IntroSection({
           }`}>
             <Info className="w-5 h-5" />
           </div>
-          <div className="space-y-1.5 flex-1">
+          <div className="space-y-1.5 flex-1 max-[319px]:min-w-0 max-[319px]:w-full">
             <h3 className={`text-sm font-bold ${isDark ? "text-amber-400" : "text-amber-800"}`}>
               {BETA_NOTICE[lang]!.title}
             </h3>
@@ -203,7 +203,7 @@ export default function IntroSection({
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.05 }}
-        className={`rounded-2xl p-5 border flex gap-4 items-start shadow-xs transition-all duration-200 ${
+        className={`rounded-2xl p-5 border flex gap-4 items-start shadow-xs max-[319px]:flex-col max-[319px]:gap-3 max-[319px]:p-4 transition-all duration-200 ${
           isDark 
             ? "bg-emerald-950/20 border-emerald-900/30 text-slate-200 shadow-emerald-950/5" 
             : "bg-emerald-50/50 border-emerald-100 text-slate-800"
@@ -214,8 +214,8 @@ export default function IntroSection({
         }`}>
           <Lock className="w-5 h-5 animate-pulse" />
         </div>
-        <div className="space-y-1.5 flex-1">
-          <h3 className={`text-sm font-bold uppercase tracking-wider flex items-center gap-1.5 ${
+        <div className="space-y-1.5 flex-1 max-[319px]:min-w-0 max-[319px]:w-full">
+          <h3 className={`text-sm font-bold uppercase tracking-wider flex items-center gap-1.5 max-[319px]:wrap-anywhere max-[319px]:hyphens-auto max-[319px]:tracking-normal ${
             isDark ? "text-emerald-400" : "text-emerald-800"
           }`}>
             {t.introPrivacyTitle}
@@ -231,7 +231,7 @@ export default function IntroSection({
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.1 }}
-        className="relative overflow-hidden bg-slate-900 text-slate-100 rounded-2xl p-6 sm:p-8 shadow-xl border border-slate-800"
+        className="relative overflow-hidden bg-slate-900 text-slate-100 rounded-2xl p-6 sm:p-8 max-[319px]:p-5 shadow-xl border border-slate-800"
       >
         <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl -mr-8 -mt-8" />
         <div className="absolute bottom-0 left-0 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl -ml-8 -mb-8" />
@@ -241,7 +241,7 @@ export default function IntroSection({
             <Heart className="w-4 h-4 text-amber-400" />
             <span>{t.introPrincipleTitle}</span>
           </div>
-          <blockquote className="text-xl sm:text-2xl font-medium tracking-tight italic text-amber-100 leading-snug">
+          <blockquote className="text-xl sm:text-2xl max-[319px]:text-lg max-[319px]:wrap-anywhere font-medium tracking-tight italic text-amber-100 leading-snug">
             "{t.introSiloQuote}"
           </blockquote>
           <div className="pt-2 text-sm text-slate-400 flex flex-col sm:flex-row sm:items-center gap-2 justify-between border-t border-slate-800/80">
@@ -293,7 +293,7 @@ export default function IntroSection({
                 {/* Main Pillars - Benefits & Purpose */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
                   {/* Column 1: Benefits */}
-                  <div className={`rounded-xl p-5 border ${isDark ? "bg-slate-800/60 border-slate-750" : "bg-slate-50 border-slate-100"}`}>
+                  <div className={`rounded-xl p-5 max-[319px]:p-3 border ${isDark ? "bg-slate-800/60 border-slate-750" : "bg-slate-50 border-slate-100"}`}>
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
                         <div className={`p-2 rounded-xl ${isDark ? "bg-amber-950/40 text-amber-400" : "bg-amber-50 text-amber-600"}`}>
@@ -303,7 +303,7 @@ export default function IntroSection({
                       </div>
                       <ul className="space-y-3 pt-1">
                         {t.introBenefits.map((benefit, idx) => (
-                          <li key={idx} className={`flex gap-3 text-xs leading-relaxed ${isDark ? "text-slate-300" : "text-slate-600"}`}>
+                          <li key={idx} className={`flex gap-3 max-[319px]:gap-2 max-[319px]:wrap-anywhere text-xs leading-relaxed ${isDark ? "text-slate-300" : "text-slate-600"}`}>
                             <span className="text-amber-500 font-bold select-none">•</span>
                             <span>{benefit}</span>
                           </li>
@@ -313,7 +313,7 @@ export default function IntroSection({
                   </div>
 
                   {/* Column 2: Purpose & Deep Meaning */}
-                  <div className={`rounded-xl p-5 border ${isDark ? "bg-slate-800/60 border-slate-750" : "bg-slate-50 border-slate-100"}`}>
+                  <div className={`rounded-xl p-5 max-[319px]:p-3 border ${isDark ? "bg-slate-800/60 border-slate-750" : "bg-slate-50 border-slate-100"}`}>
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
                         <div className={`p-2 rounded-xl ${isDark ? "bg-slate-700 text-slate-300" : "bg-slate-100 text-slate-700"}`}>
@@ -323,7 +323,7 @@ export default function IntroSection({
                       </div>
                       <ul className="space-y-3 pt-1">
                         {t.introPurposes.slice(0, 5).map((purpose, idx) => (
-                          <li key={idx} className={`flex gap-3 text-xs leading-relaxed ${isDark ? "text-slate-300" : "text-slate-600"}`}>
+                          <li key={idx} className={`flex gap-3 max-[319px]:gap-2 max-[319px]:wrap-anywhere text-xs leading-relaxed ${isDark ? "text-slate-300" : "text-slate-600"}`}>
                             <span className="text-amber-500 font-bold select-none">•</span>
                             <span>{purpose}</span>
                           </li>
@@ -334,11 +334,11 @@ export default function IntroSection({
                 </div>
 
                 {/* Narrative block */}
-                <div className={`rounded-xl p-5 border flex gap-4 items-start ${
+                <div className={`rounded-xl p-5 border flex gap-4 items-start max-[319px]:p-3 max-[319px]:gap-2 ${
                   isDark ? "bg-amber-950/20 border-amber-900/40 text-slate-300" : "bg-amber-50/50 border-amber-100 text-slate-700"
                 }`}>
                   <Info className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                  <div className="space-y-2">
+                  <div className="space-y-2 max-[319px]:min-w-0 max-[319px]:wrap-anywhere max-[319px]:hyphens-auto">
                     <p className="text-xs leading-relaxed">
                       {t.introExplanation}
                     </p>
@@ -386,18 +386,18 @@ export default function IntroSection({
                   : "bg-slate-50/70 border-slate-200/60 text-slate-800 hover:border-slate-300/60"
               }`}
             >
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-4 max-[319px]:flex-col max-[319px]:gap-3 max-[319px]:w-full">
                 <div className={`p-3.5 rounded-2xl shrink-0 ${
                   isDark ? "bg-amber-500/10 text-amber-400" : "bg-amber-500/10 text-amber-600"
                 }`}>
                   <Headphones className="w-6 h-6 animate-pulse" />
                 </div>
-                <div className="space-y-1">
-                  <h3 className={`text-sm font-black uppercase tracking-wider flex items-center gap-2 ${
+                <div className="space-y-1 max-[319px]:min-w-0 max-[319px]:w-full">
+                  <h3 className={`text-sm font-black uppercase tracking-wider flex items-center gap-2 max-[319px]:block max-[319px]:wrap-anywhere max-[319px]:hyphens-auto max-[319px]:tracking-normal ${
                     isDark ? "text-amber-400" : "text-amber-800"
                   }`}>
                     <span>{ui.relaxRecoTitle}</span>
-                    <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                    <Sparkles className="w-3.5 h-3.5 text-amber-500 max-[319px]:hidden" />
                   </h3>
                   <p className={`text-xs leading-relaxed max-w-2xl ${isDark ? "text-slate-300" : "text-slate-600"}`}>
                     {ui.relaxRecoText}
