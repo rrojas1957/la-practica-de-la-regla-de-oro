@@ -324,7 +324,7 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
 
   return (
     <div 
-      className={`rounded-2xl border p-6 shadow-md transition-all relative overflow-hidden ${
+      className={`rounded-2xl border p-6 max-[319px]:p-4 shadow-md transition-all relative overflow-hidden ${
         isDark 
           ? "bg-slate-900/90 border-slate-800 text-slate-100 shadow-slate-950/20" 
           : "bg-white border-slate-150 text-slate-900 shadow-slate-100/50"
@@ -336,13 +336,13 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
       <div className="absolute bottom-0 left-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-3xl -ml-12 -mb-12 pointer-events-none" />
 
       {/* Header section */}
-      <div className="flex items-center justify-between gap-4 border-b pb-3 mb-5">
-        <div className="flex items-center gap-2.5">
-          <div className="p-2 bg-amber-500/10 rounded-xl text-amber-500">
+      <div className="flex items-center justify-between gap-4 border-b pb-3 mb-5 max-[360px]:flex-col max-[360px]:items-stretch max-[360px]:gap-2">
+        <div className="flex items-center gap-2.5 max-[319px]:min-w-0">
+          <div className="p-2 bg-amber-500/10 rounded-xl text-amber-500 max-[319px]:shrink-0">
             <Headphones className="w-5 h-5 animate-pulse" />
           </div>
-          <div>
-            <h4 className="text-sm font-bold tracking-tight uppercase flex items-center gap-1">
+          <div className="max-[319px]:min-w-0">
+            <h4 className="text-sm font-bold tracking-tight uppercase flex items-center gap-1 max-[319px]:wrap-anywhere max-[319px]:hyphens-auto">
               <span>{
                 lang === "es" ? "Paz Mental: Relajación Guiada" :
                 lang === "hi" ? "मन की शांति: निर्देशित विश्राम" :
@@ -369,7 +369,7 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
         {onClose && (
           <button
             onClick={onClose}
-            className={`text-xs px-2.5 py-1 rounded-lg border transition ${
+            className={`text-xs px-2.5 py-1 rounded-lg border transition max-[360px]:self-end ${
               isDark 
                 ? "bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700" 
                 : "bg-slate-100 hover:bg-slate-200 text-slate-600 border-slate-200"
@@ -543,7 +543,7 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
               <span className="text-[10px] font-bold uppercase tracking-wider text-amber-500">
                 {activeTitle}
               </span>
-              <span className="text-[10px] text-slate-400 font-medium">
+              <span className="text-[10px] text-slate-400 font-medium max-[360px]:whitespace-nowrap max-[360px]:shrink-0 max-[360px]:pl-2">
                 {currentPhase + 1} / 5
               </span>
             </div>
@@ -558,10 +558,10 @@ export default function RelaxationPlayer({ theme = "light", lang = "es", onClose
           </div>
 
           {/* Simplified Controls: ONLY Play/Pause and Reset buttons */}
-          <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100 dark:border-slate-800/40">
+          <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100 dark:border-slate-800/40 max-[319px]:flex-wrap">
             <button
               onClick={handlePlayPause}
-              className="px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold rounded-xl text-xs tracking-wider uppercase transition flex items-center gap-2 shadow-sm cursor-pointer"
+              className="px-5 py-2.5 max-[319px]:px-3 max-[319px]:tracking-normal bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold rounded-xl text-xs tracking-wider uppercase transition flex items-center gap-2 shadow-sm cursor-pointer"
             >
               {isPlaying ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current translate-x-0.5" />}
               <span>
