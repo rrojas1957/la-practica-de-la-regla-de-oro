@@ -1062,7 +1062,7 @@ ${t.downloadFooterQuote}
                 <div className="lg:col-span-5 space-y-6">
                   
                   {/* Step Card Question */}
-                  <div className={`rounded-2xl border p-6 shadow-sm space-y-5 relative overflow-hidden transition-colors ${
+                  <div className={`rounded-2xl border p-6 max-[319px]:p-4 shadow-sm space-y-5 relative overflow-hidden transition-colors ${
                     theme === "dark" ? "bg-slate-900 border-slate-800" : "bg-white border-slate-100"
                   }`} id="wizard-container">
                     
@@ -1095,7 +1095,7 @@ ${t.downloadFooterQuote}
 
                     {/* Prominent Question */}
                     <div className="space-y-2">
-                      <h3 className={`text-lg sm:text-xl font-bold font-display leading-snug ${
+                      <h3 className={`text-lg sm:text-xl font-bold font-display leading-snug max-[319px]:wrap-anywhere max-[319px]:hyphens-auto ${
                         theme === "dark" ? "text-white" : "text-slate-900"
                       }`}>
                         {currentStep.question}
