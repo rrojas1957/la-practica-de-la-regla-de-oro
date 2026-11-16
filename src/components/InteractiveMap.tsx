@@ -113,7 +113,7 @@ export default function InteractiveMap({
         onClick={() => interactive && onSelectStep && onSelectStep(id)}
         className={`relative overflow-hidden p-4 rounded-xl border transition-all duration-200 ${
           interactive ? "cursor-pointer" : ""
-        } ${cardClass} flex flex-col justify-between h-32 shadow-sm`}
+        } ${cardClass} flex flex-col justify-between h-32 max-[319px]:h-auto max-[319px]:min-h-32 max-[319px]:p-3 shadow-sm`}
         id={`map-node-${id}`}
       >
         {/* Glow effect for current node */}
@@ -122,7 +122,7 @@ export default function InteractiveMap({
         )}
 
         <div className="space-y-1">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between max-[319px]:flex-wrap max-[319px]:gap-1">
             <span className={`text-[10px] uppercase tracking-wider font-bold ${headerClass}`}>
               {{ es: `Punto ${step.id}`, en: `Point ${step.id}`, fr: `Point ${step.id}`, de: `Punkt ${step.id}`, pt: `Ponto ${step.id}`, ru: `Пункт ${step.id}`, hi: `बिंदु ${step.id}` }[lang]}
             </span>
@@ -139,12 +139,12 @@ export default function InteractiveMap({
               )}
             </div>
           </div>
-          <p className={`text-xs font-bold line-clamp-1 ${isDark ? "text-slate-100" : "text-slate-800"}`}>{step.shortName}</p>
+          <p className={`text-xs font-bold line-clamp-1 max-[319px]:line-clamp-none max-[319px]:wrap-anywhere max-[319px]:hyphens-auto ${isDark ? "text-slate-100" : "text-slate-800"}`}>{step.shortName}</p>
         </div>
 
         <div className={`mt-2 pt-2 border-t ${isDark ? "border-slate-800" : "border-slate-100/80"}`}>
           {answered ? (
-            <p className={`text-sm font-bold line-clamp-2 italic ${isDark ? "text-slate-100" : "text-slate-900"}`}>
+            <p className={`text-sm font-bold line-clamp-2 italic max-[319px]:wrap-anywhere max-[319px]:hyphens-auto ${isDark ? "text-slate-100" : "text-slate-900"}`}>
               "{value}"
             </p>
           ) : (
@@ -162,7 +162,7 @@ export default function InteractiveMap({
     <div className="space-y-6 w-full" id="interactive-map-container">
       {/* Legend / Title */}
       <div className="flex flex-wrap items-center justify-between gap-3 px-1">
-        <h3 className={`text-sm font-bold flex items-center gap-2 ${isDark ? "text-slate-200" : "text-slate-700"}`}>
+        <h3 className={`text-sm font-bold flex items-center gap-2 max-[319px]:wrap-anywhere max-[319px]:hyphens-auto ${isDark ? "text-slate-200" : "text-slate-700"}`}>
           <Zap className="w-4 h-4 text-amber-500" />
           {{ es: "Mapa de los 8 Espacios de Conciencia", en: "Map of the 8 Spaces of Consciousness", fr: "Carte des 8 Espaces de Conscience", de: "Karte der 8 Bewusstseinsräume", pt: "Mapa dos 8 Espaços de Consciência", ru: "Карта 8 пространств сознания", hi: "चेतना के 8 क्षेत्रों का नक़्शा" }[lang]}
         </h3>
@@ -196,7 +196,7 @@ export default function InteractiveMap({
         {/* --- LEVEL A: LUMINOUS ROW (Points 3 and 4) --- */}
         <div className="space-y-2 md:col-span-2">
           <div className="text-center">
-            <span className={`px-2.5 py-0.5 rounded-full border text-[10px] font-bold tracking-wider uppercase ${
+            <span className={`px-2.5 py-0.5 rounded-full border text-[10px] font-bold tracking-wider uppercase max-[319px]:inline-block max-[319px]:rounded-xl max-[319px]:py-1 max-[319px]:tracking-normal max-[319px]:wrap-anywhere ${
               isDark ? "bg-amber-950/40 border-amber-900 text-amber-300" : "bg-amber-50 border-amber-200 text-amber-800"
             }`}>
               {{ es: "Espacio Luminoso: Conciencia de Sí, Inspirada e Intencionada", en: "Luminous Space: Self-Consciousness, Inspired and Intentional", fr: "Espace Lumineux : Conscience de Soi, Inspirée et Intentionnelle", de: "Lichter Raum: Selbstbewusstsein, Inspiriert und Intentional", pt: "Espaço Luminoso: Consciência de Si, Inspirada e Intencional", ru: "Светлое пространство: самосознание, вдохновлённое и намеренное", hi: "प्रकाशमय क्षेत्र: आत्म-जागरूक, प्रेरित और संकल्पित चेतना" }[lang]}
@@ -210,7 +210,7 @@ export default function InteractiveMap({
 
         {/* --- LEVEL B: TRANSITION ROW (Points 5, 6, 7, and 8) --- */}
         {/* Left Transitions: Between 3 and 2 */}
-        <div className={`space-y-4 p-4 rounded-xl border relative transition-colors ${
+        <div className={`space-y-4 p-4 max-[319px]:p-3 rounded-xl border relative transition-colors ${
           isDark ? "bg-slate-900/40 border-slate-800" : "bg-slate-50/50 border-slate-100"
         }`}>
           <div className="text-center pb-1">
@@ -220,14 +220,14 @@ export default function InteractiveMap({
               <ArrowUp className="w-3 h-3 text-emerald-400" />
             </span>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-3 max-[319px]:grid-cols-1">
             {renderCard(5)}
             {renderCard(6)}
           </div>
         </div>
 
         {/* Right Transitions: Between 4 and 1 */}
-        <div className={`space-y-4 p-4 rounded-xl border relative transition-colors ${
+        <div className={`space-y-4 p-4 max-[319px]:p-3 rounded-xl border relative transition-colors ${
           isDark ? "bg-slate-900/40 border-slate-800" : "bg-slate-50/50 border-slate-100"
         }`}>
           <div className="text-center pb-1">
@@ -237,7 +237,7 @@ export default function InteractiveMap({
               <ArrowUp className="w-3 h-3 text-emerald-400" />
             </span>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-3 max-[319px]:grid-cols-1">
             {renderCard(7)}
             {renderCard(8)}
           </div>
@@ -246,7 +246,7 @@ export default function InteractiveMap({
         {/* --- LEVEL C: PERTURBED ROW (Points 2 and 1) --- */}
         <div className="space-y-2 md:col-span-2">
           <div className="text-center">
-            <span className={`px-2.5 py-0.5 rounded-full border text-[10px] font-bold tracking-wider uppercase ${
+            <span className={`px-2.5 py-0.5 rounded-full border text-[10px] font-bold tracking-wider uppercase max-[319px]:inline-block max-[319px]:rounded-xl max-[319px]:py-1 max-[319px]:tracking-normal max-[319px]:wrap-anywhere ${
               isDark ? "bg-indigo-950/40 border-indigo-900 text-indigo-300" : "bg-indigo-50 border-indigo-200 text-indigo-900"
             }`}>
               {{ es: "Espacio Climático: Conciencia Perturbada, Compulsiva y Mecánica", en: "Perturbed Space: Perturbed, Compulsive, and Mechanical Consciousness", fr: "Espace Climatique : Conscience Perturbée, Compulsive et Mécanique", de: "Klimatischer Raum: Gestörtes, Zwanghaftes und Mechanisches Bewusstsein", pt: "Espaço Climático: Consciência Perturbada, Compulsiva e Mecânica", ru: "Климатическое пространство: возмущённое, компульсивное и механическое сознание", hi: "भावनात्मक वातावरण का क्षेत्र: विचलित, बाध्यकारी और यांत्रिक चेतना" }[lang]}
