@@ -633,7 +633,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
       {/* Visual Section Header */}
       <div className="space-y-3">
         <div className="flex items-center gap-2">
-          <span className="text-xs font-bold text-amber-500 uppercase tracking-widest bg-amber-500/10 px-2.5 py-1 rounded-full">
+          <span className="text-xs font-bold text-amber-500 uppercase tracking-widest bg-amber-500/10 px-2.5 py-1 rounded-full max-[319px]:inline-block max-[319px]:rounded-xl max-[319px]:wrap-anywhere max-[319px]:hyphens-auto max-[319px]:tracking-normal">
             {{ es: "Materiales de Apoyo y Buzón", en: "Support Materials & Mailbox", fr: "Matériels de Soutien et Boîte à Messages", de: "Unterstützungsmaterialien & Briefkasten", pt: "Materiais de Apoio e Caixa de Mensagens", ru: "Вспомогательные материалы и почтовый ящик", hi: "सहायक सामग्री और संदेश-पेटी" }[lang]}
           </span>
         </div>
@@ -752,7 +752,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                       <div className={`p-4 rounded-xl border space-y-2.5 font-mono text-xs transition-colors ${
                         isDark ? "bg-slate-950 border-slate-850/60" : "bg-slate-50 border-slate-100"
                       }`}>
-                        <div className="grid grid-cols-12 gap-1 pb-1 border-b border-dashed border-slate-800/20 dark:border-slate-200/10">
+                        <div className="grid grid-cols-12 gap-1 pb-1 border-b border-dashed border-slate-800/20 dark:border-slate-200/10 max-[319px]:hidden">
                           <span className="col-span-4 text-slate-400 font-bold">{{ es: "PUNTO", en: "POINT", fr: "POINT", de: "PUNKT", pt: "PONTO", ru: "ПУНКТ", hi: "बिंदु" }[lang]}</span>
                           <span className={`col-span-8 font-bold ${isDark ? "text-slate-200" : "text-slate-800"}`}>
                             {{ es: "CONTENIDO DEL EJERCICIO", en: "EXERCISE CONTENT", fr: "CONTENU DE L’EXERCICE", de: "INHALT DER ÜBUNG", pt: "CONTEÚDO DO EXERCÍCIO", ru: "СОДЕРЖАНИЕ УПРАЖНЕНИЯ", hi: "अभ्यास की विषय-वस्तु" }[lang]}
@@ -768,9 +768,9 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                           { num: 7, label: { es: "P7. Caída (4-1)", en: "P7. Fall (4-1)", fr: "P7. Chute (4-1)", de: "P7. Absturz (4-1)", pt: "P7. Queda (4-1)", ru: "П7. Падение (4-1)", hi: "बिंदु 7. गिरना (4-1)" }[lang], val: ex.answers[7] },
                           { num: 8, label: { es: "P8. Subida (1-4)", en: "P8. Rise (1-4)", fr: "P8. Montée (1-4)", de: "P8. Aufstieg (1-4)", pt: "P8. Subida (1-4)", ru: "П8. Подъём (1-4)", hi: "बिंदु 8. ऊपर उठना (1-4)" }[lang], val: ex.answers[8] }
                         ].map(p => (
-                          <div key={p.num} className="grid grid-cols-12 gap-1 items-start">
-                            <span className="col-span-4 text-slate-450 font-bold text-[10px]">{p.label}:</span>
-                            <span className={`col-span-8 ${isDark ? "text-slate-300" : "text-slate-700"}`}>{p.val}</span>
+                          <div key={p.num} className="grid grid-cols-12 gap-1 items-start max-[319px]:block">
+                            <span className="col-span-4 text-slate-450 font-bold text-[10px] max-[319px]:block">{p.label}:</span>
+                            <span className={`col-span-8 max-[319px]:block max-[319px]:wrap-anywhere max-[319px]:hyphens-auto ${isDark ? "text-slate-300" : "text-slate-700"}`}>{p.val}</span>
                           </div>
                         ))}
                       </div>
@@ -857,7 +857,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                     }`}
                   >
                     <div className="space-y-3">
-                      <div className="flex justify-between items-start gap-2">
+                      <div className="flex justify-between items-start gap-2 max-[319px]:flex-col">
                         <div className="space-y-1">
                           <h4 className={`text-sm font-bold ${isDark ? "text-slate-100" : "text-slate-900"}`}>
                             "{t.title}"
@@ -947,8 +947,8 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                       isDark ? "bg-slate-900 border-slate-850 hover:border-slate-755" : "bg-white border-slate-100 hover:border-slate-200"
                     }`}
                   >
-                    <div className="flex items-center justify-between">
-                      <h4 className={`font-bold text-sm ${isDark ? "text-amber-400" : "text-amber-950"}`}>
+                    <div className="flex items-center justify-between max-[319px]:flex-wrap max-[319px]:gap-1">
+                      <h4 className={`font-bold text-sm max-[319px]:wrap-anywhere max-[319px]:hyphens-auto ${isDark ? "text-amber-400" : "text-amber-950"}`}>
                         {g.term}
                       </h4>
                       <span className={`text-[9px] px-2 py-0.5 rounded font-bold font-mono ${
@@ -1108,7 +1108,7 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
               className="max-w-2xl mx-auto space-y-6"
             >
               {/* Privacy badge header */}
-              <div className={`p-5 rounded-2xl border flex gap-4 items-start shadow-xs transition-all ${
+              <div className={`p-5 rounded-2xl border flex gap-4 items-start shadow-xs transition-all max-[319px]:flex-col max-[319px]:gap-3 max-[319px]:p-4 ${
                 isDark 
                   ? "bg-emerald-950/20 border-emerald-900/30 text-slate-200" 
                   : "bg-emerald-50/50 border-emerald-100 text-slate-800"
@@ -1118,8 +1118,8 @@ export default function SupportSection({ theme, onLoadExampleAnswers, showToast,
                 }`}>
                   <Lock className="w-5 h-5 animate-pulse" />
                 </div>
-                <div className="space-y-1.5 flex-1">
-                  <h3 className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${
+                <div className="space-y-1.5 flex-1 max-[319px]:min-w-0 max-[319px]:w-full">
+                  <h3 className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 max-[319px]:wrap-anywhere max-[319px]:hyphens-auto max-[319px]:tracking-normal ${
                     isDark ? "text-emerald-400" : "text-emerald-800"
                   }`}>
                     {{ es: "🔒 Espacio de Devoluciones de Privacidad Absoluta", en: "🔒 Space of Absolute Privacy Feedback", fr: "🔒 Espace de Retours en Confidentialité Absolue", de: "🔒 Raum für Rückmeldungen mit Absoluter Privatsphäre", pt: "🔒 Espaço de Devoluções de Privacidade Absoluta", ru: "🔒 Пространство абсолютно приватной обратной связи", hi: "🔒 पूर्ण निजता के साथ अपनी राय देने की जगह" }[lang]}
